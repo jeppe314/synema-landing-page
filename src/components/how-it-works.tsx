@@ -1,53 +1,46 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Layers, Popcorn, Users } from "lucide-react";
+import { ScreenshotFrame } from "./screenshot-frame";
 
 const steps = [
   {
-    number: 1,
-    icon: Users,
-    title: "Create a room",
-    description: "Invite friends with a link or code.",
+    title: "Create Room",
+    description: "Create a room and invite your friends with a link or QR code.",
+    screenshot: "/screenshots/create-room.png",
+    alt: "Synema create room screen showing With friends and Just me options",
   },
   {
-    number: 2,
-    icon: Layers,
-    title: "Swipe movies",
-    description: "Like or pass on movies together.",
+    title: "Swipe Together",
+    description: "Everyone swipes movies in real time. Likes are shared instantly.",
+    screenshot: "/screenshots/swipe-movies.png",
+    alt: "Synema swipe screen showing The Dark Knight movie card",
   },
   {
-    number: 3,
-    icon: Popcorn,
-    title: "Get a match",
-    description: "When everyone likes it, it's a match.",
+    title: "It's a Match",
+    description: "When everyone likes the same movie, it's a match. No more endless scrolling.",
+    screenshot: "/screenshots/match.png",
+    alt: "Synema swipe screen with a WATCH stamp showing a group match moment",
   },
 ];
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="bg-background-secondary px-6 py-20 md:px-12 lg:px-20">
+    <section id="how-it-works" className="px-6 py-20 md:px-12 lg:px-20">
       <div className="mx-auto max-w-[1200px]">
-        <h2 className="mb-12 text-center text-[32px] font-bold tracking-tight">
+        <h2 className="mb-14 text-center text-[32px] font-bold tracking-tight">
           How it works
         </h2>
-        <div className="grid gap-8 md:grid-cols-3 md:gap-12">
+        <div className="grid gap-12 md:grid-cols-3 md:gap-8 lg:gap-12">
           {steps.map((step, i) => (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15 }}
-              className="text-center"
-            >
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-primary text-lg font-bold">
-                {step.number}
-              </div>
-              <step.icon className="mx-auto mb-3 h-6 w-6 text-primary" strokeWidth={1.5} />
-              <h3 className="text-xl font-semibold">{step.title}</h3>
-              <p className="mt-2 text-[15px] text-text-secondary">{step.description}</p>
-            </motion.div>
+            <div key={step.title} className="flex flex-col items-center text-center">
+              <ScreenshotFrame
+                src={step.screenshot}
+                alt={step.alt}
+                priority={i === 0}
+              />
+              <h3 className="mt-8 text-xl font-semibold">{step.title}</h3>
+              <p className="mt-3 max-w-xs text-[15px] leading-relaxed text-text-secondary">
+                {step.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { Hero } from "@/components/hero";
 import { FeatureCards } from "@/components/feature-cards";
 import { HowItWorks } from "@/components/how-it-works";
-import { Showcase } from "@/components/showcase";
+import { StreamingServices } from "@/components/streaming-services";
 import { WhySynema } from "@/components/why-synema";
 import { FAQ } from "@/components/faq";
 import { FinalCTA } from "@/components/final-cta";
@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       <FeatureCards />
       <HowItWorks />
-      <Showcase />
+      <StreamingServices />
       <WhySynema />
       <FAQ />
       <FinalCTA />
