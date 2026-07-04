@@ -11,7 +11,7 @@ export async function GET() {
       apps: [],
       details: [
         {
-          appID: `${teamId}.com.synema.synema`,
+          appID: `${teamId}.com.synema.app`,
           paths: ["/join/*"],
         },
       ],
