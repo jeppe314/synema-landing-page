@@ -53,18 +53,13 @@ export function JoinRoomClient({ code }: JoinRoomClientProps) {
 
         {triedOpen ? (
           <p className="mt-4 text-sm text-text-secondary">
-            App didn&apos;t open? Tap the button above or install Synema below.
+            App didn&apos;t open? Synema isn&apos;t publicly available yet — join
+            the waitlist below.
           </p>
         ) : null}
 
-        <div className="mt-8 space-y-4">
-          <Link
-            href="/#download"
-            className="inline-flex w-full items-center justify-center rounded-full border border-border px-6 py-3.5 text-sm font-medium text-text transition-colors hover:border-white/20"
-          >
-            Get Synema on Google Play
-          </Link>
-          <WaitlistForm variant="compact" platform="ios" />
+        <div className="mt-8">
+          <WaitlistForm variant="compact" platform="both" />
         </div>
 
         <Link

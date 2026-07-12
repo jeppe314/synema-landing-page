@@ -17,8 +17,8 @@ const faqs = [
     a: "Synema shows where movies are available to stream based on your country — Netflix, Disney+, Prime Video, Max, Apple TV+, and more.",
   },
   {
-    q: "Is there an iOS version?",
-    a: "Not yet! Sign up for iOS notifications and we'll let you know as soon as it's available.",
+    q: "When is Synema available?",
+    a: "Synema isn't live yet on iOS or Android. Join the waitlist and we'll email you as soon as it launches.",
   },
 ];
 

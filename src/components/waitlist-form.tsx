@@ -23,7 +23,7 @@ const platformLabels = {
 export function WaitlistForm({
   project = "synema",
   appName = "Synema",
-  platform = "ios",
+  platform = "both",
   variant = "hero",
   headline,
 }: WaitlistFormProps) {

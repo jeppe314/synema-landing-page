@@ -36,10 +36,10 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <a
-            href="#download"
+            href="#waitlist"
             className="hidden rounded-full bg-gradient-primary px-5 py-2 text-sm font-medium text-white transition-transform hover:scale-[1.02] sm:inline-block"
           >
-            Get the App
+            Join waitlist
           </a>
           <button
             type="button"
@@ -66,11 +66,11 @@ export function Header() {
               </Link>
             ))}
             <a
-              href="#download"
+              href="#waitlist"
               className="rounded-full bg-gradient-primary px-5 py-2.5 text-center text-sm font-medium text-white"
               onClick={() => setOpen(false)}
             >
-              Get the App
+              Join waitlist
             </a>
           </div>
         </nav>

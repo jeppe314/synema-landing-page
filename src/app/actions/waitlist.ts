@@ -9,6 +9,12 @@ export type WaitlistState =
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const PLATFORM_LABELS: Record<string, string> = {
+  ios: "iOS",
+  android: "Android",
+  both: "iOS and Android",
+};
+
 function normalizeEmail(value: FormDataEntryValue | null) {
   if (typeof value !== "string") {
     return "";
@@ -32,7 +38,7 @@ export async function joinWaitlist(
 
   const email = normalizeEmail(formData.get("email"));
   const project = getString(formData.get("project")) || "synema";
-  const platform = getString(formData.get("platform")) || "ios";
+  const platform = getString(formData.get("platform")) || "both";
   const appName = getString(formData.get("appName")) || "Synema";
 
   if (!email || !EMAIL_PATTERN.test(email)) {
@@ -76,7 +82,7 @@ export async function joinWaitlist(
       email,
       dataVariables: {
         appName,
-        platform: platform === "ios" ? "iOS" : platform,
+        platform: PLATFORM_LABELS[platform] ?? platform,
       },
     });
 
