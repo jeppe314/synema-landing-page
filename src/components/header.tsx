@@ -17,7 +17,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-6 md:px-12 lg:px-20">
+      <div className="mx-auto flex h-14 max-w-[1200px] items-center justify-between px-5 sm:h-16 sm:px-6 md:px-12 lg:px-20">
         <Link href="/" className="text-xl font-bold tracking-tight">
           Synema
         </Link>
@@ -34,7 +34,13 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <a
+            href="#waitlist"
+            className="rounded-full bg-gradient-primary px-4 py-2 text-xs font-semibold text-white transition-transform hover:scale-[1.02] sm:hidden"
+          >
+            Join waitlist
+          </a>
           <a
             href="#waitlist"
             className="hidden rounded-full bg-gradient-primary px-5 py-2 text-sm font-medium text-white transition-transform hover:scale-[1.02] sm:inline-block"

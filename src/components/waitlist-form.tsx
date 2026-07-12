@@ -42,11 +42,15 @@ export function WaitlistForm({
   if (state.status === "success") {
     return (
       <div
-        className="rounded-2xl border border-border bg-card/60 px-5 py-4"
+        className={
+          variant === "hero"
+            ? "rounded-2xl border border-border bg-card/70 p-4 sm:border-border sm:bg-card/60 sm:p-5"
+            : "rounded-2xl border border-border bg-card/60 px-5 py-4"
+        }
         role="status"
       >
         <p className="text-sm font-medium text-text">You&apos;re on the list!</p>
-        <p className="mt-1 text-sm text-text-secondary">
+        <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">
           Check your inbox — we sent a confirmation email. We&apos;ll notify you
           when {appName} launches.
         </p>
@@ -55,22 +59,31 @@ export function WaitlistForm({
   }
 
   const inputClassName =
-    "min-w-0 flex-1 rounded-full border border-border bg-background-secondary px-4 py-3 text-sm text-text placeholder:text-text-secondary focus:border-primary/50 focus:outline-none";
+    "min-w-0 w-full rounded-xl border border-border bg-background-secondary px-4 py-3.5 text-base text-text placeholder:text-text-secondary focus:border-primary/50 focus:outline-none sm:rounded-full sm:py-3 sm:text-sm";
 
   const buttonClassName =
-    "inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-primary px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70";
+    "inline-flex w-full shrink-0 touch-manipulation items-center justify-center rounded-xl bg-gradient-primary px-5 py-3.5 text-base font-semibold text-white transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto sm:rounded-full sm:py-3 sm:text-sm";
 
-  const helperClassName = "text-xs text-text-secondary";
+  const helperClassName = "text-xs leading-relaxed text-text-secondary";
+
+  const containerClassName =
+    variant === "hero"
+      ? "w-full rounded-2xl border border-border bg-card/70 p-4 sm:max-w-md sm:border-0 sm:bg-transparent sm:p-0"
+      : variant === "compact"
+        ? "w-full"
+        : "w-full max-w-md";
 
   return (
-    <div className={variant === "compact" ? "w-full" : "w-full max-w-md"}>
+    <div className={containerClassName}>
       {variant === "compact" && platform === "both" ? (
         <PlatformBadges className="mb-3 justify-center" variant="compact" />
       ) : null}
 
       {variant !== "compact" ? (
         <>
-          <p className="text-sm font-medium text-text">{resolvedHeadline}</p>
+          <p className="text-[15px] font-medium leading-snug text-text sm:text-sm">
+            {resolvedHeadline}
+          </p>
           {platform === "both" ? (
             <PlatformBadges
               className="mt-3"
@@ -82,7 +95,7 @@ export function WaitlistForm({
 
       <form
         action={formAction}
-        className={variant === "compact" ? "mt-0 space-y-3" : "mt-3 space-y-3"}
+        className={variant === "compact" ? "mt-0 space-y-3" : "mt-4 space-y-3 sm:mt-3"}
       >
         <input type="hidden" name="project" value={project} />
         <input type="hidden" name="platform" value={platform} />
@@ -102,7 +115,7 @@ export function WaitlistForm({
           />
         </div>
 
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+        <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center">
           <label htmlFor={`email-${project}-${variant}`} className="sr-only">
             Email address
           </label>

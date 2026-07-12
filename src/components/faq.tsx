@@ -26,9 +26,9 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="px-6 py-20 md:px-12 lg:px-20">
+    <section id="faq" className="px-5 py-14 sm:px-6 sm:py-20 md:px-12 lg:px-20">
       <div className="mx-auto max-w-[720px]">
-        <h2 className="mb-10 text-center text-[32px] font-bold tracking-tight">
+        <h2 className="mb-8 text-center text-[28px] font-bold tracking-tight sm:mb-10 sm:text-[32px]">
           FAQ
         </h2>
         <div className="space-y-3">

@@ -35,12 +35,12 @@ export function PlatformBadges({
 }: PlatformBadgesProps) {
   const badgeClassName =
     variant === "compact"
-      ? "flex items-center gap-1.5 rounded-full border border-border bg-background-secondary px-2.5 py-1 text-[11px] text-text-secondary"
-      : "flex items-center gap-2 rounded-full border border-border bg-card/60 px-3.5 py-2 text-sm text-text-secondary";
+      ? "flex flex-1 items-center justify-center gap-1.5 rounded-full border border-border bg-background-secondary px-2.5 py-1.5 text-[11px] text-text-secondary sm:flex-none"
+      : "flex flex-1 items-center justify-center gap-2 rounded-full border border-border bg-background-secondary/80 px-3 py-2.5 text-sm text-text-secondary sm:flex-none sm:justify-start sm:bg-card/60 sm:px-3.5 sm:py-2";
 
   return (
     <div
-      className={`flex flex-wrap items-center gap-2 ${className}`}
+      className={`flex w-full items-stretch gap-2 sm:w-auto sm:items-center ${className}`}
       aria-label="Coming soon to iOS and Android"
     >
       <div className={badgeClassName}>

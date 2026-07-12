@@ -23,12 +23,12 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="px-6 py-20 md:px-12 lg:px-20">
+    <section id="how-it-works" className="px-5 py-14 sm:px-6 sm:py-20 md:px-12 lg:px-20">
       <div className="mx-auto max-w-[1200px]">
-        <h2 className="mb-14 text-center text-[32px] font-bold tracking-tight">
+        <h2 className="mb-10 text-center text-[28px] font-bold tracking-tight sm:mb-14 sm:text-[32px]">
           How it works
         </h2>
-        <div className="grid gap-12 md:grid-cols-3 md:gap-8 lg:gap-12">
+        <div className="grid gap-10 sm:gap-12 md:grid-cols-3 md:gap-8 lg:gap-12">
           {steps.map((step, i) => (
             <div key={step.title} className="flex flex-col items-center text-center">
               <ScreenshotFrame
