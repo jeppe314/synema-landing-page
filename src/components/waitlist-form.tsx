@@ -1,48 +1,43 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import Link from "next/link";
 import { joinWaitlist, type WaitlistState } from "@/app/actions/waitlist";
-import { PlatformBadges } from "./platform-badges";
+import {
+  PlatformSelector,
+  type PlatformChoice,
+} from "./platform-selector";
 
 const initialState: WaitlistState = { status: "idle" };
 
 type WaitlistFormProps = {
   project?: string;
   appName?: string;
-  platform?: "ios" | "android" | "both";
+  platform?: PlatformChoice;
   variant?: "hero" | "compact";
   headline?: string;
 };
 
-const platformLabels = {
-  ios: "iOS",
-  android: "Android",
-  both: "iOS and Android",
-} as const;
-
 export function WaitlistForm({
   project = "synema",
   appName = "Synema",
-  platform = "both",
+  platform: defaultPlatform = "both",
   variant = "hero",
   headline,
 }: WaitlistFormProps) {
+  const [platform, setPlatform] = useState<PlatformChoice>(defaultPlatform);
   const [state, formAction, pending] = useActionState(
     joinWaitlist,
     initialState,
   );
 
   const resolvedHeadline =
-    headline ??
-    (platform === "both"
-      ? `Be first to know when ${appName} launches`
-      : `Be first to know when ${appName} launches on ${platformLabels[platform]}`);
+    headline ?? `Be first to know when ${appName} launches`;
 
   if (state.status === "success") {
     return (
       <div
-        className="rounded-2xl border border-border bg-card/60 px-4 py-4 sm:px-5"
+        className="rounded-2xl border border-border bg-card/60 px-4 py-4 md:px-5"
         role="status"
       >
         <p className="text-sm font-medium text-text">You&apos;re on the list!</p>
@@ -54,39 +49,17 @@ export function WaitlistForm({
     );
   }
 
-  const inputClassName =
-    "min-w-0 w-full rounded-xl border border-border bg-background-secondary px-4 py-3.5 text-base text-text placeholder:text-text-secondary focus:border-primary/50 focus:outline-none sm:rounded-full sm:py-3 sm:text-sm";
-
-  const buttonClassName =
-    "inline-flex w-full shrink-0 touch-manipulation items-center justify-center rounded-xl bg-gradient-primary px-5 py-3.5 text-base font-semibold text-white transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto sm:rounded-full sm:py-3 sm:text-sm";
-
-  const helperClassName = "text-xs leading-relaxed text-text-secondary";
-
-  const containerClassName =
-    variant === "hero"
-      ? "w-full sm:max-w-md"
-      : variant === "compact"
-        ? "w-full"
-        : "w-full max-w-md";
+  const showHeading = variant !== "compact";
 
   return (
-    <div className={containerClassName}>
-      {variant === "compact" && platform === "both" ? (
-        <PlatformBadges className="mb-3" />
-      ) : null}
-
-      {variant !== "compact" ? (
-        <div className="space-y-3">
-          <p className="text-[15px] font-medium leading-snug text-text sm:text-sm">
-            {resolvedHeadline}
-          </p>
-          {platform === "both" ? <PlatformBadges /> : null}
-        </div>
+    <div className={variant === "hero" ? "w-full md:max-w-md" : "w-full"}>
+      {showHeading ? (
+        <p className="text-sm font-medium text-text">{resolvedHeadline}</p>
       ) : null}
 
       <form
         action={formAction}
-        className={variant === "compact" ? "mt-0 space-y-3" : "mt-5 space-y-3 sm:mt-4"}
+        className={showHeading ? "mt-4 space-y-3 md:mt-5" : "space-y-3"}
       >
         <input type="hidden" name="project" value={project} />
         <input type="hidden" name="platform" value={platform} />
@@ -106,7 +79,13 @@ export function WaitlistForm({
           />
         </div>
 
-        <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center">
+        <PlatformSelector
+          id={`${project}-${variant}`}
+          value={platform}
+          onChange={setPlatform}
+        />
+
+        <div className="space-y-3 md:flex md:flex-row md:items-center md:gap-2.5 md:space-y-0">
           <label htmlFor={`email-${project}-${variant}`} className="sr-only">
             Email address
           </label>
@@ -117,21 +96,27 @@ export function WaitlistForm({
             required
             autoComplete="email"
             placeholder="you@example.com"
-            className={inputClassName}
             disabled={pending}
+            className="min-h-[56px] w-full min-w-0 rounded-xl border border-border bg-background-secondary px-4 text-base text-text placeholder:text-text-secondary focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20 disabled:opacity-70 md:min-h-0 md:flex-1 md:rounded-full md:py-3 md:text-sm"
           />
-          <button type="submit" className={buttonClassName} disabled={pending}>
+          <button
+            type="submit"
+            disabled={pending}
+            className="inline-flex min-h-[56px] w-full touch-manipulation items-center justify-center rounded-xl bg-gradient-primary px-5 text-base font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70 md:min-h-0 md:w-auto md:shrink-0 md:rounded-full md:py-3 md:text-sm"
+          >
             {pending ? "Joining..." : "Notify me"}
           </button>
         </div>
 
-        {state.status === "error" ? (
-          <p className="text-sm text-red-400" role="alert">
-            {state.message}
-          </p>
-        ) : null}
+        <div className="min-h-5" aria-live="polite">
+          {state.status === "error" ? (
+            <p className="text-sm text-red-400" role="alert">
+              {state.message}
+            </p>
+          ) : null}
+        </div>
 
-        <p className={helperClassName}>
+        <p className="text-xs leading-relaxed text-text-secondary">
           No spam — just a confirmation now and one email when we launch.{" "}
           <Link href="/privacy" className="text-primary hover:underline">
             Privacy policy

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
@@ -14,11 +14,23 @@ const navLinks = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex h-14 max-w-[1200px] items-center justify-between px-5 sm:h-16 sm:px-6 md:px-12 lg:px-20">
-        <Link href="/" className="text-xl font-bold tracking-tight">
+    <header
+      className={`sticky top-0 z-50 bg-background/75 backdrop-blur-md transition-[border-color,background-color] duration-200 md:bg-background/80 ${
+        scrolled ? "border-b border-border" : "border-b border-transparent"
+      }`}
+    >
+      <div className="mx-auto flex h-[72px] max-w-[1200px] items-center justify-between gap-3 px-5 md:h-16 md:px-12 lg:px-20">
+        <Link href="/" className="shrink-0 text-xl font-bold tracking-tight">
           Synema
         </Link>
 
@@ -34,32 +46,33 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-2 md:gap-3">
           <a
             href="#waitlist"
-            className="rounded-full bg-gradient-primary px-4 py-2 text-xs font-semibold text-white transition-transform hover:scale-[1.02] sm:hidden"
+            className="hidden min-h-[44px] items-center rounded-full bg-gradient-primary px-3.5 py-2 text-xs font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.99] min-[370px]:inline-flex md:hidden"
           >
             Join waitlist
           </a>
           <a
             href="#waitlist"
-            className="hidden rounded-full bg-gradient-primary px-5 py-2 text-sm font-medium text-white transition-transform hover:scale-[1.02] sm:inline-block"
+            className="hidden min-h-[44px] items-center rounded-full bg-gradient-primary px-5 py-2 text-sm font-medium text-white transition-transform hover:scale-[1.02] md:inline-flex"
           >
             Join waitlist
           </a>
           <button
             type="button"
-            className="rounded-lg p-2 text-text-secondary hover:text-text md:hidden"
+            className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-text-secondary hover:text-text md:hidden"
             onClick={() => setOpen(!open)}
             aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
           >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {open && (
-        <nav className="border-t border-border bg-background-secondary px-6 py-4 md:hidden">
+      {open ? (
+        <nav className="border-t border-border bg-background-secondary/95 px-5 py-4 backdrop-blur-md md:hidden">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link
@@ -73,14 +86,14 @@ export function Header() {
             ))}
             <a
               href="#waitlist"
-              className="rounded-full bg-gradient-primary px-5 py-2.5 text-center text-sm font-medium text-white"
+              className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-gradient-primary px-5 text-sm font-medium text-white"
               onClick={() => setOpen(false)}
             >
               Join waitlist
             </a>
           </div>
         </nav>
-      )}
+      ) : null}
     </header>
   );
 }

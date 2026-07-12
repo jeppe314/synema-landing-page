@@ -46,7 +46,7 @@ function AppleTvLogo({ className }: { className?: string }) {
 
 export function StreamingServices() {
   return (
-    <section className="border-t border-border bg-background-secondary px-6 py-12 md:px-12 lg:px-20">
+    <section className="border-t border-border bg-background-secondary px-5 py-12 md:px-12 lg:px-20">
       <div className="mx-auto max-w-[1200px] text-center">
         <p className="mb-8 text-sm text-text-secondary">Supported streaming services</p>
         <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 md:gap-x-12">

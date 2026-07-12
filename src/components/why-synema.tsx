@@ -1,6 +1,6 @@
 export function WhySynema() {
   return (
-    <section className="bg-background-secondary px-6 py-20 md:px-12 lg:px-20">
+    <section className="bg-background-secondary px-5 py-16 md:px-12 md:py-[5.5rem] lg:px-20">
       <div className="mx-auto max-w-[720px] text-center">
         <h2 className="text-[32px] font-bold tracking-tight">
           Why another movie app?
