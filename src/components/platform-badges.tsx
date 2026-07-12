@@ -26,31 +26,22 @@ function AndroidIcon({ className }: { className?: string }) {
 
 type PlatformBadgesProps = {
   className?: string;
-  variant?: "hero" | "compact";
 };
 
-export function PlatformBadges({
-  className = "",
-  variant = "hero",
-}: PlatformBadgesProps) {
-  const badgeClassName =
-    variant === "compact"
-      ? "flex flex-1 items-center justify-center gap-1.5 rounded-full border border-border bg-background-secondary px-2.5 py-1.5 text-[11px] text-text-secondary sm:flex-none"
-      : "flex flex-1 items-center justify-center gap-2 rounded-full border border-border bg-background-secondary/80 px-3 py-2.5 text-sm text-text-secondary sm:flex-none sm:justify-start sm:bg-card/60 sm:px-3.5 sm:py-2";
-
+export function PlatformBadges({ className = "" }: PlatformBadgesProps) {
   return (
     <div
-      className={`flex w-full items-stretch gap-2 sm:w-auto sm:items-center ${className}`}
+      className={`inline-flex flex-wrap items-center gap-2 ${className}`}
       aria-label="Coming soon to iOS and Android"
     >
-      <div className={badgeClassName}>
-        <AppleIcon className="h-4 w-4 shrink-0" />
+      <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background-secondary px-3 py-1.5 text-xs text-text-secondary">
+        <AppleIcon className="h-3.5 w-3.5 shrink-0" />
         iOS
-      </div>
-      <div className={badgeClassName}>
-        <AndroidIcon className="h-4 w-4 shrink-0" />
+      </span>
+      <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background-secondary px-3 py-1.5 text-xs text-text-secondary">
+        <AndroidIcon className="h-3.5 w-3.5 shrink-0" />
         Android
-      </div>
+      </span>
     </div>
   );
 }

@@ -42,11 +42,7 @@ export function WaitlistForm({
   if (state.status === "success") {
     return (
       <div
-        className={
-          variant === "hero"
-            ? "rounded-2xl border border-border bg-card/70 p-4 sm:border-border sm:bg-card/60 sm:p-5"
-            : "rounded-2xl border border-border bg-card/60 px-5 py-4"
-        }
+        className="rounded-2xl border border-border bg-card/60 px-4 py-4 sm:px-5"
         role="status"
       >
         <p className="text-sm font-medium text-text">You&apos;re on the list!</p>
@@ -68,7 +64,7 @@ export function WaitlistForm({
 
   const containerClassName =
     variant === "hero"
-      ? "w-full rounded-2xl border border-border bg-card/70 p-4 sm:max-w-md sm:border-0 sm:bg-transparent sm:p-0"
+      ? "w-full sm:max-w-md"
       : variant === "compact"
         ? "w-full"
         : "w-full max-w-md";
@@ -76,26 +72,21 @@ export function WaitlistForm({
   return (
     <div className={containerClassName}>
       {variant === "compact" && platform === "both" ? (
-        <PlatformBadges className="mb-3 justify-center" variant="compact" />
+        <PlatformBadges className="mb-3" />
       ) : null}
 
       {variant !== "compact" ? (
-        <>
+        <div className="space-y-3">
           <p className="text-[15px] font-medium leading-snug text-text sm:text-sm">
             {resolvedHeadline}
           </p>
-          {platform === "both" ? (
-            <PlatformBadges
-              className="mt-3"
-              variant={variant === "hero" ? "hero" : "compact"}
-            />
-          ) : null}
-        </>
+          {platform === "both" ? <PlatformBadges /> : null}
+        </div>
       ) : null}
 
       <form
         action={formAction}
-        className={variant === "compact" ? "mt-0 space-y-3" : "mt-4 space-y-3 sm:mt-3"}
+        className={variant === "compact" ? "mt-0 space-y-3" : "mt-5 space-y-3 sm:mt-4"}
       >
         <input type="hidden" name="project" value={project} />
         <input type="hidden" name="platform" value={platform} />
