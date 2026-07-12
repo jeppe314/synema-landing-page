@@ -3,27 +3,6 @@
 import { motion } from "framer-motion";
 import { ScreenshotFrame } from "./screenshot-frame";
 
-const heroScreenshots = [
-  {
-    src: "/screenshots/create-room.png",
-    alt: "Synema create room screen showing With friends and Just me options",
-    className:
-      "absolute left-0 top-8 hidden -rotate-6 scale-[0.88] opacity-90 md:block",
-  },
-  {
-    src: "/screenshots/swipe-movies.png",
-    alt: "Synema swipe screen showing The Dark Knight movie card",
-    className: "relative z-10 mx-auto",
-    priority: true,
-  },
-  {
-    src: "/screenshots/match.png",
-    alt: "Synema swipe screen with a WATCH stamp showing a group match moment",
-    className:
-      "absolute right-0 top-8 hidden rotate-6 scale-[0.88] opacity-90 md:block",
-  },
-];
-
 export function Hero() {
   return (
     <section className="bg-cinema px-6 pb-20 pt-12 md:px-12 md:pb-28 md:pt-20 lg:px-20">
@@ -74,19 +53,15 @@ export function Hero() {
           className="flex justify-center lg:justify-end"
         >
           <motion.div
-            className="relative mx-auto w-full max-w-[280px] sm:max-w-[300px] md:max-w-[480px] lg:max-w-[520px]"
+            className="relative mx-auto w-full max-w-[280px] sm:max-w-[300px]"
             animate={{ y: [0, -8, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           >
-            {heroScreenshots.map((screenshot) => (
-              <ScreenshotFrame
-                key={screenshot.src}
-                src={screenshot.src}
-                alt={screenshot.alt}
-                priority={screenshot.priority}
-                className={screenshot.className}
-              />
-            ))}
+            <ScreenshotFrame
+              src="/screenshots/swipe-movies.png"
+              alt="Synema swipe screen showing The Dark Knight movie card"
+              priority
+            />
             <div className="pointer-events-none absolute -inset-8 -z-10 rounded-full bg-primary/20 blur-3xl" />
           </motion.div>
         </motion.div>
