@@ -1,7 +1,28 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PhoneMockup } from "./phone-mockup";
+import { ScreenshotFrame } from "./screenshot-frame";
+
+const heroScreenshots = [
+  {
+    src: "/screenshots/create-room.png",
+    alt: "Synema create room screen showing With friends and Just me options",
+    className:
+      "absolute left-0 top-8 hidden -rotate-6 scale-[0.88] opacity-90 md:block",
+  },
+  {
+    src: "/screenshots/swipe-movies.png",
+    alt: "Synema swipe screen showing The Dark Knight movie card",
+    className: "relative z-10 mx-auto",
+    priority: true,
+  },
+  {
+    src: "/screenshots/match.png",
+    alt: "Synema swipe screen with a WATCH stamp showing a group match moment",
+    className:
+      "absolute right-0 top-8 hidden rotate-6 scale-[0.88] opacity-90 md:block",
+  },
+];
 
 export function Hero() {
   return (
@@ -52,7 +73,22 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex justify-center lg:justify-end"
         >
-          <PhoneMockup />
+          <motion.div
+            className="relative mx-auto w-full max-w-[280px] sm:max-w-[300px] md:max-w-[480px] lg:max-w-[520px]"
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          >
+            {heroScreenshots.map((screenshot) => (
+              <ScreenshotFrame
+                key={screenshot.src}
+                src={screenshot.src}
+                alt={screenshot.alt}
+                priority={screenshot.priority}
+                className={screenshot.className}
+              />
+            ))}
+            <div className="pointer-events-none absolute -inset-8 -z-10 rounded-full bg-primary/20 blur-3xl" />
+          </motion.div>
         </motion.div>
       </div>
     </section>
