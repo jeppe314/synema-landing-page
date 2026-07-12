@@ -33,7 +33,7 @@ function MobileAppPreview() {
       <p className="mb-6 text-center text-sm font-medium tracking-wide text-text-secondary">
         Swipe together. Match instantly.
       </p>
-      <div className="relative mx-auto flex max-h-[420px] w-full max-w-[min(78vw,330px)] justify-center overflow-hidden">
+      <div className="relative mx-auto w-full max-w-[min(78vw,330px)]">
         <div className="pointer-events-none absolute inset-x-0 top-1/4 -z-10 h-40 rounded-full bg-primary/20 blur-3xl" />
         <motion.div
           className="w-full origin-top motion-safe:[transform:rotate(-2deg)_perspective(900px)_rotateY(-4deg)]"
