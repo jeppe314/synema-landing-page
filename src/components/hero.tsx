@@ -6,7 +6,7 @@ import { WaitlistForm } from "./waitlist-form";
 
 export function Hero() {
   return (
-    <section className="bg-cinema px-6 pb-20 pt-12 md:px-12 md:pb-28 md:pt-20 lg:px-20">
+    <section id="waitlist" className="bg-cinema px-6 pb-20 pt-12 md:px-12 md:pb-28 md:pt-20 lg:px-20">
       <div className="mx-auto grid max-w-[1200px] items-center gap-12 lg:grid-cols-2 lg:gap-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -25,9 +25,6 @@ export function Hero() {
 
           <div className="mt-8">
             <WaitlistForm variant="hero" platform="both" />
-            <p className="mt-4 text-sm text-text-secondary">
-              Coming soon to iOS and Android
-            </p>
           </div>
         </motion.div>
 

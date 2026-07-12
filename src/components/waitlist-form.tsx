@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import Link from "next/link";
 import { joinWaitlist, type WaitlistState } from "@/app/actions/waitlist";
+import { PlatformBadges } from "./platform-badges";
 
 const initialState: WaitlistState = { status: "idle" };
 
@@ -10,7 +11,7 @@ type WaitlistFormProps = {
   project?: string;
   appName?: string;
   platform?: "ios" | "android" | "both";
-  variant?: "hero" | "cta" | "compact";
+  variant?: "hero" | "compact";
   headline?: string;
 };
 
@@ -33,34 +34,19 @@ export function WaitlistForm({
   );
 
   const resolvedHeadline =
-    headline ?? `Be first to know when ${appName} launches on ${platformLabels[platform]}`;
+    headline ??
+    (platform === "both"
+      ? `Be first to know when ${appName} launches`
+      : `Be first to know when ${appName} launches on ${platformLabels[platform]}`);
 
   if (state.status === "success") {
     return (
       <div
-        className={
-          variant === "cta"
-            ? "rounded-2xl border border-white/20 bg-white/10 px-5 py-4 text-left"
-            : "rounded-2xl border border-border bg-card/60 px-5 py-4"
-        }
+        className="rounded-2xl border border-border bg-card/60 px-5 py-4"
         role="status"
       >
-        <p
-          className={
-            variant === "cta"
-              ? "text-sm font-medium text-white"
-              : "text-sm font-medium text-text"
-          }
-        >
-          You&apos;re on the list!
-        </p>
-        <p
-          className={
-            variant === "cta"
-              ? "mt-1 text-sm text-white/75"
-              : "mt-1 text-sm text-text-secondary"
-          }
-        >
+        <p className="text-sm font-medium text-text">You&apos;re on the list!</p>
+        <p className="mt-1 text-sm text-text-secondary">
           Check your inbox — we sent a confirmation email. We&apos;ll notify you
           when {appName} launches.
         </p>
@@ -69,32 +55,29 @@ export function WaitlistForm({
   }
 
   const inputClassName =
-    variant === "cta"
-      ? "min-w-0 flex-1 rounded-full border border-white/30 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/60 focus:border-white/50 focus:outline-none"
-      : "min-w-0 flex-1 rounded-full border border-border bg-background-secondary px-4 py-3 text-sm text-text placeholder:text-text-secondary focus:border-primary/50 focus:outline-none";
+    "min-w-0 flex-1 rounded-full border border-border bg-background-secondary px-4 py-3 text-sm text-text placeholder:text-text-secondary focus:border-primary/50 focus:outline-none";
 
   const buttonClassName =
-    variant === "cta"
-      ? "inline-flex shrink-0 items-center justify-center rounded-full border border-white/30 bg-white px-5 py-3 text-sm font-semibold text-primary transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70"
-      : "inline-flex shrink-0 items-center justify-center rounded-full border border-border bg-card px-5 py-3 text-sm font-medium text-text transition-transform hover:scale-[1.02] hover:border-white/20 disabled:cursor-not-allowed disabled:opacity-70";
+    "inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-primary px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70";
 
-  const helperClassName =
-    variant === "cta"
-      ? "text-xs text-white/70"
-      : "text-xs text-text-secondary";
+  const helperClassName = "text-xs text-text-secondary";
 
   return (
     <div className={variant === "compact" ? "w-full" : "w-full max-w-md"}>
+      {variant === "compact" && platform === "both" ? (
+        <PlatformBadges className="mb-3 justify-center" variant="compact" />
+      ) : null}
+
       {variant !== "compact" ? (
-        <p
-          className={
-            variant === "cta"
-              ? "text-sm font-medium text-white/90"
-              : "text-sm font-medium text-text"
-          }
-        >
-          {resolvedHeadline}
-        </p>
+        <>
+          <p className="text-sm font-medium text-text">{resolvedHeadline}</p>
+          {platform === "both" ? (
+            <PlatformBadges
+              className="mt-3"
+              variant={variant === "hero" ? "hero" : "compact"}
+            />
+          ) : null}
+        </>
       ) : null}
 
       <form
@@ -146,14 +129,7 @@ export function WaitlistForm({
 
         <p className={helperClassName}>
           No spam — just a confirmation now and one email when we launch.{" "}
-          <Link
-            href="/privacy"
-            className={
-              variant === "cta"
-                ? "underline underline-offset-2 hover:text-white"
-                : "text-primary hover:underline"
-            }
-          >
+          <Link href="/privacy" className="text-primary hover:underline">
             Privacy policy
           </Link>
         </p>
