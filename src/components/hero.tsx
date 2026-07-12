@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ScreenshotFrame } from "./screenshot-frame";
+import { WaitlistForm } from "./waitlist-form";
 
 export function Hero() {
   return (
@@ -33,12 +34,9 @@ export function Hero() {
                 </svg>
                 Get it on Google Play
               </a>
-              <a
-                href="mailto:hello@synemaapp.com?subject=iOS%20Waitlist"
-                className="inline-flex items-center justify-center rounded-full border border-border px-6 py-3.5 text-sm font-medium text-text transition-transform hover:scale-[1.02] hover:border-white/20"
-              >
-                Notify me for iOS
-              </a>
+            </div>
+            <div className="mt-4">
+              <WaitlistForm variant="hero" platform="ios" />
             </div>
             <p className="mt-4 text-sm text-text-secondary">
               Android beta available now • iOS coming soon

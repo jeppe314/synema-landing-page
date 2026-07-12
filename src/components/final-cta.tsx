@@ -1,3 +1,5 @@
+import { WaitlistForm } from "./waitlist-form";
+
 export function FinalCTA() {
   return (
     <section id="download" className="px-6 py-20 md:px-12 lg:px-20">
@@ -9,7 +11,7 @@ export function FinalCTA() {
           <p className="mx-auto mt-4 max-w-md text-base text-white/80">
             Download Synema and find your next favorite.
           </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col items-center justify-center gap-6">
             <a
               href="#"
               className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-primary transition-transform hover:scale-[1.02] sm:w-auto"
@@ -19,12 +21,7 @@ export function FinalCTA() {
               </svg>
               Get it on Google Play
             </a>
-            <a
-              href="mailto:hello@synemaapp.com?subject=iOS%20Waitlist"
-              className="inline-flex w-full items-center justify-center rounded-full border border-white/30 px-6 py-3.5 text-sm font-medium text-white transition-transform hover:scale-[1.02] hover:border-white/50 sm:w-auto"
-            >
-              Notify me for iOS
-            </a>
+            <WaitlistForm variant="cta" platform="ios" />
           </div>
         </div>
       </div>

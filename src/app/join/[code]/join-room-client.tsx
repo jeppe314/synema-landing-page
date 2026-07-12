@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { WaitlistForm } from "@/components/waitlist-form";
 
 interface JoinRoomClientProps {
   code: string;
@@ -56,19 +57,14 @@ export function JoinRoomClient({ code }: JoinRoomClientProps) {
           </p>
         ) : null}
 
-        <div className="mt-8 flex flex-col gap-3">
-          <a
+        <div className="mt-8 space-y-4">
+          <Link
             href="/#download"
             className="inline-flex w-full items-center justify-center rounded-full border border-border px-6 py-3.5 text-sm font-medium text-text transition-colors hover:border-white/20"
           >
             Get Synema on Google Play
-          </a>
-          <a
-            href="mailto:hello@synemaapp.com?subject=iOS%20Waitlist"
-            className="text-sm text-text-secondary transition-colors hover:text-text"
-          >
-            Notify me for iOS
-          </a>
+          </Link>
+          <WaitlistForm variant="compact" platform="ios" />
         </div>
 
         <Link
