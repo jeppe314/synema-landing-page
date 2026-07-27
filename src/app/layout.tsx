@@ -11,6 +11,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  // The apex serves directly rather than redirecting to www, because Apple
+  // doesn't follow redirects when fetching the app-site-association file. Both
+  // hosts answer, so declare the apex as canonical.
+  metadataBase: new URL("https://synemaapp.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Synema – Find a movie together",
   description:
     "Find the perfect movie together by swiping with friends. Synema helps groups stop scrolling and start watching.",
