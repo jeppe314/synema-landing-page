@@ -1,16 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
+import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
-const faqs = [
+const faqs: { q: string; a: ReactNode }[] = [
   {
     q: "Is Synema free?",
-    a: "Yes! Synema is free to download and use. We may offer optional premium features in the future.",
+    a: "Downloading Synema is free, and joining a friend's room is free. Hosting a group room needs Synema Pro. You can also swipe on your own without a subscription.",
   },
   {
     q: "How many people can join a room?",
-    a: "You can invite as many friends as you like. Everyone swipes independently, and matches happen when everyone likes the same movie.",
+    a: "A room holds up to 5 people. Everyone swipes on their own, and a movie counts when more than half the room likes it. If everyone likes the same one, you get a match right away.",
   },
   {
     q: "Which streaming services are supported?",
@@ -18,7 +19,16 @@ const faqs = [
   },
   {
     q: "When is Synema available?",
-    a: "Synema isn't live yet on iOS or Android. Join the waitlist and we'll email you as soon as it launches.",
+    a: (
+      <>
+        Synema isn&apos;t on the App Store or Google Play yet. Join the waitlist
+        and we&apos;ll email you at launch. An invite-only{" "}
+        <Link href="/beta-testing" className="font-medium text-primary hover:underline">
+          Android beta
+        </Link>{" "}
+        is open if you want to test early.
+      </>
+    ),
   },
 ];
 

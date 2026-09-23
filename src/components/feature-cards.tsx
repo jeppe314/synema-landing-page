@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MessageCircle, Popcorn, Users, Layers } from "lucide-react";
+import { Trophy, Popcorn, Users, Layers } from "lucide-react";
 
 const features = [
   {
     icon: Users,
     title: "Swipe together",
-    description: "Everyone swipes. Only mutual likes move forward.",
+    description: "Everyone swipes on their own. A movie counts when most of the room likes it.",
   },
   {
     icon: Layers,
@@ -15,9 +15,9 @@ const features = [
     description: "Movies your group is actually excited about.",
   },
   {
-    icon: MessageCircle,
-    title: "Discuss together",
-    description: "React, chat and decide before movie night.",
+    icon: Trophy,
+    title: "Pick together",
+    description: "If several movies make the cut, the group chooses a winner.",
   },
   {
     icon: Popcorn,
