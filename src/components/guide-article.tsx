@@ -7,7 +7,14 @@ import {
   readingTimeMinutes,
   relatedGuides,
 } from "@/lib/guides";
+import {
+  GuideChecklist,
+  GuidePullout,
+  GuideSteps,
+  GuideTip,
+} from "./guide-callouts";
 import { GuideCta } from "./guide-cta";
+import { GuideFigure } from "./guide-figure";
 import { RichText } from "./rich-text";
 
 const bodyClass =
@@ -94,6 +101,36 @@ export function GuideArticle({ guide }: { guide: Guide }) {
                   ))}
                 </ul>
               );
+            }
+
+            if (block.type === "figure") {
+              return (
+                <GuideFigure
+                  key={`figure-${index}`}
+                  src={block.src}
+                  alt={block.alt}
+                  caption={block.caption}
+                  wide={block.wide}
+                  priority={block.priority}
+                  variant={block.variant}
+                />
+              );
+            }
+
+            if (block.type === "steps") {
+              return <GuideSteps key={`steps-${index}`} items={block.items} />;
+            }
+
+            if (block.type === "tip") {
+              return <GuideTip key={`tip-${index}`} text={block.text} />;
+            }
+
+            if (block.type === "checklist") {
+              return <GuideChecklist key={`check-${index}`} items={block.items} />;
+            }
+
+            if (block.type === "pullout") {
+              return <GuidePullout key={`pullout-${index}`} text={block.text} />;
             }
 
             return (

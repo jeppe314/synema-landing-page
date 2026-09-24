@@ -1,9 +1,24 @@
+import { guideImages } from "./guide-images";
+
 export type GuideBlock =
   | { type: "p"; text: string }
   | { type: "h2"; text: string }
   | { type: "h3"; text: string }
   | { type: "ul"; items: string[] }
-  | { type: "cta" };
+  | { type: "cta" }
+  | {
+      type: "figure";
+      src: string;
+      alt: string;
+      caption?: string;
+      wide?: boolean;
+      priority?: boolean;
+      variant?: "editorial" | "product";
+    }
+  | { type: "steps"; items: { title: string; text: string }[] }
+  | { type: "tip"; text: string }
+  | { type: "checklist"; items: string[] }
+  | { type: "pullout"; text: string };
 
 export type Guide = {
   slug: string;
@@ -62,6 +77,14 @@ export const guides: Guide[] = [
         text: "A movie picker for couples is a way to choose a movie together, so one person is not stuck pitching options while the other sits in judgment. The catalog was never the hard part. Agreeing on one film, tonight, is.",
       },
       {
+        type: "figure",
+        src: guideImages.coupleAtScreen,
+        alt: "Two people seen from behind, watching a film on a screen in a dark room.",
+        caption: "The hard part is agreeing, not finding another poster.",
+        wide: true,
+        priority: true,
+      },
+      {
         type: "h2",
         text: "Why the remote always lands on one person",
       },
@@ -117,28 +140,21 @@ export const guides: Guide[] = [
         text: "You can do a rough version of this with a note on your phone. It takes less time than it sounds, as long as you keep the pile small.",
       },
       {
-        type: "h3",
-        text: "Start with a constraint",
-      },
-      {
-        type: "p",
-        text: "Under two hours. Nothing either of you has seen. Something light, because it is Tuesday. A constraint turns an endless home screen into a pile a person can actually finish. If you cannot agree on a constraint, you will not agree on a title, and it is better to notice that in the first minute.",
-      },
-      {
-        type: "h3",
-        text: "Name the mood in one sentence",
-      },
-      {
-        type: "p",
-        text: "Funny and easy is a decision. The one with the actor from that show is a search that grows. Say the mood out loud, once, and then stop adding genres. If you want a looser evening with more people, the same idea scales — see the notes on a [movie picker for friends](/guides/movie-picker-for-friends).",
-      },
-      {
-        type: "h3",
-        text: "Do a quiet pass, then stop at the first real yes",
-      },
-      {
-        type: "p",
-        text: "Each person looks at the same ten or fifteen movies and marks yes or no. No commentary until you are both done. Then compare. You will often find you already agreed and had not said it. If you both would watch it, watch it. Holding out for a better option is how the same series gets a fourth rewatch.",
+        type: "steps",
+        items: [
+          {
+            title: "Start with a constraint",
+            text: "Under two hours. Nothing either of you has seen. Something light, because it is Tuesday. A constraint turns an endless home screen into a pile a person can actually finish. If you cannot agree on a constraint, you will not agree on a title, and it is better to notice that in the first minute.",
+          },
+          {
+            title: "Name the mood in one sentence",
+            text: "Funny and easy is a decision. The one with the actor from that show is a search that grows. Say the mood out loud, once, and then stop adding genres. If you want a looser evening with more people, the same idea scales — see the notes on a [movie picker for friends](/guides/movie-picker-for-friends).",
+          },
+          {
+            title: "Do a quiet pass, then stop at the first real yes",
+            text: "Each person looks at the same ten or fifteen movies and marks yes or no. No commentary until you are both done. Then compare. You will often find you already agreed and had not said it. If you both would watch it, watch it. Holding out for a better option is how the same series gets a fourth rewatch.",
+          },
+        ],
       },
       {
         type: "p",
@@ -165,7 +181,14 @@ export const guides: Guide[] = [
         text: "If you use a tool, it should stay boring in the best way. Same list for both of you. Swipes that stay private until you are done. A clear match when you both say yes. A hint about where it is streaming, so agreeing does not turn into a second search.",
       },
       {
-        type: "ul",
+        type: "figure",
+        src: guideImages.match,
+        alt: "Synema match screen with a WATCH stamp after both people liked the same movie.",
+        caption: "A match is the only title you still have to talk about.",
+        variant: "product",
+      },
+      {
+        type: "checklist",
         items: [
           "One shared pile, small enough to finish",
           "A yes that does not have to be performed out loud",
@@ -214,6 +237,14 @@ export const guides: Guide[] = [
         text: "Anything is fine is rarely true. It means I do not want to be the person who sinks the plan. A movie picker for friends gives the group a way to answer honestly, at the same time, and walk out with one title.",
       },
       {
+        type: "figure",
+        src: guideImages.friendsAtScreen,
+        alt: "Three people seen from behind, watching a movie together.",
+        caption: "A group only needs the titles more than one person would actually start.",
+        wide: true,
+        priority: true,
+      },
+      {
         type: "h2",
         text: "Why friend groups stall",
       },
@@ -253,28 +284,21 @@ export const guides: Guide[] = [
         text: "Before anyone names a title, spend one minute on the shape of the night. This is the part groups skip, and it is the part that saves the next half hour.",
       },
       {
-        type: "h3",
-        text: "Cap the guest list in your head",
-      },
-      {
-        type: "p",
-        text: "Five people can still share one movie. Eight people are a party that happens to have a screen nearby, and the film matters less than the snacks. If you are trying to please a crowd, pick something familiar and loud, on purpose. If you want a real pick, keep the room small enough that a match means something.",
-      },
-      {
-        type: "h3",
-        text: "Agree on a lane",
-      },
-      {
-        type: "p",
-        text: "New to everyone, or comfort rewatch. Funny, or tense. Home by midnight, which quietly rules out the long ones. Write the lane in the chat in a single sentence so later suggestions have somewhere to bounce off. A theme can do this job too — there are a few that work in [movie night ideas](/guides/movie-night-ideas).",
-      },
-      {
-        type: "h3",
-        text: "Give everyone the same pile",
-      },
-      {
-        type: "p",
-        text: "One person can build a list of twelve to twenty films that fit the lane, including where they are streaming. Then everyone marks yes or no on their own. Building the pile is hosting. Marking it is the decision. Those are different jobs, and they should not happen in the same breath.",
+        type: "steps",
+        items: [
+          {
+            title: "Cap the guest list in your head",
+            text: "Five people can still share one movie. Eight people are a party that happens to have a screen nearby, and the film matters less than the snacks. If you are trying to please a crowd, pick something familiar and loud, on purpose. If you want a real pick, keep the room small enough that a match means something.",
+          },
+          {
+            title: "Agree on a lane",
+            text: "New to everyone, or comfort rewatch. Funny, or tense. Home by midnight, which quietly rules out the long ones. Write the lane in the chat in a single sentence so later suggestions have somewhere to bounce off. A theme can do this job too — there are a few that work in [movie night ideas](/guides/movie-night-ideas).",
+          },
+          {
+            title: "Give everyone the same pile",
+            text: "One person can build a list of twelve to twenty films that fit the lane, including where they are streaming. Then everyone marks yes or no on their own. Building the pile is hosting. Marking it is the decision. Those are different jobs, and they should not happen in the same breath.",
+          },
+        ],
       },
       {
         type: "h2",
@@ -293,7 +317,7 @@ export const guides: Guide[] = [
         text: "If nothing clears, the lane was wrong, or the group is split between two moods. Say so. Offer two piles — one light, one heavier — and let people choose a pile before they choose a film. That is faster than inventing a compromise movie that nobody named.",
       },
       {
-        type: "ul",
+        type: "checklist",
         items: [
           "Everyone answers the same list",
           "Likes stay private until the pass is done",
@@ -308,6 +332,13 @@ export const guides: Guide[] = [
       {
         type: "p",
         text: "Chat is a bad ballot box. Messages arrive late, jokes outvote real preferences, and the person who replies first frames the whole thread. A private swipe takes the performance out. People will yes a musical, or a subtitled film, when they do not have to defend it in front of friends first.",
+      },
+      {
+        type: "figure",
+        src: guideImages.createRoom,
+        alt: "Synema create room screen with options to watch with friends or alone.",
+        caption: "Open one room. Everyone answers the same pile on their own phone.",
+        variant: "product",
       },
       {
         type: "p",
@@ -350,6 +381,14 @@ export const guides: Guide[] = [
         text: "Endless choice feels like freedom and behaves like a stall. The fix is a short process with an ending. You can run it for yourself, with a partner, or with a room full of friends. The steps barely change.",
       },
       {
+        type: "figure",
+        src: guideImages.swipe,
+        alt: "Synema swipe screen showing a movie card you can like or pass in private.",
+        caption: "The decision is a private pass over one pile, not another row of the catalog.",
+        variant: "product",
+        priority: true,
+      },
+      {
         type: "h2",
         text: "Why scrolling feels productive",
       },
@@ -373,7 +412,7 @@ export const guides: Guide[] = [
         text: "Before you look at a single title, answer three questions. Who is watching? How much time do you have? What kind of energy is in the room? Write the answers down if more than one person is involved, so they do not drift.",
       },
       {
-        type: "ul",
+        type: "checklist",
         items: [
           "Who has a real veto, and who is happy to go along",
           "A runtime cap, so the long films leave the pile",
@@ -402,8 +441,12 @@ export const guides: Guide[] = [
         text: "Use a stop rule",
       },
       {
+        type: "pullout",
+        text: "The first movie that clears the room is the movie.",
+      },
+      {
         type: "p",
-        text: "The first movie that clears the room is the movie. If you are alone, the first film you would start without bargaining with yourself is the movie. A stop rule sounds strict and feels like relief. You can always watch the runner-up another night. You cannot watch a film you never start.",
+        text: "If you are alone, the first film you would start without bargaining with yourself is the movie. A stop rule sounds strict and feels like relief. You can always watch the runner-up another night. You cannot watch a film you never start.",
       },
       {
         type: "h3",
@@ -481,6 +524,14 @@ export const guides: Guide[] = [
         text: "Tonight is different from a perfect film weekend. People are tired, the runtime matters, and someone has an early morning. You need a movie that fits the room you actually have, found before the room gives up and defaults to a series it has memorized.",
       },
       {
+        type: "figure",
+        src: guideImages.livingRoom,
+        alt: "Two people on a sofa, seen from behind, watching a film on the television.",
+        caption: "Start from the room and the clock. The poster can wait.",
+        wide: true,
+        priority: true,
+      },
+      {
         type: "h2",
         text: "Start from the clock, not the poster",
       },
@@ -504,35 +555,28 @@ export const guides: Guide[] = [
         text: "Set a timer if you need the pressure. Ten minutes is enough for a weeknight. When it rings, you are watching something, even if the something is a rewatch.",
       },
       {
-        type: "h3",
-        text: "Minute one: who is in the room",
-      },
-      {
-        type: "p",
-        text: "Just you, a partner, or friends who have opinions. The more people, the smaller the pile should be. Two people can wander a bit. A group needs a lane. If friends are coming over and the night is meant to feel like an event, borrow a theme from [movie night ideas](/guides/movie-night-ideas) and then come back to the timer.",
-      },
-      {
-        type: "h3",
-        text: "Minutes two to six: a short list",
-      },
-      {
-        type: "p",
-        text: "Collect about ten films that fit the runtime and the energy. Pull from a note you already keep, from one streaming service, or from whatever people have mentioned this week. Do not tour five apps. Five apps is how the timer loses.",
-      },
-      {
-        type: "h3",
-        text: "Minutes seven to ten: honest yes or no",
-      },
-      {
-        type: "p",
-        text: "Each person marks the list without narrating. Then compare. Play the first film you share a yes on. If you are solo, play the first film you would start without a speech about how you should watch something better.",
+        type: "steps",
+        items: [
+          {
+            title: "Minute one: who is in the room",
+            text: "Just you, a partner, or friends who have opinions. The more people, the smaller the pile should be. Two people can wander a bit. A group needs a lane. If friends are coming over and the night is meant to feel like an event, borrow a theme from [movie night ideas](/guides/movie-night-ideas) and then come back to the timer.",
+          },
+          {
+            title: "Minutes two to six: a short list",
+            text: "Collect about ten films that fit the runtime and the energy. Pull from a note you already keep, from one streaming service, or from whatever people have mentioned this week. Do not tour five apps. Five apps is how the timer loses.",
+          },
+          {
+            title: "Minutes seven to ten: honest yes or no",
+            text: "Each person marks the list without narrating. Then compare. Play the first film you share a yes on. If you are solo, play the first film you would start without a speech about how you should watch something better.",
+          },
+        ],
       },
       {
         type: "h2",
         text: "Good enough is the correct standard",
       },
       {
-        type: "p",
+        type: "tip",
         text: "Weeknights punish perfectionism. The film only has to be one you will still be watching after fifteen minutes, with these people, at this hour. A movie you both like is a better outcome than a movie one of you admires and the other tolerates.",
       },
       {
@@ -552,7 +596,7 @@ export const guides: Guide[] = [
         text: "What you should skip is a fresh search. A new app, a new genre, a trailer that leads to another trailer. If the ten films failed, the energy word was wrong. Change the word — from tense to easy, for example — build five new titles, and stop there. The longer method for stubborn nights is [how to decide what movie to watch](/guides/how-to-decide-what-movie-to-watch).",
       },
       {
-        type: "ul",
+        type: "checklist",
         items: [
           "Runtime first, so the evening has a real ending",
           "One energy word, shared before any titles",
@@ -614,12 +658,24 @@ export const guides: Guide[] = [
         text: "Themes, rules, and tiny rituals work when they happen first. They give everyone the same fence to stand inside. Once you are inside it, picking a film is a shorter conversation.",
       },
       {
+        type: "figure",
+        src: guideImages.cinema,
+        alt: "A dark cinema seen from the back row, with the screen lit and the audience in silhouette.",
+        caption: "A good idea makes the evening feel like something, and the choice smaller.",
+        wide: true,
+        priority: true,
+      },
+      {
         type: "h2",
         text: "Use the idea as a filter",
       },
       {
+        type: "pullout",
+        text: "Any theme you cannot use to reject a movie is just a vibe.",
+      },
+      {
         type: "p",
-        text: "Any theme you cannot use to reject a movie is just a vibe. Under ninety minutes is a filter. Cozy is a mood that still contains half of streaming. Prefer filters. You can add atmosphere after the title exists.",
+        text: "Under ninety minutes is a filter. Cozy is a mood that still contains half of streaming. Prefer filters. You can add atmosphere after the title exists.",
       },
       {
         type: "p",
@@ -673,6 +729,13 @@ export const guides: Guide[] = [
         text: "Two short films, not two long ones. Give them a link: a comedy and the darker film it is quietly answering, or an original and a remake. Decide both titles before you start the first, so the intermission does not become a second search. If the group is tired, drop the second film and keep the snacks. The plan did its job if the first movie started on time.",
       },
       {
+        type: "figure",
+        src: guideImages.emptyCinema,
+        alt: "Empty cinema seats in a dark theater.",
+        caption: "Atmosphere is what you add after a title exists.",
+        wide: true,
+      },
+      {
         type: "h2",
         text: "Rituals that are about the room, not the algorithm",
       },
@@ -681,7 +744,7 @@ export const guides: Guide[] = [
         text: "Some of the best movie night ideas barely touch the catalog. They make the decision feel lighter because the night is already a little arranged.",
       },
       {
-        type: "ul",
+        type: "checklist",
         items: [
           "Phones in a bowl once the movie starts, with a two-minute pause built in at the halfway point if people need that",
           "One snack rule: whoever did not host the list brings the food, so labor is split",

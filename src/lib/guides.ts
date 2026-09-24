@@ -20,9 +20,16 @@ function blockText(block: GuideBlock) {
     case "p":
     case "h2":
     case "h3":
+    case "tip":
+    case "pullout":
       return block.text;
     case "ul":
+    case "checklist":
       return block.items.join(" ");
+    case "steps":
+      return block.items.map((item) => `${item.title} ${item.text}`).join(" ");
+    case "figure":
+      return block.caption ?? "";
     case "cta":
       return "";
   }

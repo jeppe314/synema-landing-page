@@ -5,6 +5,7 @@ type ScreenshotFrameProps = {
   alt: string;
   priority?: boolean;
   className?: string;
+  sizes?: string;
 };
 
 export function ScreenshotFrame({
@@ -12,6 +13,7 @@ export function ScreenshotFrame({
   alt,
   priority,
   className = "",
+  sizes = "(max-width: 768px) 78vw, 300px",
 }: ScreenshotFrameProps) {
   return (
     <div className={`relative mx-auto w-full max-w-[260px] ${className}`}>
@@ -22,6 +24,7 @@ export function ScreenshotFrame({
             alt={alt}
             width={1179}
             height={2556}
+            sizes={sizes}
             priority={priority}
             className="h-auto w-full"
           />
