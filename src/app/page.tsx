@@ -4,6 +4,7 @@ import { HowItWorks } from "@/components/how-it-works";
 import { StreamingServices } from "@/components/streaming-services";
 import { WhySynema } from "@/components/why-synema";
 import { FAQ } from "@/components/faq";
+import { HomeGuides } from "@/components/home-guides";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <StreamingServices />
       <WhySynema />
       <FAQ />
+      <HomeGuides />
     </main>
   );
 }

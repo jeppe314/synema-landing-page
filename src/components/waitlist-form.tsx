@@ -16,6 +16,8 @@ type WaitlistFormProps = {
   platform?: PlatformChoice;
   variant?: "hero" | "compact";
   headline?: string;
+  instanceId?: string;
+  onCtaClick?: () => void;
 };
 
 export function WaitlistForm({
@@ -24,7 +26,10 @@ export function WaitlistForm({
   platform: defaultPlatform = "both",
   variant = "hero",
   headline,
+  instanceId,
+  onCtaClick,
 }: WaitlistFormProps) {
+  const fieldId = instanceId ?? `${project}-${variant}`;
   const [platform, setPlatform] = useState<PlatformChoice>(defaultPlatform);
   const [state, formAction, pending] = useActionState(
     joinWaitlist,
@@ -69,9 +74,9 @@ export function WaitlistForm({
           className="absolute -left-[9999px] h-0 w-0 overflow-hidden"
           aria-hidden="true"
         >
-          <label htmlFor={`company-${project}-${variant}`}>Company</label>
+          <label htmlFor={`company-${fieldId}`}>Company</label>
           <input
-            id={`company-${project}-${variant}`}
+            id={`company-${fieldId}`}
             type="text"
             name="company"
             tabIndex={-1}
@@ -80,17 +85,17 @@ export function WaitlistForm({
         </div>
 
         <PlatformSelector
-          id={`${project}-${variant}`}
+          id={fieldId}
           value={platform}
           onChange={setPlatform}
         />
 
         <div className="space-y-3 md:flex md:flex-row md:items-center md:gap-2.5 md:space-y-0">
-          <label htmlFor={`email-${project}-${variant}`} className="sr-only">
+          <label htmlFor={`email-${fieldId}`} className="sr-only">
             Email address
           </label>
           <input
-            id={`email-${project}-${variant}`}
+            id={`email-${fieldId}`}
             type="email"
             name="email"
             required
@@ -102,6 +107,7 @@ export function WaitlistForm({
           <button
             type="submit"
             disabled={pending}
+            onClick={onCtaClick}
             className="inline-flex min-h-[56px] w-full touch-manipulation items-center justify-center rounded-xl bg-gradient-primary px-5 text-base font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70 md:min-h-0 md:w-auto md:shrink-0 md:rounded-full md:py-3 md:text-sm"
           >
             {pending ? "Joining..." : "Notify me"}
