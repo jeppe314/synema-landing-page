@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
@@ -11,6 +11,21 @@ const navLinks = [
   { href: "/privacy", label: "Privacy" },
   { href: "/support", label: "Support" },
 ];
+
+function handleWaitlistClick(event: MouseEvent<HTMLAnchorElement>) {
+  const target = document.getElementById("waitlist");
+  if (!target) return;
+
+  event.preventDefault();
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  target.scrollIntoView({
+    behavior: reduceMotion ? "auto" : "smooth",
+    block: "start",
+  });
+  if (window.location.hash !== "#waitlist" || window.location.pathname !== "/") {
+    window.history.pushState(null, "", "/#waitlist");
+  }
+}
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -25,8 +40,10 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-background/75 backdrop-blur-md transition-[border-color,background-color] duration-200 md:bg-background/80 ${
-        scrolled ? "border-b border-border" : "border-b border-transparent"
+      className={`sticky top-0 z-50 border-b transition-[border-color,background-color,backdrop-filter] duration-200 ${
+        scrolled
+          ? "border-border bg-background/75 backdrop-blur-md md:bg-background/80"
+          : "border-transparent bg-transparent"
       }`}
     >
       <div className="mx-auto flex h-[72px] max-w-[1200px] items-center justify-between gap-3 px-5 md:h-16 md:px-12 lg:px-20">
@@ -47,18 +64,20 @@ export function Header() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2 md:gap-3">
-          <a
-            href="#waitlist"
+          <Link
+            href="/#waitlist"
+            onClick={handleWaitlistClick}
             className="hidden min-h-[44px] items-center rounded-full bg-gradient-primary px-3.5 py-2 text-xs font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.99] min-[370px]:inline-flex md:hidden"
           >
             Join waitlist
-          </a>
-          <a
-            href="#waitlist"
+          </Link>
+          <Link
+            href="/#waitlist"
+            onClick={handleWaitlistClick}
             className="hidden min-h-[44px] items-center rounded-full bg-gradient-primary px-5 py-2 text-sm font-medium text-white transition-transform hover:scale-[1.02] md:inline-flex"
           >
             Join waitlist
-          </a>
+          </Link>
           <button
             type="button"
             className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-text-secondary hover:text-text md:hidden"
@@ -84,13 +103,16 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href="#waitlist"
+            <Link
+              href="/#waitlist"
               className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-gradient-primary px-5 text-sm font-medium text-white"
-              onClick={() => setOpen(false)}
+              onClick={(event) => {
+                setOpen(false);
+                handleWaitlistClick(event);
+              }}
             >
               Join waitlist
-            </a>
+            </Link>
           </div>
         </nav>
       ) : null}

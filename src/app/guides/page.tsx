@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 export default function GuidesPage() {
   return (
     <main className="flex-1">
-      <section className="bg-cinema px-5 pt-14 pb-12 md:px-12 md:pt-20 md:pb-16 lg:px-20">
+      <section className="px-5 pt-14 pb-12 md:px-12 md:pt-20 md:pb-16 lg:px-20">
         <div className="mx-auto max-w-[760px]">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary-light">
             Movie night, solved.

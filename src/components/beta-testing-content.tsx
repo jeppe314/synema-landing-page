@@ -80,7 +80,7 @@ function SectionHeading({
 export function BetaTestingContent() {
   return (
     <main>
-      <section className="bg-cinema px-6 pb-16 pt-12 md:px-12 md:pb-20 md:pt-16 lg:px-20">
+      <section className="px-6 pb-16 pt-12 md:px-12 md:pb-20 md:pt-16 lg:px-20">
         <div className="mx-auto max-w-[1200px] text-center">
           <p className="mb-4 inline-flex rounded-full border border-border bg-card px-4 py-1 text-sm text-text-secondary">
             Invite-only beta
@@ -122,7 +122,7 @@ export function BetaTestingContent() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-background-secondary px-6 py-16 md:px-12 lg:px-20">
+      <section className="border-t border-border px-6 py-16 md:px-12 lg:px-20">
         <div className="mx-auto max-w-[1200px]">
           <SectionHeading title="How to get access" />
           <div className="grid gap-4 md:grid-cols-3 md:gap-6">
@@ -164,7 +164,7 @@ export function BetaTestingContent() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-background-secondary px-6 py-16 md:px-12 lg:px-20">
+      <section className="border-t border-border px-6 py-16 md:px-12 lg:px-20">
         <div className="mx-auto max-w-[1200px]">
           <SectionHeading title="Report feedback" />
           <div className="grid gap-4 md:grid-cols-3 md:gap-6">
@@ -216,7 +216,7 @@ export function BetaTestingContent() {
         </div>
       </section>
 
-      <section className="border-t border-border bg-background-secondary px-6 py-16 md:px-12 lg:px-20">
+      <section className="border-t border-border px-6 py-16 md:px-12 lg:px-20">
         <div className="mx-auto max-w-[720px] text-center">
           <SectionHeading title="Beta expectations" />
           <p className="text-[15px] leading-relaxed text-text-secondary">

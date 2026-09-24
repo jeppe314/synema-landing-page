@@ -11,7 +11,7 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-background-secondary">
+    <footer className="border-t border-border">
       <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-6 px-6 py-12 md:flex-row md:px-12 lg:px-20">
         <p className="text-sm text-text-secondary">© 2026 Synema</p>
         <nav className="flex flex-wrap items-center justify-center gap-6">

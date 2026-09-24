@@ -56,11 +56,8 @@ function MobileAppPreview() {
 
 export function Hero() {
   return (
-    <section className="bg-cinema">
-      <div
-        id="waitlist"
-        className="mx-auto max-w-[1200px] px-5 pt-12 md:grid md:grid-cols-2 md:items-center md:gap-12 md:px-12 md:py-20 md:pt-20 lg:gap-16 lg:px-20 lg:pb-28"
-      >
+    <section>
+      <div className="mx-auto max-w-[1200px] px-5 pt-12 md:grid md:grid-cols-2 md:items-center md:gap-12 md:px-12 md:py-20 md:pt-20 lg:gap-16 lg:px-20 lg:pb-28">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -80,7 +77,7 @@ export function Hero() {
             to watch.
           </p>
 
-          <div className="mt-6 md:mt-8">
+          <div id="waitlist" className="mt-6 md:mt-8">
             <WaitlistForm variant="hero" platform="both" />
           </div>
         </motion.div>
