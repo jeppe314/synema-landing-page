@@ -1,8 +1,10 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { LaunchActions } from "./launch-actions";
+import { useDetectedPlatform } from "./platform-provider";
 import { ScreenshotFrame } from "./screenshot-frame";
-import { WaitlistForm } from "./waitlist-form";
+import { COPY, getAvailabilityLine } from "@/lib/launch";
 
 function DesktopPhoneMockup() {
   const reduceMotion = useReducedMotion();
@@ -55,9 +57,11 @@ function MobileAppPreview() {
 }
 
 export function Hero() {
+  const platform = useDetectedPlatform();
+
   return (
     <section>
-      <div className="mx-auto max-w-[1200px] px-5 pt-12 md:grid md:grid-cols-2 md:items-center md:gap-12 md:px-12 md:py-20 md:pt-20 lg:gap-16 lg:px-20 lg:pb-28">
+      <div className="mx-auto max-w-[1200px] px-5 pt-8 md:grid md:grid-cols-2 md:items-center md:gap-12 md:px-12 md:py-20 md:pt-20 lg:gap-16 lg:px-20 lg:pb-28">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -73,12 +77,14 @@ export function Hero() {
             <span className="text-gradient">Start watching.</span>
           </h1>
           <p className="mt-4 text-lg leading-normal text-text-secondary md:mt-6 md:max-w-lg md:text-base md:leading-relaxed lg:text-lg">
-            Swipe through movies with friends and find something everyone wants
-            to watch.
+            {COPY.heroSupport}
+          </p>
+          <p className="mt-3 text-sm font-medium text-text">
+            {getAvailabilityLine(platform)}
           </p>
 
-          <div id="waitlist" className="mt-6 md:mt-8">
-            <WaitlistForm variant="hero" platform="both" />
+          <div className="mt-5 md:mt-6">
+            <LaunchActions source="hero" embedWaitlist />
           </div>
         </motion.div>
 

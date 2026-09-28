@@ -3,6 +3,67 @@
 import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
+import { StoreTextLink, WaitlistLink } from "@/components/launch-actions";
+import { launchConfig } from "@/lib/launch";
+
+const faqLinkClass = "font-medium text-primary hover:underline";
+
+function AvailabilityAnswer() {
+  const ios = launchConfig.ios;
+  const android = launchConfig.android;
+
+  if (ios.status === "available" && android.status === "available") {
+    return (
+      <>
+        Synema is available on iPhone and Android.{" "}
+        <StoreTextLink
+          kind="app-store"
+          href={ios.storeUrl}
+          source="faq"
+          className={faqLinkClass}
+        >
+          Download it on the App Store
+        </StoreTextLink>{" "}
+        or{" "}
+        <StoreTextLink
+          kind="play-store"
+          href={android.storeUrl}
+          source="faq"
+          className={faqLinkClass}
+        >
+          get it on Google Play
+        </StoreTextLink>.
+      </>
+    );
+  }
+
+  return (
+    <>
+      Synema is available on iPhone.{" "}
+      {ios.status === "available" ? (
+        <>
+          <StoreTextLink
+            kind="app-store"
+            href={ios.storeUrl}
+            source="faq"
+            className={faqLinkClass}
+          >
+            Download it on the App Store
+          </StoreTextLink>.{" "}
+        </>
+      ) : null}
+      Android is coming soon —{" "}
+      <WaitlistLink source="faq" className={faqLinkClass}>
+        join the waitlist
+      </WaitlistLink>{" "}
+      and we&apos;ll email you at launch. An invite-only{" "}
+      <Link href="/beta-testing" className={faqLinkClass}>
+        Android beta
+      </Link>{" "}
+      is open if you want to test early.
+    </>
+  );
+}
 
 const faqs: { q: string; a: ReactNode }[] = [
   {
@@ -19,16 +80,7 @@ const faqs: { q: string; a: ReactNode }[] = [
   },
   {
     q: "When is Synema available?",
-    a: (
-      <>
-        Synema isn&apos;t on the App Store or Google Play yet. Join the waitlist
-        and we&apos;ll email you at launch. An invite-only{" "}
-        <Link href="/beta-testing" className="font-medium text-primary hover:underline">
-          Android beta
-        </Link>{" "}
-        is open if you want to test early.
-      </>
-    ),
+    a: <AvailabilityAnswer />,
   },
 ];
 

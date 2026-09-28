@@ -1,21 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
-import { WaitlistForm } from "@/components/waitlist-form";
+import { LaunchActions, StoreTextLink, WaitlistLink } from "@/components/launch-actions";
+import { useDetectedPlatform } from "@/components/platform-provider";
+import { launchConfig } from "@/lib/launch";
 
 interface JoinRoomClientProps {
   code: string;
 }
 
 export function JoinRoomClient({ code }: JoinRoomClientProps) {
-  const [triedOpen, setTriedOpen] = useState(false);
+  const platform = useDetectedPlatform();
   const appUrl = `synema://join/${encodeURIComponent(code)}`;
+  const androidWaitlist = launchConfig.android.status === "waitlist";
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
       window.location.href = appUrl;
-      setTriedOpen(true);
     }, 250);
     return () => window.clearTimeout(timer);
   }, [appUrl]);
@@ -51,15 +53,82 @@ export function JoinRoomClient({ code }: JoinRoomClientProps) {
           Open in Synema
         </a>
 
-        {triedOpen ? (
-          <p className="mt-4 text-sm text-text-secondary">
-            App didn&apos;t open? Synema isn&apos;t publicly available yet — join
-            the waitlist below.
-          </p>
-        ) : null}
-
-        <div className="mt-8">
-          <WaitlistForm variant="compact" platform="both" />
+        <div className="mt-8 border-t border-border pt-6 text-left">
+          {platform === "android" && androidWaitlist ? (
+            <>
+              <p className="text-center text-sm text-text-secondary">
+                Synema is coming to Android.
+              </p>
+              <div className="mt-4">
+                <LaunchActions source="join" embedWaitlist align="center" showSecondary={false} />
+              </div>
+              {launchConfig.ios.status === "available" ? (
+                <p className="mt-4 text-center text-sm text-text-secondary">
+                  <StoreTextLink
+                    kind="app-store"
+                    href={launchConfig.ios.storeUrl}
+                    source="join"
+                    className="font-medium text-text-secondary underline-offset-4 hover:text-text hover:underline"
+                  >
+                    Already available on iPhone →
+                  </StoreTextLink>
+                </p>
+              ) : null}
+            </>
+          ) : platform === "android" && launchConfig.android.status === "available" ? (
+            <p className="text-center text-sm leading-relaxed text-text-secondary">
+              Don&apos;t have the app yet?{" "}
+              <StoreTextLink
+                kind="play-store"
+                href={launchConfig.android.storeUrl}
+                source="join"
+                className="font-medium text-text underline-offset-4 hover:underline"
+              >
+                Get it on Google Play
+              </StoreTextLink>
+              .
+            </p>
+          ) : (
+            <p className="text-center text-sm leading-relaxed text-text-secondary">
+              Don&apos;t have the app yet?{" "}
+              {launchConfig.ios.status === "available" ? (
+                <StoreTextLink
+                  kind="app-store"
+                  href={launchConfig.ios.storeUrl}
+                  source="join"
+                  className="font-medium text-text underline-offset-4 hover:underline"
+                >
+                  Download on the App Store
+                </StoreTextLink>
+              ) : null}
+              {launchConfig.android.status === "available" ? (
+                <>
+                  {" "}
+                  or{" "}
+                  <StoreTextLink
+                    kind="play-store"
+                    href={launchConfig.android.storeUrl}
+                    source="join"
+                    className="font-medium text-text underline-offset-4 hover:underline"
+                  >
+                    get it on Google Play
+                  </StoreTextLink>
+                </>
+              ) : androidWaitlist ? (
+                <>
+                  {" "}
+                  or{" "}
+                  <WaitlistLink
+                    source="join"
+                    className="font-medium text-text underline-offset-4 hover:underline"
+                  >
+                    join the Android waitlist
+                  </WaitlistLink>
+                </>
+              ) : null}
+              .
+            </p>
+          )}
         </div>
 
         <Link

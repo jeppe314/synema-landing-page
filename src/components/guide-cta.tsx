@@ -1,7 +1,8 @@
 "use client";
 
 import { track } from "@vercel/analytics";
-import { WaitlistForm } from "./waitlist-form";
+import { AnalyticsEvent } from "@/lib/analytics-events";
+import { LaunchActions } from "./launch-actions";
 
 type GuideCtaProps = {
   slug: string;
@@ -12,24 +13,28 @@ type GuideCtaProps = {
 };
 
 export function GuideCta({ slug, position, body, kicker, title }: GuideCtaProps) {
-  const onCtaClick = () => {
-    track("guide_cta_click", { guide_slug: slug, position });
+  const onAction = () => {
+    track(AnalyticsEvent.guideCtaClick, { guide_slug: slug, position });
   };
+
+  const actions = (
+    <LaunchActions
+      source={position === "inline" ? "guide-inline" : "guide-bottom"}
+      embedWaitlist
+      showWaitlistHeadline
+      waitlistHeadline="Synema is coming to Android."
+      onAction={onAction}
+    />
+  );
 
   if (position === "inline") {
     return (
       <aside
-        aria-label="Try Synema"
+        aria-label="Get Synema"
         className="mt-10 rounded-2xl border border-border bg-card px-5 py-5 md:px-6"
       >
         <p className="text-base leading-7 text-text-secondary">{body}</p>
-        <div className="mt-5">
-          <WaitlistForm
-            variant="compact"
-            instanceId={`guide-${slug}-inline`}
-            onCtaClick={onCtaClick}
-          />
-        </div>
+        <div className="mt-5">{actions}</div>
       </aside>
     );
   }
@@ -53,13 +58,7 @@ export function GuideCta({ slug, position, body, kicker, title }: GuideCtaProps)
         </h2>
       ) : null}
       <p className="mt-3 text-base leading-7 text-text-secondary">{body}</p>
-      <div className="mt-6">
-        <WaitlistForm
-          variant="compact"
-          instanceId={`guide-${slug}-bottom`}
-          onCtaClick={onCtaClick}
-        />
-      </div>
+      <div className="mt-6">{actions}</div>
     </section>
   );
 }

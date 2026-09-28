@@ -1,8 +1,12 @@
 "use client";
 
-import { useEffect, useState, type MouseEvent } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { WaitlistLink } from "@/components/launch-actions";
+import { useDetectedPlatform } from "@/components/platform-provider";
+import { COPY, getLaunchActions } from "@/lib/launch";
+import { trackAppStoreClick, trackPlayStoreClick } from "@/lib/track-launch";
 
 const navLinks = [
   { href: "/#features", label: "Features" },
@@ -12,19 +16,74 @@ const navLinks = [
   { href: "/support", label: "Support" },
 ];
 
-function handleWaitlistClick(event: MouseEvent<HTMLAnchorElement>) {
-  const target = document.getElementById("waitlist");
-  if (!target) return;
+const compactClass =
+  "hidden min-h-11 items-center rounded-full bg-gradient-primary px-3.5 text-xs font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background min-[370px]:inline-flex md:hidden";
 
-  event.preventDefault();
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  target.scrollIntoView({
-    behavior: reduceMotion ? "auto" : "smooth",
-    block: "start",
-  });
-  if (window.location.hash !== "#waitlist" || window.location.pathname !== "/") {
-    window.history.pushState(null, "", "/#waitlist");
+const desktopClass =
+  "hidden min-h-11 items-center rounded-full bg-gradient-primary px-5 text-sm font-medium text-white transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background md:inline-flex";
+
+const menuClass =
+  "inline-flex min-h-11 items-center justify-center rounded-full bg-gradient-primary px-5 text-sm font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70";
+
+function HeaderLaunchCta({
+  appearance,
+  onNavigate,
+}: {
+  appearance: "compact" | "desktop" | "menu";
+  onNavigate?: () => void;
+}) {
+  const platform = useDetectedPlatform();
+  const { primary } = getLaunchActions(platform);
+  const className =
+    appearance === "compact" ? compactClass : appearance === "desktop" ? desktopClass : menuClass;
+
+  const label =
+    primary.kind === "android-waitlist"
+      ? appearance === "compact"
+        ? "Android waitlist"
+        : COPY.androidWaitlist
+      : primary.kind === "app-store"
+        ? appearance === "menu"
+          ? COPY.appStore
+          : "App Store"
+        : appearance === "menu"
+          ? COPY.playStore
+          : "Google Play";
+
+  const ariaLabel =
+    primary.kind === "android-waitlist"
+      ? COPY.androidWaitlist
+      : primary.kind === "app-store"
+        ? COPY.appStore
+        : COPY.playStore;
+
+  if (primary.kind === "android-waitlist") {
+    return (
+      <WaitlistLink
+        source="header"
+        className={className}
+        ariaLabel={ariaLabel}
+        onNavigate={onNavigate}
+      >
+        {label}
+      </WaitlistLink>
+    );
   }
+
+  return (
+    <a
+      href={primary.href}
+      aria-label={ariaLabel}
+      className={className}
+      onClick={() => {
+        onNavigate?.();
+        if (primary.kind === "app-store") trackAppStoreClick("header", platform);
+        else trackPlayStoreClick("header", platform);
+      }}
+    >
+      {label}
+    </a>
+  );
 }
 
 export function Header() {
@@ -64,20 +123,8 @@ export function Header() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-1.5 sm:gap-2 md:gap-3">
-          <Link
-            href="/#waitlist"
-            onClick={handleWaitlistClick}
-            className="hidden min-h-[44px] items-center rounded-full bg-gradient-primary px-3.5 py-2 text-xs font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.99] min-[370px]:inline-flex md:hidden"
-          >
-            Join waitlist
-          </Link>
-          <Link
-            href="/#waitlist"
-            onClick={handleWaitlistClick}
-            className="hidden min-h-[44px] items-center rounded-full bg-gradient-primary px-5 py-2 text-sm font-medium text-white transition-transform hover:scale-[1.02] md:inline-flex"
-          >
-            Join waitlist
-          </Link>
+          <HeaderLaunchCta appearance="compact" />
+          <HeaderLaunchCta appearance="desktop" />
           <button
             type="button"
             className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg text-text-secondary hover:text-text md:hidden"
@@ -103,16 +150,7 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/#waitlist"
-              className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-gradient-primary px-5 text-sm font-medium text-white"
-              onClick={(event) => {
-                setOpen(false);
-                handleWaitlistClick(event);
-              }}
-            >
-              Join waitlist
-            </Link>
+            <HeaderLaunchCta appearance="menu" onNavigate={() => setOpen(false)} />
           </div>
         </nav>
       ) : null}

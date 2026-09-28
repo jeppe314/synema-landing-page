@@ -2,10 +2,11 @@
 
 import { track } from "@vercel/analytics";
 import { useEffect } from "react";
+import { AnalyticsEvent } from "@/lib/analytics-events";
 
 export function GuideView({ slug }: { slug: string }) {
   useEffect(() => {
-    track("guide_view", { guide_slug: slug });
+    track(AnalyticsEvent.guideView, { guide_slug: slug });
   }, [slug]);
 
   return null;

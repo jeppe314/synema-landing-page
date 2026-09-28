@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FooterLaunchLink } from "./footer-launch-link";
 
 const links = [
   { href: "/guides", label: "Guides" },
@@ -12,7 +13,9 @@ const links = [
 export function Footer() {
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-[1200px] flex-col items-center justify-between gap-6 px-6 py-12 md:flex-row md:px-12 lg:px-20">
+      <div className="mx-auto flex max-w-[1200px] flex-col items-center gap-6 px-6 py-12 md:px-12 lg:px-20">
+        <FooterLaunchLink />
+        <div className="flex w-full flex-col items-center justify-between gap-6 md:flex-row">
         <p className="text-sm text-text-secondary">© 2026 Synema</p>
         <nav className="flex flex-wrap items-center justify-center gap-6">
           {links.map((link) => (
@@ -25,6 +28,7 @@ export function Footer() {
             </Link>
           ))}
         </nav>
+        </div>
       </div>
     </footer>
   );

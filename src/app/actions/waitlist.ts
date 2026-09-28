@@ -38,7 +38,8 @@ export async function joinWaitlist(
 
   const email = normalizeEmail(formData.get("email"));
   const project = getString(formData.get("project")) || "synema";
-  const platform = getString(formData.get("platform")) || "both";
+  // The public form is the Android waitlist. Ignore any other posted platform.
+  const platform = "android";
   const appName = getString(formData.get("appName")) || "Synema";
 
   if (!email || !EMAIL_PATTERN.test(email)) {

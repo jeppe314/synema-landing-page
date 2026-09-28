@@ -3,7 +3,15 @@ import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { PlatformProvider } from "@/components/platform-provider";
+import { getAppleAppId, launchConfig } from "@/lib/launch";
+import { getRequestPlatform } from "@/lib/request-platform";
 import "./globals.css";
+
+const appleAppId =
+  launchConfig.ios.status === "available"
+    ? getAppleAppId(launchConfig.ios.storeUrl)
+    : null;
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,31 +28,38 @@ export const metadata: Metadata = {
   },
   title: "Synema – Find a movie together",
   description:
-    "Find the perfect movie together by swiping with friends. Synema helps groups stop scrolling and start watching.",
+    "Find movies you'll actually agree on — alone or together. Available on iPhone.",
   openGraph: {
-    title: "Synema",
-    description: "Stop scrolling. Start watching.",
+    title: "Synema – Stop scrolling. Start watching.",
+    description:
+      "Find movies you'll actually agree on — alone or together. Available on iPhone.",
     type: "website",
     siteName: "Synema",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Synema",
-    description: "Stop scrolling. Start watching.",
+    title: "Synema – Stop scrolling. Start watching.",
+    description:
+      "Find movies you'll actually agree on — alone or together. Available on iPhone.",
   },
+  ...(appleAppId ? { itunes: { appId: appleAppId } } : {}),
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const platform = await getRequestPlatform();
+
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col bg-cinema text-text">
-        <Header />
-        {children}
-        <Footer />
+    <html lang="en" data-scroll-behavior="smooth" className={`${inter.variable} h-full antialiased`}>
+      <body data-platform={platform} className="flex min-h-full flex-col bg-cinema text-text">
+        <PlatformProvider platform={platform}>
+          <Header />
+          {children}
+          <Footer />
+        </PlatformProvider>
         <Analytics />
       </body>
     </html>

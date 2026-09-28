@@ -1,43 +1,37 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useEffect, useRef, useActionState } from "react";
 import Link from "next/link";
 import { joinWaitlist, type WaitlistState } from "@/app/actions/waitlist";
-import {
-  PlatformSelector,
-  type PlatformChoice,
-} from "./platform-selector";
+import { COPY } from "@/lib/launch";
+import { trackAndroidWaitlistComplete, trackAndroidWaitlistStart } from "@/lib/track-launch";
+import { useDetectedPlatform } from "./platform-provider";
 
 const initialState: WaitlistState = { status: "idle" };
 
 type WaitlistFormProps = {
-  project?: string;
-  appName?: string;
-  platform?: PlatformChoice;
-  variant?: "hero" | "compact";
+  source: string;
   headline?: string;
-  instanceId?: string;
-  onCtaClick?: () => void;
+  showHeadline?: boolean;
+  onEngage?: () => void;
 };
 
 export function WaitlistForm({
-  project = "synema",
-  appName = "Synema",
-  platform: defaultPlatform = "both",
-  variant = "hero",
-  headline,
-  instanceId,
-  onCtaClick,
+  source,
+  headline = "Synema is coming to Android.",
+  showHeadline = true,
+  onEngage,
 }: WaitlistFormProps) {
-  const fieldId = instanceId ?? `${project}-${variant}`;
-  const [platform, setPlatform] = useState<PlatformChoice>(defaultPlatform);
-  const [state, formAction, pending] = useActionState(
-    joinWaitlist,
-    initialState,
-  );
+  const platform = useDetectedPlatform();
+  const fieldId = `android-${source}`;
+  const [state, formAction, pending] = useActionState(joinWaitlist, initialState);
+  const completed = useRef(false);
 
-  const resolvedHeadline =
-    headline ?? `Be first to know when ${appName} launches`;
+  useEffect(() => {
+    if (state.status !== "success" || completed.current) return;
+    completed.current = true;
+    trackAndroidWaitlistComplete(source, platform);
+  }, [platform, source, state.status]);
 
   if (state.status === "success") {
     return (
@@ -45,30 +39,33 @@ export function WaitlistForm({
         className="rounded-2xl border border-border bg-card/60 px-4 py-4 md:px-5"
         role="status"
       >
-        <p className="text-sm font-medium text-text">You&apos;re on the list!</p>
+        <p className="text-sm font-medium text-text">You&apos;re on the Android waitlist.</p>
         <p className="mt-1.5 text-sm leading-relaxed text-text-secondary">
-          Check your inbox — we sent a confirmation email. We&apos;ll notify you
-          when {appName} launches.
+          Check your inbox — we sent a confirmation email. We&apos;ll let you know
+          when Synema launches on Android.
         </p>
       </div>
     );
   }
 
-  const showHeading = variant !== "compact";
-
   return (
-    <div className={variant === "hero" ? "w-full md:max-w-md" : "w-full"}>
-      {showHeading ? (
-        <p className="text-sm font-medium text-text">{resolvedHeadline}</p>
+    <div className="w-full">
+      {showHeadline ? (
+        <p className="text-sm font-medium text-text">{headline}</p>
       ) : null}
 
       <form
         action={formAction}
-        className={showHeading ? "mt-4 space-y-3 md:mt-5" : "space-y-3"}
+        aria-busy={pending}
+        className={showHeadline ? "mt-4 space-y-2.5" : "space-y-2.5"}
+        onSubmit={() => {
+          trackAndroidWaitlistStart(source, platform);
+          onEngage?.();
+        }}
       >
-        <input type="hidden" name="project" value={project} />
-        <input type="hidden" name="platform" value={platform} />
-        <input type="hidden" name="appName" value={appName} />
+        <input type="hidden" name="project" value="synema" />
+        <input type="hidden" name="platform" value="android" />
+        <input type="hidden" name="appName" value="Synema" />
 
         <div
           className="absolute -left-[9999px] h-0 w-0 overflow-hidden"
@@ -84,13 +81,7 @@ export function WaitlistForm({
           />
         </div>
 
-        <PlatformSelector
-          id={fieldId}
-          value={platform}
-          onChange={setPlatform}
-        />
-
-        <div className="space-y-3 md:flex md:flex-row md:items-center md:gap-2.5 md:space-y-0">
+        <div className="space-y-2.5">
           <label htmlFor={`email-${fieldId}`} className="sr-only">
             Email address
           </label>
@@ -99,18 +90,22 @@ export function WaitlistForm({
             type="email"
             name="email"
             required
+            inputMode="email"
             autoComplete="email"
+            autoCapitalize="none"
+            autoCorrect="off"
+            spellCheck={false}
             placeholder="you@example.com"
             disabled={pending}
-            className="min-h-[56px] w-full min-w-0 rounded-xl border border-border bg-background-secondary px-4 text-base text-text placeholder:text-text-secondary focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20 disabled:opacity-70 md:min-h-0 md:flex-1 md:rounded-full md:py-3 md:text-sm"
+            onFocus={() => trackAndroidWaitlistStart(source, platform)}
+            className="min-h-12 w-full rounded-xl border border-border bg-background-secondary px-4 text-base text-text placeholder:text-text-secondary focus:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20 disabled:opacity-70"
           />
           <button
             type="submit"
             disabled={pending}
-            onClick={onCtaClick}
-            className="inline-flex min-h-[56px] w-full touch-manipulation items-center justify-center rounded-xl bg-gradient-primary px-5 text-base font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70 md:min-h-0 md:w-auto md:shrink-0 md:rounded-full md:py-3 md:text-sm"
+            className="inline-flex min-h-12 w-full touch-manipulation items-center justify-center rounded-xl bg-gradient-primary px-5 text-base font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-70"
           >
-            {pending ? "Joining..." : "Notify me"}
+            {pending ? "Joining…" : COPY.androidWaitlist}
           </button>
         </div>
 
@@ -123,7 +118,7 @@ export function WaitlistForm({
         </div>
 
         <p className="text-xs leading-relaxed text-text-secondary">
-          No spam — just a confirmation now and one email when we launch.{" "}
+          No spam — just a confirmation now and one email when Android launches.{" "}
           <Link href="/privacy" className="text-primary hover:underline">
             Privacy policy
           </Link>
