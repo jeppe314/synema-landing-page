@@ -75,7 +75,7 @@ export const comparisons: Comparison[] = [
       },
       {
         type: "p",
-        text: "[Synema](/) is a movie app for deciding what to watch, especially with a partner or a small group. You create a room and invite people with a link or a QR code. Everyone swipes on their own phone. A movie counts when more than half the room likes it. If everyone likes the same one, it is a match right away. If several films clear, the group picks a winner from that short list, not from the whole catalog again.",
+        text: "[Synema](/) is a movie app for deciding what to watch, especially with a partner or a small group. One person creates a room and invites the others with a link or a QR code. Everyone swipes through the same movies on their own phone. When everyone swipes right on the same movie, it is a match. On your own, the same swipe builds a personal watchlist: a right swipe saves the movie.",
       },
       {
         type: "p",
@@ -127,7 +127,7 @@ export const comparisons: Comparison[] = [
           [
             "Lists",
             "Lists and a watchlist",
-            "A pile for the people in one room",
+            "A personal watchlist when you swipe on your own, and one shared deck in a room",
           ],
           [
             "Other people's taste",
@@ -137,7 +137,7 @@ export const comparisons: Comparison[] = [
           [
             "Choose with your room",
             "Can inspire a pick. The agreement is still yours to make",
-            "Private swipes, then a match when the room agrees",
+            "Everyone swipes the same movies. A match is when everyone swipes right",
           ],
         ],
       },
@@ -166,7 +166,7 @@ export const comparisons: Comparison[] = [
       },
       {
         type: "p",
-        text: "Synema starts at that agreement. Everyone swipes privately, so a yes does not have to be performed out loud. The decision itself, with or without an app, is written up in [how to choose a movie together](/guides/how-to-choose-a-movie-together). The two-person stall is the [movie picker for couples](/guides/movie-picker-for-couples). The group-chat stall is the [movie picker for friends](/guides/movie-picker-for-friends).",
+        text: "Synema starts at that agreement. Everyone swipes the same movies on their own phone, and it is a match when everyone swipes right. The decision itself, with or without an app, is written up in [how to choose a movie together](/guides/how-to-choose-a-movie-together). The two-person stall is the [movie picker for couples](/guides/movie-picker-for-couples). The group-chat stall is the [movie picker for friends](/guides/movie-picker-for-friends).",
       },
       {
         type: "h2",
@@ -174,11 +174,11 @@ export const comparisons: Comparison[] = [
       },
       {
         type: "p",
-        text: "This is Letterboxd's home ground. A log, ratings, reviews, lists, a watchlist. If the pleasure is in keeping the record, Synema will feel like the wrong tool, because it does not try to be that record.",
+        text: "This is Letterboxd's home ground. A log of what you have seen, ratings, reviews, and lists you can publish. Synema does not keep that diary. Swiping on your own saves movies to a personal watchlist. It does not rate them or record that you have watched them.",
       },
       {
         type: "p",
-        text: "Synema ends at the match. After you watch the film, Letterboxd is a natural place to put it.",
+        text: "In a room, Synema ends at the match. After you watch the film, Letterboxd is a natural place to log it.",
       },
       {
         type: "h2",
@@ -218,8 +218,8 @@ export const comparisons: Comparison[] = [
         items: [
           "You are stuck choosing, tonight",
           "You are choosing with a partner or a few friends",
-          "You want the likes kept private until there is an overlap",
-          "You want the search to end on a match, not on a longer list",
+          "You want a match when everyone swipes right on the same movie",
+          "You want a personal watchlist from swiping on your own, not a public diary",
         ],
       },
       {
@@ -250,8 +250,8 @@ export const comparisons: Comparison[] = [
             a: "No. They are for different problems. Letterboxd is the better diary, rating system, and film community. Synema is built for deciding what to watch with other people. Better depends on which of those you opened an app to do.",
           },
           {
-            q: "Does Synema replace a watchlist?",
-            a: "No. Synema is a way to choose from a pile with the people in a room. It is not a public watchlist or a diary. If you want a watchlist, keep one. Letterboxd already does that well.",
+            q: "Does Synema replace a Letterboxd watchlist?",
+            a: "No. On your own, a right swipe in Synema saves a movie to your personal watchlist. That list is not a public diary, and it has no ratings or reviews. Letterboxd is still the place to publish what you want to watch and what you have already seen.",
           },
           {
             q: "Which should we open when nobody can agree?",

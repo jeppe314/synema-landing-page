@@ -363,7 +363,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "Synema is that private pass, with the counting done for you. Someone opens a room and invites the others, up to five. Everyone swipes on their own phone. A movie counts when more than half the room likes it. If everyone likes the same one, it is a match right away. If a few films clear, you pick a winner from those, and then you stop. The two-person version of the same stall is the [movie picker for couples](/guides/movie-picker-for-couples).",
+        text: "Synema is that pass, done in one room. Someone creates it and invites the people they are watching with. Everyone swipes through the same movies on their own phone. When everyone swipes right on the same movie, it is a match, and you stop. The two-person version of the same stall is the [movie picker for couples](/guides/movie-picker-for-couples).",
       },
       {
         type: "h2",
@@ -718,7 +718,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "Synema is built for that pass. You open a room, everyone swipes on their own phone, and a movie counts when more than half the room likes it. If everyone likes the same one, it is a match straight away. If several films clear, you choose among those, not from the whole catalog again.",
+        text: "Synema is built for that pass. Someone opens a room and invites the people they are watching with. Everyone swipes through the same movies on their own phone. When everyone swipes right on the same movie, it is a match.",
       },
       {
         type: "p",

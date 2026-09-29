@@ -11,7 +11,7 @@ const faqs: { q: string; a: ReactNode }[] = [
   },
   {
     q: "How many people can join a room?",
-    a: "A room holds up to 5 people. Everyone swipes on their own, and a movie counts when more than half the room likes it. If everyone likes the same one, you get a match right away.",
+    a: "A room holds up to 5 people. Everyone swipes through the same movies on their own. When everyone swipes right on the same movie, it is a match.",
   },
   {
     q: "Which streaming services are supported?",

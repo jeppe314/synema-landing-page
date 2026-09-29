@@ -7,7 +7,7 @@ const features = [
   {
     icon: Users,
     title: "Swipe together",
-    description: "Everyone swipes on their own. A movie counts when most of the room likes it.",
+    description: "Everyone swipes the same movies on their own phone.",
   },
   {
     icon: Layers,
@@ -17,7 +17,7 @@ const features = [
   {
     icon: Trophy,
     title: "Pick together",
-    description: "If several movies make the cut, the group chooses a winner.",
+    description: "It's a match when everyone swipes right on the same movie.",
   },
   {
     icon: Popcorn,
