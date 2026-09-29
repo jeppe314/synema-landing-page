@@ -5,6 +5,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Terms of Service – Synema",
   description: "Terms of Service for the Synema mobile application.",
+  alternates: { canonical: "/terms" },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: "Terms of Service – Synema",
+    description: "Terms of Service for the Synema mobile application.",
+    url: "/terms",
+    type: "website",
+  },
 };
 
 export default function TermsPage() {

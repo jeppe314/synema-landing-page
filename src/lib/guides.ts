@@ -33,6 +33,8 @@ function blockText(block: GuideBlock) {
       return block.caption ?? "";
     case "faq":
       return block.items.map((item) => `${item.q} ${item.a}`).join(" ");
+    case "table":
+      return [block.caption, ...block.columns, ...block.rows.flat()].join(" ");
     case "cta":
       return "";
   }

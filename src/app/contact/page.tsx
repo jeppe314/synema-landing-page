@@ -4,6 +4,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact – Synema",
   description: "Get in touch with the Synema team.",
+  alternates: { canonical: "/contact" },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: "Contact – Synema",
+    description: "Get in touch with the Synema team.",
+    url: "/contact",
+    type: "website",
+  },
 };
 
 export default function ContactPage() {

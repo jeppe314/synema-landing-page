@@ -4,6 +4,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy – Synema",
   description: "Privacy Policy for the Synema mobile application.",
+  alternates: { canonical: "/privacy" },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: "Privacy Policy – Synema",
+    description: "Privacy Policy for the Synema mobile application.",
+    url: "/privacy",
+    type: "website",
+  },
 };
 
 export default function PrivacyPage() {

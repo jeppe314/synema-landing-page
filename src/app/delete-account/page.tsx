@@ -6,6 +6,15 @@ export const metadata: Metadata = {
   title: "Delete Account – Synema",
   description:
     "Request deletion of your Synema account and associated personal data.",
+  alternates: { canonical: "/delete-account" },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: "Delete Account – Synema",
+    description:
+      "Request deletion of your Synema account and associated personal data.",
+    url: "/delete-account",
+    type: "website",
+  },
 };
 
 export default function DeleteAccountPage() {

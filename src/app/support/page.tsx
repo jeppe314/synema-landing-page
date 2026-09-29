@@ -4,6 +4,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Support – Synema",
   description: "Get help with the Synema app.",
+  alternates: { canonical: "/support" },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: "Support – Synema",
+    description: "Get help with the Synema app.",
+    url: "/support",
+    type: "website",
+  },
 };
 
 export default function SupportPage() {

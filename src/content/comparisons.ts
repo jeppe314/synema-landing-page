@@ -55,10 +55,10 @@ export const comparisons: Comparison[] = [
       body: "Open a room, swipe on your own, and leave with a movie the group actually wants.",
     },
     related: [
+      "letterboxd-alternatives-for-movie-discovery",
+      "best-movie-picker-apps",
       "how-to-choose-a-movie-together",
       "movie-picker-for-friends",
-      "movie-picker-for-couples",
-      "movie-night-ideas",
     ],
     blocks: [
       {
@@ -237,6 +237,10 @@ export const comparisons: Comparison[] = [
       {
         type: "p",
         text: "A movie night can start with a constraint, which is what [movie night ideas](/guides/movie-night-ideas) is for, and end with a log on Letterboxd. The middle, the actual choice, is the part Synema is for.",
+      },
+      {
+        type: "p",
+        text: "If you were looking for a Letterboxd alternative because you wanted help deciding, that narrower search is [Letterboxd alternatives for movie discovery](/guides/letterboxd-alternatives-for-movie-discovery). Picker apps, streaming guides, and diaries are separated by job in [best movie picker apps](/guides/best-movie-picker-apps).",
       },
       {
         type: "h2",

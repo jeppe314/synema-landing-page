@@ -9,7 +9,8 @@ const steps = [
   },
   {
     title: "Swipe Together",
-    description: "Everyone swipes movies in real time. Likes are shared instantly.",
+    description:
+      "Everyone swipes the same movies on their own phone. Likes stay private until you match.",
     screenshot: "/screenshots/swipe-movies.png",
     alt: "Synema swipe screen showing The Dark Knight movie card",
   },

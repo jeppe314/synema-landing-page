@@ -7,6 +7,7 @@ import {
   readingTimeMinutes,
   relatedGuides,
 } from "@/lib/guides";
+import { ComparisonTable } from "./comparison-table";
 import { ContentFaq } from "./content-faq";
 import {
   GuideChecklist,
@@ -104,6 +105,17 @@ export function GuideArticle({ guide }: { guide: Guide }) {
                     </li>
                   ))}
                 </ul>
+              );
+            }
+
+            if (block.type === "table") {
+              return (
+                <ComparisonTable
+                  key={`table-${index}`}
+                  caption={block.caption}
+                  columns={block.columns}
+                  rows={block.rows}
+                />
               );
             }
 

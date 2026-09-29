@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Synema",
     description: "Stop scrolling. Start watching.",
+    url: "/",
     type: "website",
     siteName: "Synema",
   },

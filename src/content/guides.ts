@@ -19,6 +19,12 @@ export type GuideBlock =
   | { type: "tip"; text: string }
   | { type: "checklist"; items: string[] }
   | { type: "pullout"; text: string }
+  | {
+      type: "table";
+      caption: string;
+      columns: string[];
+      rows: string[][];
+    }
   | { type: "faq"; items: { q: string; a: string }[] };
 
 export type Guide = {
@@ -49,7 +55,7 @@ export const guides: Guide[] = [
     metaTitle:
       "Movie Picker for Couples: Find Something You Both Want to Watch – Synema",
     metaDescription:
-      "A calmer way for couples to choose a movie together, when one person usually ends up scrolling and the other ends up vetoing.",
+      "How to decide what to watch with your partner, when one person ends up scrolling and the other ends up vetoing.",
     description:
       "How to pick a movie you both want, without one person scrolling and the other quietly giving up.",
     category: "For couples",
@@ -182,6 +188,10 @@ export const guides: Guide[] = [
         text: "If you use a tool, it should stay boring in the best way. Same list for both of you. Swipes that stay private until you are done. A clear match when you both say yes. A hint about where it is streaming, so agreeing does not turn into a second search.",
       },
       {
+        type: "p",
+        text: "That is a narrow job. A streaming search, a random button, and a film diary are different tools, which is the distinction in [best movie picker apps](/guides/best-movie-picker-apps).",
+      },
+      {
         type: "figure",
         src: guideImages.match,
         alt: "Synema match screen with a WATCH stamp after both people liked the same movie.",
@@ -201,6 +211,23 @@ export const guides: Guide[] = [
         type: "p",
         text: "Couples rarely need more opinions. They need the films they already agree on, a bit sooner. Synema is built for that moment. You each swipe. When you both like the same movie, it is a match, and the scrolling can end.",
       },
+      {
+        type: "h2",
+        text: "Common questions",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "How do you decide what to watch with your partner?",
+            a: "Agree a constraint and a mood first. Then each of you marks the same short list in private, and you only talk about the films you both said yes to. The first one you would both start is the one you watch. If the catalog is still the problem, the longer version is [how to decide what movie to watch](/guides/how-to-decide-what-movie-to-watch).",
+          },
+          {
+            q: "What if we want different kinds of night?",
+            a: "Say so, then use a default you picked before anyone was annoyed: shortest runtime, a coin flip, or whoever did not pick last time. An empty overlap is cleaner than a fake yes. For more than two people, the stricter version is [how to choose a movie together](/guides/how-to-choose-a-movie-together).",
+          },
+        ],
+      },
     ],
   },
   {
@@ -209,7 +236,7 @@ export const guides: Guide[] = [
     metaTitle:
       "Movie Picker for Friends: Find Something Everyone Wants to Watch – Synema",
     metaDescription:
-      "A movie picker for friends, for the night the group chat fills up with maybes. How to find a film the room actually wants to watch.",
+      "How to pick a movie with friends when the group chat fills up with maybes, and how to leave with a film the room will actually start.",
     description:
       "How a group can leave with one movie, instead of a thread full of maybes.",
     category: "For friends",
@@ -224,9 +251,9 @@ export const guides: Guide[] = [
       body: "Everyone swipes on their own phone. A movie counts when the room actually wants it.",
     },
     related: [
-      "movie-picker-for-couples",
       "how-to-choose-a-movie-together",
-      "movie-night-ideas",
+      "best-movies-to-watch-with-friends",
+      "movie-picker-for-couples",
     ],
     blocks: [
       {
@@ -364,6 +391,10 @@ export const guides: Guide[] = [
       {
         type: "p",
         text: "Synema is that pass, done in one room. Someone creates it and invites the people they are watching with. Everyone swipes through the same movies on their own phone. When everyone swipes right on the same movie, it is a match, and you stop. The two-person version of the same stall is the [movie picker for couples](/guides/movie-picker-for-couples).",
+      },
+      {
+        type: "p",
+        text: "If the missing piece is the pile, [movies that tend to work with friends](/guides/best-movies-to-watch-with-friends) is a lane you can steal from, not a list you have to finish. If you are comparing apps, [best movie picker apps](/guides/best-movie-picker-apps) separates a group match from a streaming search and a diary.",
       },
       {
         type: "h2",
@@ -718,7 +749,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "Synema is built for that pass. Someone opens a room and invites the people they are watching with. Everyone swipes through the same movies on their own phone. When everyone swipes right on the same movie, it is a match.",
+        text: "Synema is built for that pass. Someone opens a room and invites the people they are watching with. Everyone swipes through the same movies on their own phone. When everyone swipes right on the same movie, it is a match. If you are comparing that job with a streaming search or a diary, [best movie picker apps](/guides/best-movie-picker-apps) keeps them apart.",
       },
       {
         type: "p",
@@ -872,7 +903,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "With friends, the failure mode is the group chat. Anything is fine until it is time to press play. Same timer, same list, likes kept on each person's own screen. A [movie picker for friends](/guides/movie-picker-for-friends) earns its place on a Tuesday precisely because nobody wants a production. They want the question to end.",
+        text: "With friends, the failure mode is the group chat. Anything is fine until it is time to press play. Same timer, same list, likes kept on each person's own screen. A [movie picker for friends](/guides/movie-picker-for-friends) earns its place on a Tuesday precisely because nobody wants a production. They want the question to end. A few films that tend to survive a room are in [movies to watch with friends](/guides/best-movies-to-watch-with-friends).",
       },
       {
         type: "p",
@@ -1051,7 +1082,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "Friends make this easier when the invite includes the rule. Movie at 8, under two hours, nothing any of us has seen is a better text than what do you want to watch. People can opt out of the rule before they are on your sofa. A [movie picker for friends](/guides/movie-picker-for-friends) is what you use after they have opted in. For two people, you can skip the theme and still use a fence. That version is the [movie picker for couples](/guides/movie-picker-for-couples).",
+        text: "Friends make this easier when the invite includes the rule. Movie at 8, under two hours, nothing any of us has seen is a better text than what do you want to watch. People can opt out of the rule before they are on your sofa. A [movie picker for friends](/guides/movie-picker-for-friends) is what you use after they have opted in. If you want films that tend to survive a group, start from [movies to watch with friends](/guides/best-movies-to-watch-with-friends) and cut the list down. For two people, you can skip the theme and still use a fence. That version is the [movie picker for couples](/guides/movie-picker-for-couples).",
       },
       {
         type: "h2",
@@ -1083,6 +1114,555 @@ export const guides: Guide[] = [
           {
             q: "What about a movie night for two?",
             a: "You do not need a theme. You need the same fence and a private yes, so one person is not pitching while the other vetoes. That is the [movie picker for couples](/guides/movie-picker-for-couples).",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "best-movie-picker-apps",
+    title: "Best Movie Picker Apps, Sorted by the Job They Do",
+    metaTitle: "Best Movie Picker Apps, Sorted by the Job They Do – Synema",
+    metaDescription:
+      "Movie picker apps, streaming guides, and film diaries solve different problems. How to tell which one you actually need tonight.",
+    description:
+      "A group match, a random start, a streaming search, or a diary. They are not the same tool.",
+    category: "Picker tools",
+    publishedAt: "2026-09-29",
+    updatedAt: "2026-09-29",
+    inlineCta:
+      "If the job is agreeing with the people in the room, Synema lets everyone swipe privately and reveals the movies you agree on.",
+    bottomCta: {
+      kicker: "Stop debating. Start watching.",
+      title: "Synema is for the agreement. Other tools can keep the rest.",
+      body: "Open a room, swipe on your own phone, and keep the movies everyone wants to watch.",
+    },
+    related: [
+      "movie-picker-for-friends",
+      "movie-picker-for-couples",
+      "letterboxd-alternatives-for-movie-discovery",
+    ],
+    blocks: [
+      {
+        type: "p",
+        text: "Best movie picker app is a search that covers at least four different products. A way for a group to agree. A button that starts something so you can stop choosing. A guide to which service has the film. A diary of what you have already seen. Installing all four is a good way to recreate the scroll.",
+      },
+      {
+        type: "p",
+        text: "This page sorts those jobs. Synema is one of them. It is the wrong tool if you wanted a public log of every film you have watched, and it is not on the App Store or Google Play yet. The useful question is which problem you opened an app to solve.",
+      },
+      {
+        type: "figure",
+        src: guideImages.swipe,
+        alt: "Synema swipe screen showing a movie card you can like or pass in private.",
+        caption: "A picker is a pass over one pile. A diary and a streaming search are different screens.",
+        variant: "product",
+        priority: true,
+      },
+      {
+        type: "h2",
+        text: "Name the problem before the app",
+      },
+      {
+        type: "checklist",
+        items: [
+          "Are other people part of the decision, or is it just you?",
+          "Do you need a title, or the service that has a title you already chose?",
+          "Do you want a record afterward?",
+          "Do you want a suggestion for one person, or an overlap between people?",
+        ],
+      },
+      {
+        type: "p",
+        text: "If you cannot answer those, you are browsing. That can be a pleasant hour. It is a poor way to start a movie at nine.",
+      },
+      {
+        type: "h2",
+        text: "When the room has to agree",
+      },
+      {
+        type: "p",
+        text: "This is the actual movie-picker job. Same short list for everyone who will watch. Answers kept separate until the pass is done. Something visible that counts as finished. A poll in a group chat often fails this, because the options were chosen by one person and the votes are a small performance.",
+      },
+      {
+        type: "p",
+        text: "[Synema](/) is built for that pass. One person creates a room and invites the others, up to five, with a link or a QR code. Everyone swipes the same movies on their own phone. Likes stay private. A match is when everyone swipes right on the same movie. On your own, a right swipe saves a film to a personal watchlist. Synema also shows where a movie is streaming in your country.",
+      },
+      {
+        type: "p",
+        text: "Downloading it is free, and joining someone else's room is free. Hosting a group room needs Synema Pro. Swiping on your own does not need a subscription. You can [join the waitlist](/#waitlist). An invite-only [Android beta](/beta-testing) is open if you want to try it before the public launch.",
+      },
+      {
+        type: "p",
+        text: "Other swipe-to-match apps exist. They are not interchangeable, and this page will not pretend to have audited each one's rules. Before you install one, check three things: whether a match needs everyone or only a majority, whether people can see each other's answers while they are still deciding, and whether the pile can be limited to services you actually have. A picker that ignores those three is a poll with extra animation.",
+      },
+      {
+        type: "p",
+        text: "You can run the same pass on paper. The steps between people are in [how to choose a movie together](/guides/how-to-choose-a-movie-together). The two-person version is a [movie picker for couples](/guides/movie-picker-for-couples). The group-chat version is a [movie picker for friends](/guides/movie-picker-for-friends).",
+      },
+      {
+        type: "cta",
+      },
+      {
+        type: "h2",
+        text: "When you just need something to start",
+      },
+      {
+        type: "p",
+        text: "Sometimes nobody wants a process. They want the menu to go away. A random draw from a list you already filtered — a wheel, a slip of paper, a play-something button inside one streaming app — is a legitimate tool for that mood. Some services will simply start a title for you. That helps when you are alone, on one service, and you do not mind what it is.",
+      },
+      {
+        type: "p",
+        text: "Random fails when people have real nos. It is a stop rule, not a negotiation. Use it after the pile is small and the mood is shared. Using it on the entire catalog is how you land on a film nobody would have defended. The weeknight version, with a timer and a default, is [what should we watch tonight](/guides/what-to-watch-tonight).",
+      },
+      {
+        type: "h2",
+        text: "When you need to know where it is streaming",
+      },
+      {
+        type: "p",
+        text: "[JustWatch](https://www.justwatch.com) is a streaming guide. You look up a title, or filter by the services you pay for, and it shows where a film can be streamed, rented, or bought. It also keeps a watchlist. [Reelgood](https://reelgood.com) sits in the same category: where to watch, across services, rather than a vote among the people on the couch.",
+      },
+      {
+        type: "p",
+        text: "Use one of these after you have a title, or to build the short pile in the first place. Do not expect either to settle an argument. Availability also changes by country and by week, so treat it as a lookup, not as a fact you memorized last month.",
+      },
+      {
+        type: "h2",
+        text: "When you want a diary, ratings, or a database",
+      },
+      {
+        type: "p",
+        text: "[Letterboxd](https://letterboxd.com) is for logging films, rating them, writing about them, and reading other people. A list there can put a movie in your head. It does not take a private vote from the room. The side-by-side with Synema is [Synema vs Letterboxd](/compare/synema-vs-letterboxd). If you opened Letterboxd hoping it would choose for the couch, the closer page is [Letterboxd alternatives for deciding what to watch](/guides/letterboxd-alternatives-for-movie-discovery).",
+      },
+      {
+        type: "p",
+        text: "[IMDb](https://www.imdb.com) is the wide database: cast, ratings, and a place to look a film up when someone says the one with. That is useful. It will not tell you that the other three people would actually start it tonight.",
+      },
+      {
+        type: "h2",
+        text: "Pick the tool that matches the job",
+      },
+      {
+        type: "table",
+        caption: "What each kind of app is for, and what to stop asking it to do",
+        columns: ["Job", "What helps", "What it will not do"],
+        rows: [
+          [
+            "Agree with the people watching",
+            "A private pass on one shared pile. Synema is built for this. A shared note works too.",
+            "Keep a public diary of everything you have seen",
+          ],
+          [
+            "Start something without a debate",
+            "A random draw from a small list you already filtered",
+            "Respect a hard no it never asked about",
+          ],
+          [
+            "Find which service has it",
+            "A streaming guide such as JustWatch",
+            "Decide between people",
+          ],
+          [
+            "Remember and talk about films",
+            "Letterboxd",
+            "End the scroll in the room",
+          ],
+          [
+            "Look up a title or a rating",
+            "IMDb",
+            "Know what this room wants tonight",
+          ],
+        ],
+      },
+      {
+        type: "h2",
+        text: "Ignore the longer feature list",
+      },
+      {
+        type: "p",
+        text: "Trailers, a public profile, and a score out of ten are extras. The decision needs a small pile, an honest yes, and a point where you stop. If an app does not have those, it is a catalog in a different coat. An app for choosing a movie together is not the same thing as an app that recommends films to one person. A recommendation can fill the pile. The people in the room still have to answer it.",
+      },
+      {
+        type: "h2",
+        text: "Common questions",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "What is the best movie picker app?",
+            a: "There is not one. If other people are choosing with you, use a shared private pass. If you only need the service that has a film, use a streaming guide. If you want a log of what you have seen, use Letterboxd. Synema is for the first of those, and it is not a replacement for the other two.",
+          },
+          {
+            q: "Are apps for choosing a movie together different from recommendation apps?",
+            a: "Yes. A recommendation app suggests titles to one person. Choosing together means the people in the room have answered the same list. A good suggestion can still lose the room.",
+          },
+          {
+            q: "Is a group chat poll enough?",
+            a: "Only if the options were not chosen by one person and the votes are not a performance. Most chat polls fail both. The friends version of that problem is the [movie picker for friends](/guides/movie-picker-for-friends).",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "letterboxd-alternatives-for-movie-discovery",
+    title: "Letterboxd Alternatives for Deciding What to Watch",
+    metaTitle: "Letterboxd Alternatives for Deciding What to Watch – Synema",
+    metaDescription:
+      "Letterboxd is a diary and a community. If you wanted help deciding what to watch with other people, these are the alternatives that fit that job.",
+    description:
+      "When the thing you wanted was a decision, not another place to log films.",
+    category: "Comparisons",
+    publishedAt: "2026-09-29",
+    updatedAt: "2026-09-29",
+    inlineCta:
+      "Deciding with the people on the couch is the part Synema is for. Everyone swipes privately, and you keep the movies you agree on.",
+    bottomCta: {
+      kicker: "Stop debating. Start watching.",
+      title: "Keep Letterboxd for the diary. Use a pass for the decision.",
+      body: "Synema is the overlap between the people who are actually watching.",
+    },
+    related: [
+      "best-movie-picker-apps",
+      "how-to-choose-a-movie-together",
+      "movie-picker-for-friends",
+    ],
+    blocks: [
+      {
+        type: "p",
+        text: "Most lists of Letterboxd alternatives are shopping for another diary. Ratings, reviews, a watchlist, people to follow. That is a fair search if you want to leave Letterboxd and keep the same job.",
+      },
+      {
+        type: "p",
+        text: "This page is for a narrower miss. You like films. You may already use Letterboxd. And you still cannot get the room to press play. A second diary will not fix that. The alternative you want depends on which part of movie night is actually stuck.",
+      },
+      {
+        type: "figure",
+        src: guideImages.cinema,
+        alt: "A dark cinema seen from the back row, with the screen lit.",
+        caption: "A feed can suggest a film. The people in the room still have to agree.",
+        wide: true,
+        priority: true,
+      },
+      {
+        type: "h2",
+        text: "What Letterboxd is good at",
+      },
+      {
+        type: "p",
+        text: "[Letterboxd](https://letterboxd.com) is a social network for film. People log what they have watched, rate films, write reviews, keep lists, and follow each other. Finding something to watch often happens sideways, through someone's review or a list, rather than through a shared decision with the people on your couch.",
+      },
+      {
+        type: "p",
+        text: "If that diary and that community are what you wanted, Synema is not the alternative. It does not keep a public log, it does not publish ratings or reviews, and the only group is the room you invited.",
+      },
+      {
+        type: "h2",
+        text: "The part it does not finish",
+      },
+      {
+        type: "p",
+        text: "A list can start a pick. Agreeing with the other people in the room still happens somewhere else, usually in a chat or a long scroll. That difference is the whole of [Synema vs Letterboxd](/compare/synema-vs-letterboxd). Read that if you want the two products next to each other. The rest of this page is where to go once you know which job you have.",
+      },
+      {
+        type: "cta",
+      },
+      {
+        type: "h2",
+        text: "If you still want a diary",
+      },
+      {
+        type: "p",
+        text: "Then you want an ordinary Letterboxd alternative, and you should not install a decision app and hope it grows a community. [IMDb](https://www.imdb.com) will give you a database and ratings. [JustWatch](https://www.justwatch.com) will tell you where a title is available and hold a watchlist. Neither replaces a social log of films you have seen, with reviews and people you follow.",
+      },
+      {
+        type: "p",
+        text: "If the public diary is the point, stay with Letterboxd, or accept that you are changing the job. Switching apps will not make logging more interesting if you did not enjoy logging.",
+      },
+      {
+        type: "h2",
+        text: "If you want help deciding",
+      },
+      {
+        type: "p",
+        text: "Sort the alternative by the decision you are stuck on. These are different products, and using all of them in one evening is how the menu wins.",
+      },
+      {
+        type: "h3",
+        text: "The people in the room cannot agree",
+      },
+      {
+        type: "p",
+        text: "You need an overlap, not a better feed. Same list, a yes that stays private until everyone has answered, and a stop at the first film the room would actually start. Synema is built for that: a room of up to five, everyone swipes, a match when everyone swipes right. It will not log the film afterward. Letterboxd still can.",
+      },
+      {
+        type: "p",
+        text: "The version without an app is [how to choose a movie together](/guides/how-to-choose-a-movie-together). A wider map of picker, search, and diary tools is [best movie picker apps](/guides/best-movie-picker-apps).",
+      },
+      {
+        type: "h3",
+        text: "You are alone and the catalog is the problem",
+      },
+      {
+        type: "p",
+        text: "Shrink it. One service, a runtime cap, about ten titles, and the first one you would actually start. That method is [how to decide what movie to watch](/guides/how-to-decide-what-movie-to-watch). A streaming guide helps you build the pile. A diary helps if you already marked films during the week, when nobody was waiting.",
+      },
+      {
+        type: "h3",
+        text: "You know the film and not the service",
+      },
+      {
+        type: "p",
+        text: "That is a streaming guide's job, or the search inside the apps you already pay for. Do it after the title exists. Looking up availability in the middle of the argument adds a second decision, which is the thing you were trying to finish.",
+      },
+      {
+        type: "h2",
+        text: "What not to swap in",
+      },
+      {
+        type: "p",
+        text: "An app that calls itself a Letterboxd alternative and then offers another public profile is still a diary. An app that writes you a personal shortlist from a mood is a suggestion for one person. Both can be pleasant. Neither asks the other people on the couch.",
+      },
+      {
+        type: "p",
+        text: "A reasonable split is boring, which is why it works. Use Letterboxd to remember films and to browse other people's taste. Use a short private pass, in Synema or on a note, when the people who are actually watching need to agree. Use a streaming guide once you have a title and need a play button.",
+      },
+      {
+        type: "h2",
+        text: "Common questions",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "Is Synema a Letterboxd alternative?",
+            a: "Only if the thing you wanted from Letterboxd was help deciding with other people. For a diary, ratings, and a community, it is not a replacement. The side-by-side is [Synema vs Letterboxd](/compare/synema-vs-letterboxd).",
+          },
+          {
+            q: "What should I use to find something to watch tonight?",
+            a: "It depends who is deciding. Alone, a smaller pile beats a new social network. With other people, look for a shared pass rather than a better feed. [Best movie picker apps](/guides/best-movie-picker-apps) sorts that by job.",
+          },
+          {
+            q: "Should I stop using Letterboxd?",
+            a: "No. Logging a film and choosing one tonight are different evenings. Plenty of people can do both, as long as they do not ask one app to finish the other's job.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "best-movies-to-watch-with-friends",
+    title: "Best Movies to Watch with Friends, by the Kind of Night",
+    metaTitle: "Best Movies to Watch with Friends, by the Kind of Night – Synema",
+    metaDescription:
+      "Films that tend to work with friends, grouped by the night you actually have: easy, paying attention, or short enough to finish.",
+    description:
+      "A pile to steal from, grouped by whether the room will talk, watch, or need to be done.",
+    category: "Movie night",
+    publishedAt: "2026-09-29",
+    updatedAt: "2026-09-29",
+    inlineCta:
+      "Once you have a short list, Synema lets everyone swipe privately and reveals the movies you agree on.",
+    bottomCta: {
+      kicker: "Stop debating. Start watching.",
+      title: "Take a few of these. Leave the rest for another night.",
+      body: "Synema is a way to see which titles the room actually overlaps on.",
+    },
+    related: [
+      "movie-picker-for-friends",
+      "movie-night-ideas",
+      "what-to-watch-tonight",
+    ],
+    blocks: [
+      {
+        type: "p",
+        text: "A list of best movies to watch with friends is a bad assignment and a useful pile. Nobody needs to get through it. The films below are grouped by the kind of evening they tend to survive: a room that will talk, a room that will actually look at the screen, and a night that has to end.",
+      },
+      {
+        type: "p",
+        text: "Taste still wins. If your friends hate crime capers, Ocean's Eleven will not become good because it is on a list. Use the lane, take four or five titles, and throw out the rest without a speech.",
+      },
+      {
+        type: "figure",
+        src: guideImages.friendsAtScreen,
+        alt: "Three people seen from behind, watching a movie together.",
+        caption: "The film has to survive the room you have, not the room in the poster.",
+        wide: true,
+        priority: true,
+      },
+      {
+        type: "h2",
+        text: "What usually works in a group",
+      },
+      {
+        type: "p",
+        text: "A friend-group film can be rejoined if someone gets up for a drink. It gives people a reason to react. It does not require eight earlier movies as homework. And it is not so long that the last half hour belongs to phones.",
+      },
+      {
+        type: "p",
+        text: "That is a filter, not a ranking. A quiet, difficult film can be the right choice for a different night, with people who came to be quiet. It is a poor default for a hangout.",
+      },
+      {
+        type: "h2",
+        text: "When people are going to talk",
+      },
+      {
+        type: "p",
+        text: "These still work if the room is a little loud. The plot is legible, the scenes are short, and missing a minute does not sink you.",
+      },
+      {
+        type: "h3",
+        text: "Ocean's Eleven",
+      },
+      {
+        type: "p",
+        text: "The 2001 one. You can step out and still know, broadly, that they are stealing something in Las Vegas. The pleasure is the plan and the clothes, which a chatty room does not ruin. It is a poor choice only if someone in the group has a hard rule against heist movies.",
+      },
+      {
+        type: "h3",
+        text: "Game Night",
+      },
+      {
+        type: "p",
+        text: "It is already about friends who turned a hangout into a plot. The joke and the story are the same thing, so a little talking does less damage than it does to a thriller. Meaner than it looks in the trailer. Fine for adults who wanted a comedy and can handle that.",
+      },
+      {
+        type: "h3",
+        text: "Hot Fuzz",
+      },
+      {
+        type: "p",
+        text: "A village mystery that becomes an action film, on purpose. You do not need to have seen the other films it is nodding at. It escalates in a way groups tend to enjoy out loud. Skip it if half the room wanted something gentle.",
+      },
+      {
+        type: "h3",
+        text: "The Nice Guys",
+      },
+      {
+        type: "p",
+        text: "A 1970s detective comedy that is funnier and more sour than Game Night. The case is followable. Bring it when the room can take a bit of cruelty in the jokes, and not when someone asked for cozy.",
+      },
+      {
+        type: "h3",
+        text: "School of Rock",
+      },
+      {
+        type: "p",
+        text: "Broad, musical, and hard to be too cool for, for one evening. Useful when the group includes someone who did not come to watch a film and will still stay for this one. If everyone wanted something sharper, pick from the list above instead.",
+      },
+      {
+        type: "cta",
+      },
+      {
+        type: "h2",
+        text: "When the room will actually watch",
+      },
+      {
+        type: "p",
+        text: "These want eyes on the screen. They are a good plan if you say that out loud first. They are a bad plan for a party that happens to have a television nearby.",
+      },
+      {
+        type: "h3",
+        text: "Mad Max: Fury Road",
+      },
+      {
+        type: "p",
+        text: "Almost everything that matters is visual, and the story is a chase. It fails if people want to talk through it. It works if they will look up. Nobody needs the earlier Mad Max films to follow this one.",
+      },
+      {
+        type: "h3",
+        text: "Spider-Man: Into the Spider-Verse",
+      },
+      {
+        type: "p",
+        text: "Fast, and designed so you can feel the joke without a comics education. The style is the entertainment, which means a room of people staring at their phones will waste it. A room that likes animation, including people who claim they do not, often stays.",
+      },
+      {
+        type: "h3",
+        text: "Knives Out",
+      },
+      {
+        type: "p",
+        text: "A mystery the group can play along with, which is a different pleasure from a film you endure in silence. It runs long for a weeknight. Fine when nobody has an early morning. You do not need the later films.",
+      },
+      {
+        type: "h3",
+        text: "Parasite",
+      },
+      {
+        type: "p",
+        text: "Excellent with friends who will read subtitles and stay quiet. A bad choice for a chatty hangout, not because subtitles are a lesser way to watch, but because the room will not talk and read at the same time. Say that before you put it on the list, so the no can happen early.",
+      },
+      {
+        type: "h2",
+        text: "When the night has to end",
+      },
+      {
+        type: "p",
+        text: "These are short enough for a weeknight. Well under two hours, and they do not ask the group to settle in for an epic.",
+      },
+      {
+        type: "ul",
+        items: [
+          "The Princess Bride. A fairy tale people quote, including people who arrived expecting to be above it.",
+          "Shaun of the Dead. A comedy that happens to have zombies. Easy to rewatch. Skip if someone hates horror-adjacent jokes.",
+          "Clue. A short, silly whodunit that already feels like a dinner party. The pleasure is the pace.",
+          "Hunt for the Wilderpeople. Warm and odd, and it does not require anyone to have seen a trailer.",
+          "Paddington 2. It sounds like a film for children. It is also a remarkably reliable way for a skeptical adult room to end up in a better mood. Offer it as itself, not as a bit.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Films that often fail the room, even when they are good",
+      },
+      {
+        type: "p",
+        text: "A three-hour cut on a night someone has work in the morning. The runtime was the decision, and the list lost.",
+      },
+      {
+        type: "p",
+        text: "Anything that needs the previous films, unless the whole room is already in on the series. Homework is how one enthusiast programs the night and calls it sharing.",
+      },
+      {
+        type: "p",
+        text: "A film one person loves and has been trying to make the others respect. That can be their turn. It should be labeled as their turn, not smuggled in as the group's pick. How to tell those apart is in [how to choose a movie together](/guides/how-to-choose-a-movie-together).",
+      },
+      {
+        type: "h2",
+        text: "Use the list as a pile, then stop",
+      },
+      {
+        type: "p",
+        text: "Pick one lane. Easy, actually watching, or short. Take four or five titles from it. Each person marks yes or no without narrating. Play the first film you share a real yes on. Do not reopen the full list to see if a slightly better option was further down.",
+      },
+      {
+        type: "p",
+        text: "If you want the fence before the titles — one service, a runtime, a genre you refuse to stack five deep — that is [movie night ideas](/guides/movie-night-ideas). If the question is simply tonight and the clock is the boss, use [what should we watch tonight](/guides/what-to-watch-tonight).",
+      },
+      {
+        type: "p",
+        text: "The negotiation, once the pile is this small, is what a [movie picker for friends](/guides/movie-picker-for-friends) is for. You can do it with a note. Synema does it as a private swipe in one room, and shows you the overlap. It will not make a chatty group sit still for Parasite. It will stop you from spending the evening agreeing to watch all of the above.",
+      },
+      {
+        type: "h2",
+        text: "Common questions",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "What if half the room has already seen it?",
+            a: "Ask whether they want to watch it again. A familiar film can be a yes. If they do not want to sit through it, that is a no, and it should count. Do not make them stay quiet and then talk over the opening.",
+          },
+          {
+            q: "Do we need a theme?",
+            a: "A lane is enough. A theme helps when it can reject a movie. A few that do are in [movie night ideas](/guides/movie-night-ideas).",
+          },
+          {
+            q: "What about a movie for two?",
+            a: "Different room, different failure. One person scrolls and the other vetoes. Start with the [movie picker for couples](/guides/movie-picker-for-couples), not with a longer friends list.",
           },
         ],
       },
