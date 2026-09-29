@@ -5,14 +5,15 @@ import {
   type Guide,
   type GuideBlock,
 } from "@/content/guides";
+import { absoluteUrl } from "@/lib/site";
 
 export { getGuide, guides };
 export type { Guide, GuideBlock };
 
 const WORDS_PER_MINUTE = 230;
 
-function visibleText(text: string) {
-  return text.replace(/\[([^\]]+)\]\(\/[^)\s]+\)/g, "$1");
+export function plainText(text: string) {
+  return text.replace(/\[([^\]]+)\]\((\/[^)\s]*|https:\/\/[^)\s]+)\)/g, "$1");
 }
 
 function blockText(block: GuideBlock) {
@@ -30,6 +31,8 @@ function blockText(block: GuideBlock) {
       return block.items.map((item) => `${item.title} ${item.text}`).join(" ");
     case "figure":
       return block.caption ?? "";
+    case "faq":
+      return block.items.map((item) => `${item.q} ${item.a}`).join(" ");
     case "cta":
       return "";
   }
@@ -39,7 +42,7 @@ export function guideWordCount(guide: Guide) {
   const raw = [guide.title, guide.inlineCta, ...guide.blocks.map(blockText)].join(
     " ",
   );
-  return visibleText(raw).trim().split(/\s+/).filter(Boolean).length;
+  return plainText(raw).trim().split(/\s+/).filter(Boolean).length;
 }
 
 export function readingTimeMinutes(guide: Guide) {
@@ -55,8 +58,8 @@ export function formatGuideDate(isoDate: string) {
   }).format(new Date(`${isoDate}T00:00:00Z`));
 }
 
-export function relatedGuides(guide: Guide) {
-  return guide.related
+export function relatedGuides(slugs: string[]) {
+  return slugs
     .map((slug) => getGuide(slug))
     .filter((item): item is Guide => Boolean(item));
 }
@@ -85,5 +88,53 @@ export function guideMetadata(guide: Guide): Metadata {
       title: guide.metaTitle,
       description: guide.metaDescription,
     },
+  };
+}
+
+export function guideStructuredData(guide: Guide) {
+  const url = absoluteUrl(guidePath(guide.slug));
+  const faqs = guide.blocks.flatMap((block) =>
+    block.type === "faq" ? block.items : [],
+  );
+
+  const article = {
+    "@type": "Article",
+    headline: guide.title,
+    description: guide.metaDescription,
+    datePublished: guide.publishedAt,
+    dateModified: guide.updatedAt,
+    inLanguage: "en",
+    mainEntityOfPage: url,
+    author: {
+      "@type": "Organization",
+      name: "Synema",
+      url: absoluteUrl("/"),
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Synema",
+      url: absoluteUrl("/"),
+    },
+  };
+
+  const graph: Record<string, unknown>[] = [article];
+
+  if (faqs.length > 0) {
+    graph.push({
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: plainText(item.a),
+        },
+      })),
+    });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": graph,
   };
 }

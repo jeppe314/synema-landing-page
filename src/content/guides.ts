@@ -18,7 +18,8 @@ export type GuideBlock =
   | { type: "steps"; items: { title: string; text: string }[] }
   | { type: "tip"; text: string }
   | { type: "checklist"; items: string[] }
-  | { type: "pullout"; text: string };
+  | { type: "pullout"; text: string }
+  | { type: "faq"; items: { q: string; a: string }[] };
 
 export type Guide = {
   slug: string;
@@ -53,7 +54,7 @@ export const guides: Guide[] = [
       "How to pick a movie you both want, without one person scrolling and the other quietly giving up.",
     category: "For couples",
     publishedAt: published,
-    updatedAt: published,
+    updatedAt: "2026-09-29",
     inlineCta:
       "Want to skip the debate? Synema lets everyone swipe privately and reveals the movies you agree on.",
     bottomCta: {
@@ -64,8 +65,8 @@ export const guides: Guide[] = [
     },
     related: [
       "movie-picker-for-friends",
+      "how-to-choose-a-movie-together",
       "how-to-decide-what-movie-to-watch",
-      "what-to-watch-tonight",
     ],
     blocks: [
       {
@@ -158,7 +159,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "The longer version of this, including what to do when the list is still huge, is in [how to decide what movie to watch](/guides/how-to-decide-what-movie-to-watch).",
+        text: "The longer version of this, including what to do when the list is still huge, is in [how to decide what movie to watch](/guides/how-to-decide-what-movie-to-watch). With more than two people, the same overlap has a stricter room — that version is [how to choose a movie together](/guides/how-to-choose-a-movie-together).",
       },
       {
         type: "h2",
@@ -204,16 +205,16 @@ export const guides: Guide[] = [
   },
   {
     slug: "movie-picker-for-friends",
-    title: "Movie Picker for Friends: Decide What to Watch Together",
+    title: "Movie Picker for Friends: Find Something Everyone Wants to Watch",
     metaTitle:
-      "Movie Picker for Friends: Decide What to Watch Together – Synema",
+      "Movie Picker for Friends: Find Something Everyone Wants to Watch – Synema",
     metaDescription:
-      "Group chats full of maybe and anything is fine rarely pick a film. How friends can decide what to watch without a long debate.",
+      "A movie picker for friends, for the night the group chat fills up with maybes. How to find a film the room actually wants to watch.",
     description:
       "How a group can leave with one movie, instead of a thread full of maybes.",
     category: "For friends",
     publishedAt: published,
-    updatedAt: published,
+    updatedAt: "2026-09-29",
     inlineCta:
       "Rather than another group chat poll? Synema lets everyone swipe privately and shows the movies you all like.",
     bottomCta: {
@@ -224,8 +225,8 @@ export const guides: Guide[] = [
     },
     related: [
       "movie-picker-for-couples",
+      "how-to-choose-a-movie-together",
       "movie-night-ideas",
-      "how-to-decide-what-movie-to-watch",
     ],
     blocks: [
       {
@@ -327,6 +328,26 @@ export const guides: Guide[] = [
       },
       {
         type: "h2",
+        text: "When the room wants different things",
+      },
+      {
+        type: "p",
+        text: "Do not hunt for a film that is everyone's favorite. Hunt for a film most of the room would start, and that nobody has a hard no against. Favorites can take the rest of the year.",
+      },
+      {
+        type: "p",
+        text: "If the split is stable — half the room wants horror, half wants a comedy — alternate on purpose. Write down whose night is next, in the same chat where the plan was made, so fairness does not depend on anyone remembering.",
+      },
+      {
+        type: "p",
+        text: "The person with the odd taste should get a whole night sometimes, instead of a watered-down film every time. One musical that three people will try is a better plan than a permanent compromise nobody asked for.",
+      },
+      {
+        type: "p",
+        text: "What counts as a hard no, and what to do when the overlap is only partial, is in [how to choose a movie together](/guides/how-to-choose-a-movie-together).",
+      },
+      {
+        type: "h2",
         text: "Keep it off the group chat",
       },
       {
@@ -342,7 +363,32 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "Synema is a movie picker for friends in that narrower sense. You open a room, everyone swipes on their own, and a movie surfaces when the room likes it. Couples can use the same trick — the [movie picker for couples](/guides/movie-picker-for-couples) is the two-person version of this problem. With friends, the only extra rule is to stop when you have a match. The hangout was the point.",
+        text: "Synema is that private pass, with the counting done for you. Someone opens a room and invites the others, up to five. Everyone swipes on their own phone. A movie counts when more than half the room likes it. If everyone likes the same one, it is a match right away. If a few films clear, you pick a winner from those, and then you stop. The two-person version of the same stall is the [movie picker for couples](/guides/movie-picker-for-couples).",
+      },
+      {
+        type: "h2",
+        text: "Common questions",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "Why does choosing a movie with friends take so long?",
+            a: "Every extra person adds a veto and a reason not to be the one who picks badly. The catalog is not the slow part. Waiting for a public, unanimous, defensible yes is.",
+          },
+          {
+            q: "What if nobody likes the same movie?",
+            a: "Say so, then change one thing: the mood, or whose turn it is. Do not open a second streaming app and start over. If you want a default, the shortest film that anyone liked is blunt and usually fair.",
+          },
+          {
+            q: "What if someone has already seen it?",
+            a: "Ask whether they want to watch it again. A film they have seen can still be a yes. If they do not want to sit through it, that is a real no, and it should count. Do not make them abstain and then talk over the opening.",
+          },
+          {
+            q: "Is a group chat poll enough?",
+            a: "Only if the options were not chosen by one person and the votes are not a performance. Most chat polls fail both. People vote for the safe title, and the friend who has already seen it stays quiet until it starts.",
+          },
+        ],
       },
     ],
   },
@@ -357,7 +403,7 @@ export const guides: Guide[] = [
       "Shrink the catalog, take an honest pass, and use a stop rule so the scroll has an ending.",
     category: "Deciding",
     publishedAt: published,
-    updatedAt: published,
+    updatedAt: "2026-09-29",
     inlineCta:
       "If you'd rather not run the process by hand, Synema lets everyone swipe privately and reveals the movies you agree on.",
     bottomCta: {
@@ -367,9 +413,9 @@ export const guides: Guide[] = [
       body: "Bring the same list, keep the likes private, and skip the part where someone has to nominate a film.",
     },
     related: [
+      "how-to-choose-a-movie-together",
       "what-to-watch-tonight",
       "movie-picker-for-couples",
-      "movie-night-ideas",
     ],
     blocks: [
       {
@@ -398,7 +444,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "Other people make this worse in a specific way. If you are choosing for a group, every title is a small social risk. You start filtering for what is defensible, which is a different list from what you want. That is how what movie should we watch turns into what movie will nobody complain about.",
+        text: "Other people make this worse in a specific way. If you are choosing for a group, every title is a small social risk. You start filtering for what is defensible, which is a different list from what you want. That is how what movie should we watch turns into what movie will nobody complain about. The back-and-forth between people is [how to choose a movie together](/guides/how-to-choose-a-movie-together). This page is the part that still works if you are on your own: shrink the list, then stop.",
       },
       {
         type: "cta",
@@ -491,6 +537,217 @@ export const guides: Guide[] = [
     ],
   },
   {
+    slug: "how-to-choose-a-movie-together",
+    title: "How to Choose a Movie Together Without Arguing or Endless Scrolling",
+    metaTitle:
+      "How to Choose a Movie Together Without Arguing or Endless Scrolling – Synema",
+    metaDescription:
+      "How to choose a movie together: agree on the rules before the titles, keep each yes honest, and stop when the overlap is real.",
+    description:
+      "How two or more people can agree on one film without making someone the villain of the choice.",
+    category: "Together",
+    publishedAt: "2026-09-29",
+    updatedAt: "2026-09-29",
+    inlineCta:
+      "If you'd rather not host the list yourself, Synema lets everyone swipe privately and reveals the movies you agree on.",
+    bottomCta: {
+      kicker: "Stop debating. Start watching.",
+      title: "Same list. Private swipes. A movie when you actually agree.",
+      body: "Synema keeps the yeses honest and ends the search when the room overlaps.",
+    },
+    related: [
+      "how-to-decide-what-movie-to-watch",
+      "movie-picker-for-couples",
+      "movie-picker-for-friends",
+    ],
+    blocks: [
+      {
+        type: "p",
+        text: "Choosing a movie together is a strange little argument. Everyone wants the night to start. Nobody wants to be the person who picked wrong. So the conversation circles, the catalog stays open, and the film you would have enjoyed at the beginning is still unwatched.",
+      },
+      {
+        type: "p",
+        text: "This page is about the part that happens between people. Shrinking a huge catalog is its own job, and it is written up in [how to decide what movie to watch](/guides/how-to-decide-what-movie-to-watch). What follows is how two or more people land on one title without turning it into a trial.",
+      },
+      {
+        type: "figure",
+        src: guideImages.livingRoom,
+        alt: "Two people on a sofa, seen from behind, with a film on the television.",
+        caption: "The film can wait a minute. The way you are choosing should not.",
+        wide: true,
+        priority: true,
+      },
+      {
+        type: "h2",
+        text: "Most of the fight is about the process",
+      },
+      {
+        type: "p",
+        text: "It looks like a disagreement about a movie. Often it is a disagreement about who is exposed. One person keeps naming titles and collecting the nos. Another stays vague, because a vague person cannot be blamed. A third has a film in mind and hears every other idea as a rejection.",
+      },
+      {
+        type: "p",
+        text: "Until the process is shared, every suggestion is a small test of someone's taste. People defend harder than they need to, or they give up and say anything is fine. Anything is fine is rarely a preference. It is a way to leave the decision in someone else's hands.",
+      },
+      {
+        type: "cta",
+      },
+      {
+        type: "h2",
+        text: "Decide what a yes means",
+      },
+      {
+        type: "p",
+        text: "A lot of these arguments are people using yes for different things.",
+      },
+      {
+        type: "ul",
+        items: [
+          "I want to watch this tonight",
+          "I can sit through it",
+          "I do not want to be difficult",
+        ],
+      },
+      {
+        type: "p",
+        text: "Ask for the first one. A pile of films people can sit through produces something that starts and then loses the room to phones. A pile of I do not want to be difficult produces the same safe film as last time.",
+      },
+      {
+        type: "pullout",
+        text: "A useful yes is a movie you would start, not a movie you would tolerate.",
+      },
+      {
+        type: "h2",
+        text: "Agree the rules before anyone names a film",
+      },
+      {
+        type: "p",
+        text: "This takes about a minute. It saves the next twenty. Say it once, out loud, before a single poster.",
+      },
+      {
+        type: "steps",
+        items: [
+          {
+            title: "Who has a say",
+            text: "Everyone who will actually watch, not everyone who happens to be in the apartment. A person leaving after the trailer does not need a veto.",
+          },
+          {
+            title: "What agreement means",
+            text: "Everyone, or most of the room. For two people, most of the room is both of you. For a few friends, waiting on a unanimous favorite is how you rewatch something harmless. The friends version of that rule is a [movie picker for friends](/guides/movie-picker-for-friends).",
+          },
+          {
+            title: "The backup, chosen now",
+            text: "Shortest film left, a coin flip, or whoever did not choose last time. Pick the backup while everyone is still pleasant. You will not invent a fair one later.",
+          },
+        ],
+      },
+      {
+        type: "p",
+        text: "Couples get stuck in a narrower version of the same rules, usually with one person holding the remote. That case is a [movie picker for couples](/guides/movie-picker-for-couples).",
+      },
+      {
+        type: "h2",
+        text: "Take the performance out of the pass",
+      },
+      {
+        type: "p",
+        text: "Same short list for everyone. Each person marks yes or no without explaining. Then you compare. The overlap is the decision.",
+      },
+      {
+        type: "p",
+        text: "Narrating during the pass lets the first confident opinion become the group's taste. People edit a yes into a maybe because they do not want to argue about a musical, a subtitle, or a film someone already dismissed. A few quiet minutes are the point.",
+      },
+      {
+        type: "tip",
+        text: "If you cannot get through fifteen titles without debating them, the list is too open. Close it, name the mood, and build a smaller one.",
+      },
+      {
+        type: "p",
+        text: "How big that list should be, and why the first real overlap wins, is the practical half of [how to decide what movie to watch](/guides/how-to-decide-what-movie-to-watch). Use that when the catalog is the problem. Stay here when the people are.",
+      },
+      {
+        type: "h2",
+        text: "Read the overlap, then stop",
+      },
+      {
+        type: "p",
+        text: "If everyone marked the same film, play it. Do not go looking for a slightly better one. You were searching for agreement, and you have it.",
+      },
+      {
+        type: "p",
+        text: "If most of the room said yes and one person said no, ask which kind of no it is. A real no — I will not enjoy this, or I have seen it and I do not want to sit through it again — should count. A soft no that means I had a different favorite can yield. Pretending those are the same answer is how someone spends the film on their phone.",
+      },
+      {
+        type: "p",
+        text: "If the room splits into two moods, do not average them into a third film nobody named. Choose the mood first. Light or heavy. New or familiar. Then pick inside the mood that won.",
+      },
+      {
+        type: "p",
+        text: "If the overlap is empty, use the backup you already chose. Opening another app is a new decision, which is the thing you were trying to finish.",
+      },
+      {
+        type: "figure",
+        src: guideImages.match,
+        alt: "Synema match screen with a WATCH stamp after the room liked the same movie.",
+        caption: "A match is the overlap. Everything else can wait.",
+        variant: "product",
+      },
+      {
+        type: "h2",
+        text: "When you should stop choosing one film",
+      },
+      {
+        type: "p",
+        text: "Some nights the overlap is empty because the tastes are actually different, not because the process failed. Forcing a compromise film every time teaches people to fake the next yes.",
+      },
+      {
+        type: "p",
+        text: "Take turns on purpose. Their lane this time, yours next, written down so it is not a vague promise. The person whose turn it is still brings something the other can sit through. A turn is not a license to program a film the room will endure out of politeness.",
+      },
+      {
+        type: "p",
+        text: "You can also split the evening without calling it a failure. One short film everyone can stand, and the heavier one waits for another night. That is still a decision.",
+      },
+      {
+        type: "h2",
+        text: "A tool only helps if it keeps the rules",
+      },
+      {
+        type: "p",
+        text: "You can run all of this with a note. The list has to be shared, the marks have to stay private until everyone is done, and something visible has to count as finished.",
+      },
+      {
+        type: "p",
+        text: "Synema is built for that pass. You open a room, everyone swipes on their own phone, and a movie counts when more than half the room likes it. If everyone likes the same one, it is a match straight away. If several films clear, you choose among those, not from the whole catalog again.",
+      },
+      {
+        type: "p",
+        text: "It will not referee two people who want different kinds of evening, and it will not replace a diary of everything you have seen. Choosing tonight and logging it later are different jobs. [Synema and Letterboxd](/compare/synema-vs-letterboxd) sit on opposite sides of that line.",
+      },
+      {
+        type: "h2",
+        text: "Common questions",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "What if someone says they do not care?",
+            a: "Treat that as I will not name a film, not as any film is fine. Ask them to mark the list anyway, with a real yes or no. People who do not care out loud often care at minute twenty.",
+          },
+          {
+            q: "Should one person just pick, to save time?",
+            a: "Sometimes, if you agreed to that before the scroll started. A surprise you pick, in the middle of the argument, hands them the blame along with the remote. A planned turn is different from giving up.",
+          },
+          {
+            q: "How is this different from the couples and friends guides?",
+            a: "Those pages are the specific stall. One partner stuck with the remote, or a group chat that never lands. This page is the shared part underneath both. If it is just the two of you, start with the [movie picker for couples](/guides/movie-picker-for-couples). If the chat is the problem, start with the [movie picker for friends](/guides/movie-picker-for-friends).",
+          },
+        ],
+      },
+    ],
+  },
+  {
     slug: "what-to-watch-tonight",
     title: "What Should We Watch Tonight?",
     metaTitle: "What Should We Watch Tonight? – Synema",
@@ -500,7 +757,7 @@ export const guides: Guide[] = [
       "A ten-minute plan for the nightly question, including a rule for when to just press play.",
     category: "Tonight",
     publishedAt: published,
-    updatedAt: published,
+    updatedAt: "2026-09-29",
     inlineCta:
       "For tonight, specifically: Synema lets everyone swipe privately and reveals the movies you agree on.",
     bottomCta: {
@@ -615,7 +872,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "With friends, the failure mode is the group chat. Anything is fine until it is time to press play. Same timer, same list, likes kept on each person's own screen. A movie picker earns its place on a Tuesday precisely because nobody wants a production. They want the question to end.",
+        text: "With friends, the failure mode is the group chat. Anything is fine until it is time to press play. Same timer, same list, likes kept on each person's own screen. A [movie picker for friends](/guides/movie-picker-for-friends) earns its place on a Tuesday precisely because nobody wants a production. They want the question to end.",
       },
       {
         type: "p",
@@ -625,16 +882,16 @@ export const guides: Guide[] = [
   },
   {
     slug: "movie-night-ideas",
-    title: "Movie Night Ideas That Make Choosing a Movie Easier",
+    title: "Movie Night Ideas That Make Choosing What to Watch Easier",
     metaTitle:
-      "Movie Night Ideas That Make Choosing a Movie Easier – Synema",
+      "Movie Night Ideas That Make Choosing What to Watch Easier – Synema",
     metaDescription:
-      "Movie night ideas that make the choice smaller: themes, constraints, and a way for the group to agree before the snacks get cold.",
+      "Movie night ideas that shrink the choice: a theme, a genre, a blind pick, or a rotating chooser. Then agree before the snacks get cold.",
     description:
       "Themes and constraints that shrink the choice, so the night starts on a movie instead of a menu.",
     category: "Movie night",
     publishedAt: published,
-    updatedAt: published,
+    updatedAt: "2026-09-29",
     inlineCta:
       "When the theme is set and you still need a title, Synema lets everyone swipe privately and reveals the movies you agree on.",
     bottomCta: {
@@ -646,7 +903,7 @@ export const guides: Guide[] = [
     related: [
       "what-to-watch-tonight",
       "movie-picker-for-friends",
-      "how-to-decide-what-movie-to-watch",
+      "movie-picker-for-couples",
     ],
     blocks: [
       {
@@ -729,6 +986,34 @@ export const guides: Guide[] = [
         text: "Two short films, not two long ones. Give them a link: a comedy and the darker film it is quietly answering, or an original and a remake. Decide both titles before you start the first, so the intermission does not become a second search. If the group is tired, drop the second film and keep the snacks. The plan did its job if the first movie started on time.",
       },
       {
+        type: "h3",
+        text: "A blind pick",
+      },
+      {
+        type: "p",
+        text: "One person builds a short list that fits a rule you already set, and withholds the titles until everyone has agreed to the rule. Or each person writes one fitting title, you draw, and the draw stands. No speech about why someone else's slip was worse.",
+      },
+      {
+        type: "p",
+        text: "This works when people trust the fence. Under two hours, comedy, unseen by the room. It falls apart when the fence is just a movie, because then you have randomized the catalog and called it a game.",
+      },
+      {
+        type: "h3",
+        text: "One genre",
+      },
+      {
+        type: "p",
+        text: "Horror, a heist, or a comedy you do not have to respect. A genre shrinks the night only if you refuse the second one. Funny, but also a thriller, but not silly is how the fence disappears. Name one, build a short pile inside it, and use the same yes or no.",
+      },
+      {
+        type: "h3",
+        text: "Whoever did not choose last time",
+      },
+      {
+        type: "p",
+        text: "Rotation works when the chooser brings two or three films they themselves would watch, inside the rule, and everyone else may strike one. It sours when the chooser tries to guess the whole room and arrives with nothing they want. Guessing is the scroll, moved one person earlier.",
+      },
+      {
         type: "figure",
         src: guideImages.emptyCinema,
         alt: "Empty cinema seats in a dark theater.",
@@ -766,7 +1051,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "Friends make this easier when the invite includes the rule. Movie at 8, under two hours, nothing any of us has seen is a better text than what do you want to watch. People can opt out of the rule before they are on your sofa. A [movie picker for friends](/guides/movie-picker-for-friends) is what you use after they have opted in.",
+        text: "Friends make this easier when the invite includes the rule. Movie at 8, under two hours, nothing any of us has seen is a better text than what do you want to watch. People can opt out of the rule before they are on your sofa. A [movie picker for friends](/guides/movie-picker-for-friends) is what you use after they have opted in. For two people, you can skip the theme and still use a fence. That version is the [movie picker for couples](/guides/movie-picker-for-couples).",
       },
       {
         type: "h2",
@@ -779,6 +1064,27 @@ export const guides: Guide[] = [
       {
         type: "p",
         text: "Synema fits after the theme, not instead of it. You set the mood however you like, then everyone swipes in private and you keep the movies you agree on. The night can have a little ceremony. The choice does not have to.",
+      },
+      {
+        type: "h2",
+        text: "Common questions",
+      },
+      {
+        type: "faq",
+        items: [
+          {
+            q: "What if we cannot agree on a theme?",
+            a: "Drop the theme and use a runtime cap. A number rejects films. A vibe does not. You can still put snacks out after the title exists.",
+          },
+          {
+            q: "How do we avoid spending the night browsing?",
+            a: "Put the idea in the invite, before anyone is on the sofa. Then give the choice a limit: one service, a short list, and the first film you share a yes on. Another theme will not help once you are already in the menu.",
+          },
+          {
+            q: "What about a movie night for two?",
+            a: "You do not need a theme. You need the same fence and a private yes, so one person is not pitching while the other vetoes. That is the [movie picker for couples](/guides/movie-picker-for-couples).",
+          },
+        ],
       },
     ],
   },

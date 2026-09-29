@@ -8,6 +8,14 @@ const featured = [
     label: "Movie picker for couples",
   },
   {
+    slug: "movie-picker-for-friends",
+    label: "Movie picker for friends",
+  },
+  {
+    slug: "how-to-choose-a-movie-together",
+    label: "How to choose a movie together",
+  },
+  {
     slug: "how-to-decide-what-movie-to-watch",
     label: "How to decide what to watch",
   },

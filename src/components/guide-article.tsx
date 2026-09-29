@@ -1,12 +1,13 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import type { Guide } from "@/content/guides";
 import {
   formatGuideDate,
-  guidePath,
+  guideStructuredData,
   readingTimeMinutes,
   relatedGuides,
 } from "@/lib/guides";
+import { ContentFaq } from "./content-faq";
 import {
   GuideChecklist,
   GuidePullout,
@@ -15,6 +16,8 @@ import {
 } from "./guide-callouts";
 import { GuideCta } from "./guide-cta";
 import { GuideFigure } from "./guide-figure";
+import { JsonLd } from "./json-ld";
+import { RelatedGuides } from "./related-guides";
 import { RichText } from "./rich-text";
 
 const bodyClass =
@@ -22,10 +25,11 @@ const bodyClass =
 
 export function GuideArticle({ guide }: { guide: Guide }) {
   const minutes = readingTimeMinutes(guide);
-  const more = relatedGuides(guide);
+  const more = relatedGuides(guide.related);
 
   return (
     <main className="flex-1 px-5 py-12 md:px-12 md:py-16 lg:px-20">
+      <JsonLd data={guideStructuredData(guide)} />
       <div className="mx-auto max-w-[760px]">
         <nav aria-label="Guides">
           <Link
@@ -133,6 +137,10 @@ export function GuideArticle({ guide }: { guide: Guide }) {
               return <GuidePullout key={`pullout-${index}`} text={block.text} />;
             }
 
+            if (block.type === "faq") {
+              return <ContentFaq key={`faq-${index}`} items={block.items} />;
+            }
+
             return (
               <p key={`p-${index}`} className={index === 0 ? `mt-8 ${bodyClass}` : `mt-4 ${bodyClass}`}>
                 <RichText text={block.text} />
@@ -149,35 +157,7 @@ export function GuideArticle({ guide }: { guide: Guide }) {
           />
         </article>
 
-        {more.length > 0 ? (
-          <nav aria-label="More guides" className="mt-16 border-t border-border pt-10">
-            <h2 className="text-lg font-semibold tracking-tight">More guides</h2>
-            <ul className="mt-4 divide-y divide-border rounded-2xl border border-border">
-              {more.map((item) => (
-                <li key={item.slug}>
-                  <Link
-                    href={guidePath(item.slug)}
-                    className="group flex items-center justify-between gap-4 px-5 py-4 transition-colors hover:bg-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary/60"
-                  >
-                    <span className="min-w-0">
-                      <span className="block font-medium tracking-tight group-hover:text-primary-light">
-                        {item.title}
-                      </span>
-                      <span className="mt-1 block text-sm leading-relaxed text-text-secondary">
-                        {item.description}
-                      </span>
-                    </span>
-                    <ArrowRight
-                      size={16}
-                      aria-hidden="true"
-                      className="shrink-0 text-text-secondary transition-transform group-hover:translate-x-0.5 group-hover:text-primary"
-                    />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        ) : null}
+        <RelatedGuides guides={more} />
       </div>
     </main>
   );
