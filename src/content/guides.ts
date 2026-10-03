@@ -38,7 +38,7 @@ export type Guide = {
   updatedAt: string;
   inlineCta: string;
   blocks: GuideBlock[];
-  bottomCta: {
+  bottomCta?: {
     kicker: string;
     title: string;
     body: string;
@@ -69,6 +69,7 @@ export const guides: Guide[] = [
       body: "You each swipe on your own phone. A match is a movie you both liked.",
     },
     related: [
+      "date-night-movies-not-rom-coms",
       "movie-picker-for-friends",
       "how-to-choose-a-movie-together",
       "how-to-decide-what-movie-to-watch",
@@ -125,7 +126,7 @@ export const guides: Guide[] = [
           },
           {
             title: "Shortlist 10 movies",
-            text: "Pull them from one service, or from titles you have already mentioned this week. Ten is enough. If the hard part is cutting a huge catalog down to that list, use [how to decide what movie to watch](/guides/how-to-decide-what-movie-to-watch).",
+            text: "Pull them from one service, or from titles you have already mentioned this week. Ten is enough. If a romantic comedy is the wrong night, take titles from [date night movies that aren't rom-coms](/guides/date-night-movies-not-rom-coms). If the hard part is cutting a huge catalog down to that list, use [how to decide what movie to watch](/guides/how-to-decide-what-movie-to-watch).",
           },
           {
             title: "Independently mark yes or no",
@@ -837,7 +838,7 @@ export const guides: Guide[] = [
       "Themes and constraints that shrink the choice, so the night starts on a movie instead of a menu.",
     category: "Movie night",
     publishedAt: published,
-    updatedAt: "2026-09-29",
+    updatedAt: "2026-10-03",
     inlineCta:
       "When the theme is set and you still need a title, Synema lets everyone swipe privately and reveals the movies you agree on.",
     bottomCta: {
@@ -847,6 +848,7 @@ export const guides: Guide[] = [
       body: "Pick a theme if you want. Then let the group swipe and keep whatever you all like.",
     },
     related: [
+      "date-night-movies-not-rom-coms",
       "what-to-watch-tonight",
       "movie-picker-for-friends",
       "movie-picker-for-couples",
@@ -997,7 +999,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "Friends make this easier when the invite includes the rule. Movie at 8, under two hours, nothing any of us has seen is a better text than what do you want to watch. People can opt out of the rule before they are on your sofa. A [movie picker for friends](/guides/movie-picker-for-friends) is what you use after they have opted in. If you want films that tend to survive a group, start from [movies to watch with friends](/guides/best-movies-to-watch-with-friends) and cut the list down. For two people, you can skip the theme and still use a fence. That version is the [movie picker for couples](/guides/movie-picker-for-couples).",
+        text: "Friends make this easier when the invite includes the rule. Movie at 8, under two hours, nothing any of us has seen is a better text than what do you want to watch. People can opt out of the rule before they are on your sofa. A [movie picker for friends](/guides/movie-picker-for-friends) is what you use after they have opted in. If you want films that tend to survive a group, start from [movies to watch with friends](/guides/best-movies-to-watch-with-friends) and cut the list down. For two people, you can skip the theme and still use a fence. That version is the [movie picker for couples](/guides/movie-picker-for-couples). If what you need is the titles, and a romantic comedy is the wrong shape, use [date night movies that aren't rom-coms](/guides/date-night-movies-not-rom-coms).",
       },
       {
         type: "h2",
@@ -1533,6 +1535,362 @@ export const guides: Guide[] = [
             a: "Different room, different failure. One person scrolls and the other vetoes. Start with the [movie picker for couples](/guides/movie-picker-for-couples), not with a longer friends list.",
           },
         ],
+      },
+    ],
+  },
+  {
+    slug: "date-night-movies-not-rom-coms",
+    title: "Date Night Movies That Aren't Rom-Coms",
+    metaTitle: "Date Night Movies That Aren't Rom-Coms – Synema",
+    metaDescription:
+      "Twelve date-night films that are not rom-coms, grouped by mood, with year, runtime, a spoiler-free premise, and who might want to skip each one.",
+    description:
+      "Twelve films for two people who do not want a romantic comedy, grouped by the mood of the night.",
+    category: "For couples",
+    publishedAt: "2026-10-03",
+    updatedAt: "2026-10-03",
+    inlineCta:
+      "Synema is upcoming. It is not on the App Store or Google Play yet. Join the waitlist and we will email you when two people can swipe a short list in private and keep the films you both want to start.",
+    related: [
+      "movie-picker-for-couples",
+      "movie-night-ideas",
+      "best-movies-to-watch-with-friends",
+    ],
+    blocks: [
+      {
+        type: "p",
+        text: "This is a pile of films for two people who already know they do not want a romantic comedy. Twelve titles, grouped by the kind of night they are for. Take one mood. Leave the rest.",
+      },
+      {
+        type: "p",
+        text: "These are editorial picks, not a promise that every couple will enjoy them. A few include a flirtation, or a couple who are already together. That is not the same thing as a film built to deliver a romance. If a title is wrong for the evening you actually have, it is wrong. The list does not get a vote.",
+      },
+      {
+        type: "figure",
+        src: guideImages.coupleAtScreen,
+        alt: "Two people seen from behind, watching a movie on a large screen in a dark room.",
+        caption: "Twelve films, four moods, and no claim that you will both like all of them.",
+        wide: true,
+        priority: true,
+      },
+      {
+        type: "pullout",
+        text: "A flirtation inside a film does not make it a rom-com. The question is whether the night is the puzzle, the trip, the tension, or the idea.",
+      },
+      {
+        type: "h2",
+        text: "Three films if you want to choose quickly",
+      },
+      {
+        type: "p",
+        text: "One from three different moods. The fuller note on each is below, with nine more.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Playful mystery: Knives Out (2019, 130 minutes). A case you can guess at together. It is family banter, not dread, and it runs 130 minutes.",
+          "Adventure: Raiders of the Lost Ark (1981, 115 minutes). A chase with a finish line. The spectacle includes guns, snakes, and a supernatural ending.",
+          "Suspense: A Quiet Place (2018, 90 minutes). This is intense horror, not a mild thriller, and it only works if you stay quiet.",
+        ],
+      },
+      {
+        type: "h2",
+        text: "Before you look up where to play them",
+      },
+      {
+        type: "p",
+        text: "This page does not say what is on Netflix, or on any other service. Availability changes by country, and it changes often. When you have a title, look it up on [JustWatch](https://www.justwatch.com).",
+      },
+      {
+        type: "p",
+        text: "The year and runtime under each film come from the linked studio page or film database. Runtimes are the theatrical figures on that page. A later home edition can differ by a minute or two. The premises below are not copied from those pages.",
+      },
+      {
+        type: "h2",
+        text: "Playful mystery",
+      },
+      {
+        type: "p",
+        text: "A case you can follow out loud. The joke and the plot are on speaking terms. None of these require an earlier film.",
+      },
+      {
+        type: "h3",
+        text: "Knives Out",
+      },
+      {
+        type: "p",
+        text: "2019, 130 minutes ([Box Office Mojo](https://www.boxofficemojo.com/title/tt8946378/)).",
+      },
+      {
+        type: "p",
+        text: "A wealthy mystery writer dies after a family gathering. A private detective stays in the house and starts asking questions. The useful pleasure is how often the obvious suspect moves.",
+      },
+      {
+        type: "p",
+        text: "It fits this mood because the case is a game, and the film wants you to enjoy being wrong. Two people can trade theories and still know where they are.",
+      },
+      {
+        type: "p",
+        text: "Leave it if you wanted dread rather than banter, or if 130 minutes is already too long. It is a poor match for a night when one of you wants silence and the other wants to guess.",
+      },
+      {
+        type: "h3",
+        text: "Game Night",
+      },
+      {
+        type: "p",
+        text: "2018, 100 minutes ([Box Office Mojo](https://www.boxofficemojo.com/title/tt2704998/)).",
+      },
+      {
+        type: "p",
+        text: "Friends who treat every game night as a contest show up for a kidnapping they think was booked as entertainment. The evening stops matching the invitation.",
+      },
+      {
+        type: "p",
+        text: "It fits because the mystery and the joke are the same machine. You can miss a line and still know who is panicking. A couple is already together in the middle of it. That is setup, not a romantic comedy.",
+      },
+      {
+        type: "p",
+        text: "Leave it if you wanted something gentle. The film is a comedy, and the injuries are not played as harmless. Also leave it if watching a competitive relationship sounds like the wrong mirror for tonight.",
+      },
+      {
+        type: "h3",
+        text: "The Nice Guys",
+      },
+      {
+        type: "p",
+        text: "2016, 116 minutes ([Box Office Mojo](https://www.boxofficemojo.com/title/tt3799694/)).",
+      },
+      {
+        type: "p",
+        text: "In 1970s Los Angeles, a private eye and a man who is paid to hurt people get pulled onto the same disappearance. They are bad at sharing the work.",
+      },
+      {
+        type: "p",
+        text: "It fits when you want the case to stay followable and the humor to be sour. The period is texture. You do not need a guide to the decade.",
+      },
+      {
+        type: "p",
+        text: "Leave it if the night was supposed to stay light. People get hurt, the jokes are mean, and the case moves through the sex industry.",
+      },
+      {
+        type: "h2",
+        text: "Adventure",
+      },
+      {
+        type: "p",
+        text: "A trip with a goal. These are for a night when you want to go somewhere, not unpack a relationship.",
+      },
+      {
+        type: "h3",
+        text: "Raiders of the Lost Ark",
+      },
+      {
+        type: "p",
+        text: "1981, 115 minutes ([Paramount Pictures](https://www.paramountpictures.com/movies/indiana-jones-and-the-raiders-of-the-lost-ark)).",
+      },
+      {
+        type: "p",
+        text: "An archaeologist tries to reach a religious relic before a Nazi expedition does. The film is a run of traps, chases, and narrow exits. Later Indiana Jones films are not required.",
+      },
+      {
+        type: "p",
+        text: "It fits because the goal stays clear and the scenes are built to be watched, not talked into sense. An old partnership is part of the plot. The film is not organized around it.",
+      },
+      {
+        type: "p",
+        text: "Leave it if you wanted conversation, or if gunfights, snakes, and a supernatural finish are the wrong kind of spectacle.",
+      },
+      {
+        type: "h3",
+        text: "The Mummy (1999)",
+      },
+      {
+        type: "p",
+        text: "1999, 125 minutes ([AFI Catalog](https://catalog.afi.com/Catalog/MovieDetails/61242)).",
+      },
+      {
+        type: "p",
+        text: "In 1920s Egypt, a librarian and a former soldier disturb a buried priest and spend the rest of the film trying to outrun what they woke. This is the 1999 adventure, not the later reboot.",
+      },
+      {
+        type: "p",
+        text: "It fits when you want a big, unserious expedition: tombs, sand, and people arguing while they flee. There is a flirtation. It is not the point of the movie.",
+      },
+      {
+        type: "p",
+        text: "Leave it if you wanted a serious historical film, or if creature violence and broad jokes sound tiresome. The effects belong to 1999.",
+      },
+      {
+        type: "h3",
+        text: "Hunt for the Wilderpeople",
+      },
+      {
+        type: "p",
+        text: "2016, 101 minutes ([Box Office Mojo](https://www.boxofficemojo.com/title/tt4698684/)).",
+      },
+      {
+        type: "p",
+        text: "A boy in foster care and the uncle who did not expect to raise him go missing in the New Zealand bush. A manhunt follows, and so does an odd friendship.",
+      },
+      {
+        type: "p",
+        text: "It fits an adventure that should feel like a trip rather than a battle. It is also one of the shorter films here, which matters on a weeknight.",
+      },
+      {
+        type: "p",
+        text: "Leave it if you wanted scale, or a story with no child in it. The humor is dry and specific. Some of it will not land if every joke has to be explained.",
+      },
+      {
+        type: "h2",
+        text: "Suspense",
+      },
+      {
+        type: "p",
+        text: "For a night when you will both look at the screen. Say that before you choose one. These are bad films to talk through.",
+      },
+      {
+        type: "h3",
+        text: "Get Out",
+      },
+      {
+        type: "p",
+        text: "2017, 104 minutes ([Box Office Mojo](https://www.boxofficemojo.com/title/tt5052448/)).",
+      },
+      {
+        type: "p",
+        text: "A man spends a weekend at his girlfriend's family home, and the welcome is wrong in a way he cannot prove yet. Racism is the subject, not the scenery.",
+      },
+      {
+        type: "p",
+        text: "It fits when you want to watch a social situation turn, together, without a previous film attached. The suspense is in the room before it is anywhere else.",
+      },
+      {
+        type: "p",
+        text: "Leave it if you do not want horror, or do not want a film this direct about racism. The violence arrives. It is not a light scare with comfort built in.",
+      },
+      {
+        type: "h3",
+        text: "A Quiet Place",
+      },
+      {
+        type: "p",
+        text: "2018, 90 minutes ([Paramount Pictures](https://www.paramountpictures.com/movies/a-quiet-place)).",
+      },
+      {
+        type: "p",
+        text: "Sound is lethal. A family has rebuilt ordinary life around that rule, because the creatures hunting them find prey by noise. This is the first film, not a sequel.",
+      },
+      {
+        type: "p",
+        text: "It fits a suspense night that still has to end. Ninety minutes, a simple rule, and very little dialogue. You will both get quiet. That is either the appeal or the reason to pick something else.",
+      },
+      {
+        type: "p",
+        text: "Leave it if fear involving parents and children is the wrong fear, or if you wanted to talk through the movie. Talking through this one breaks it.",
+      },
+      {
+        type: "h3",
+        text: "Parasite",
+      },
+      {
+        type: "p",
+        text: "2019, 131 minutes ([The Criterion Collection](https://www.criterion.com/films/30619-parasite)).",
+      },
+      {
+        type: "p",
+        text: "A family in Seoul, short of work, maneuvers its members into jobs inside a wealthy household. The scheme holds only if that household never compares notes. The film is in Korean.",
+      },
+      {
+        type: "p",
+        text: "It fits suspense that comes from class and logistics rather than from a monster. It keeps turning, if you both stay with it.",
+      },
+      {
+        type: "p",
+        text: "Leave it if either of you will not read subtitles, if 131 minutes is too much, or if you wanted a cozy caper. It becomes harsh. Subtitles are not a lesser way to watch. They do mean you cannot talk over the picture and still follow it.",
+      },
+      {
+        type: "h2",
+        text: "Thoughtful science fiction",
+      },
+      {
+        type: "p",
+        text: "An idea you can talk about after, not a sequel you have to rent first. All three stand alone.",
+      },
+      {
+        type: "h3",
+        text: "Arrival",
+      },
+      {
+        type: "p",
+        text: "2016, 116 minutes ([Paramount Pictures](https://www.paramountpictures.com/movies/arrival)).",
+      },
+      {
+        type: "p",
+        text: "After alien ships appear in several countries, a linguist is brought in to work out what the visitors are saying, and what they are asking for.",
+      },
+      {
+        type: "p",
+        text: "It fits because the science fiction is about language. Afterward you have something to discuss, and you do not need any other movie to understand this one.",
+      },
+      {
+        type: "p",
+        text: "Leave it if you wanted ships firing. Long stretches are quiet and procedural. A slow first hour will lose anyone who came for an invasion.",
+      },
+      {
+        type: "h3",
+        text: "Ex Machina",
+      },
+      {
+        type: "p",
+        text: "2014, 108 minutes ([Box Office Mojo](https://www.boxofficemojo.com/title/tt0470752/)).",
+      },
+      {
+        type: "p",
+        text: "A programmer is invited to his employer's private house and asked to say whether a robot is conscious. Most of the film is conversation inside a sealed building.",
+      },
+      {
+        type: "p",
+        text: "It fits when you both want to watch closely and argue afterward about who was actually being tested. The scale is small on purpose.",
+      },
+      {
+        type: "p",
+        text: "Leave it if you wanted awe or warmth. The film is cold, sexual, and unhappy about the people who build machines.",
+      },
+      {
+        type: "h3",
+        text: "Everything Everywhere All at Once",
+      },
+      {
+        type: "p",
+        text: "2022, 139 minutes ([Box Office Mojo](https://www.boxofficemojo.com/title/tt6710474/)).",
+      },
+      {
+        type: "p",
+        text: "A woman already exhausted by the family business is shown other versions of her life and told that the differences between them matter. It is loud, funny, and sincere, often in the same scene.",
+      },
+      {
+        type: "p",
+        text: "It fits when you want the idea — many lives, one person — delivered as a rush rather than a lecture. It is also the longest film on this page.",
+      },
+      {
+        type: "p",
+        text: "Leave it if you wanted one calm concept, or if 139 minutes and a chaotic middle will cost you the ending. It is emotionally raw. That is a reason to choose it and a reason to skip it.",
+      },
+      {
+        type: "cta",
+      },
+      {
+        type: "h2",
+        text: "When you are down to two",
+      },
+      {
+        type: "p",
+        text: "Two real yeses is a good problem. Do not solve it by opening another catalog. The [movie picker for couples](/guides/movie-picker-for-couples) is the rest of the method: each of you marks the finalists alone, and you watch a film you both marked.",
+      },
+      {
+        type: "p",
+        text: "If both titles got two yeses, take the shorter runtime, or the one neither of you has seen. Then press play. Synema is built for that private pass, and public launch is upcoming. Until then, a note does the same job.",
       },
     ],
   },

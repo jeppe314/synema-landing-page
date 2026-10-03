@@ -160,13 +160,15 @@ export function GuideArticle({ guide }: { guide: Guide }) {
             );
           })}
 
-          <GuideCta
-            slug={guide.slug}
-            position="bottom"
-            kicker={guide.bottomCta.kicker}
-            title={guide.bottomCta.title}
-            body={guide.bottomCta.body}
-          />
+          {guide.bottomCta ? (
+            <GuideCta
+              slug={guide.slug}
+              position="bottom"
+              kicker={guide.bottomCta.kicker}
+              title={guide.bottomCta.title}
+              body={guide.bottomCta.body}
+            />
+          ) : null}
         </article>
 
         <RelatedGuides guides={more} />

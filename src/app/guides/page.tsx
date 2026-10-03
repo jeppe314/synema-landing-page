@@ -78,6 +78,7 @@ const sections: { title: string; intro: string; items: HubLink[] }[] = [
     intro: "A constraint for the evening, and a few films that tend to survive a room.",
     items: [
       guideLink("movie-night-ideas"),
+      guideLink("date-night-movies-not-rom-coms"),
       guideLink("best-movies-to-watch-with-friends"),
     ].filter((item): item is HubLink => item !== null),
   },
