@@ -5,6 +5,7 @@ import {
   cleanPlacement,
   cleanReferrerHost,
   cleanSubmissionPath,
+  isMissingAttributionPropertyError,
   mergeAttributionProperties,
   readSessionAttribution,
   referrerHostFromDocument,
@@ -144,4 +145,50 @@ test("waitlist_submit follows a confirmed success only", () => {
   );
   assert.equal(cleanPlacement("hero"), "hero");
   assert.equal(cleanPlacement("popup"), undefined);
+});
+
+test("Loops retry matches only a missing attribution property", () => {
+  for (const name of ["submissionPath", "landingPath", "referrerHost"]) {
+    assert.equal(
+      isMissingAttributionPropertyError({
+        statusCode: 400,
+        json: { success: false, message: `The property '${name}' does not exist.` },
+      }),
+      true,
+    );
+  }
+
+  assert.equal(
+    isMissingAttributionPropertyError({
+      statusCode: 400,
+      json: { success: false, message: "Invalid email address." },
+    }),
+    false,
+  );
+  assert.equal(
+    isMissingAttributionPropertyError({
+      statusCode: 400,
+      json: { success: false, message: "Invalid value for submissionPath." },
+    }),
+    false,
+  );
+  assert.equal(
+    isMissingAttributionPropertyError({
+      statusCode: 500,
+      json: {
+        success: false,
+        message: "The property 'submissionPath' does not exist.",
+      },
+    }),
+    false,
+  );
+  assert.equal(
+    isMissingAttributionPropertyError({
+      statusCode: 400,
+      message: "400 - The property 'landingPath' does not exist.",
+      json: { success: false, message: "Rate limit exceeded for landingPath." },
+    }),
+    false,
+  );
+  assert.equal(isMissingAttributionPropertyError(new Error("network down")), false);
 });

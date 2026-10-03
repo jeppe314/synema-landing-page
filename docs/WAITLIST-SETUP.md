@@ -27,6 +27,10 @@ In Loops, go to **Audience → Contact properties** and create:
 
 These are set automatically when someone signs up. No email address or full referrer URL is sent to analytics.
 
+The signup action retries without these three fields only when Loops returns HTTP 400 with `The property '<name>' does not exist.` for one of them. Any other API error stops the signup.
+
+Vercel Web Analytics on the current Hobby plan records page views. Custom events such as `waitlist_submit` are not included, so they cannot be viewed in the dashboard. The Loops contact fields above are the record of a successful signup.
+
 ## 3. Create the confirmation email
 
 1. Go to **Transactional → Create**

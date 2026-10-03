@@ -6,6 +6,7 @@ import {
   cleanReferrerHost,
   cleanSubmissionPath,
   contactAttribution,
+  isMissingAttributionPropertyError,
   mergeAttributionProperties,
 } from "@/lib/waitlist-attribution";
 
@@ -23,8 +24,6 @@ const PLATFORM_LABELS: Record<string, string> = {
   both: "iOS and Android",
 };
 
-const ATTRIBUTION_KEYS = ["submissionPath", "landingPath", "referrerHost"] as const;
-
 function normalizeEmail(value: FormDataEntryValue | null) {
   if (typeof value !== "string") {
     return "";
@@ -35,12 +34,6 @@ function normalizeEmail(value: FormDataEntryValue | null) {
 
 function getString(value: FormDataEntryValue | null) {
   return typeof value === "string" ? value.trim() : "";
-}
-
-function missingAttributionProperty(error: unknown) {
-  if (!(error instanceof APIError)) return false;
-  const message = error.message.toLowerCase();
-  return ATTRIBUTION_KEYS.some((key) => message.includes(key.toLowerCase()));
 }
 
 export async function joinWaitlist(
@@ -118,7 +111,9 @@ export async function joinWaitlist(
         },
       });
     } catch (error) {
-      if (!missingAttributionProperty(error)) throw error;
+      if (!(error instanceof APIError) || !isMissingAttributionPropertyError(error)) {
+        throw error;
+      }
       console.error(
         "Loops is missing custom contact properties: submissionPath, landingPath, referrerHost. Signup continued without them.",
       );

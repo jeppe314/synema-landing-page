@@ -168,6 +168,21 @@ export function mergeAttributionProperties(
   return properties;
 }
 
+const MISSING_ATTRIBUTION_PROPERTY =
+  /^The property '(submissionPath|landingPath|referrerHost)' does not exist\.$/;
+
+export function isMissingAttributionPropertyError(error: unknown): boolean {
+  if (!error || typeof error !== "object") return false;
+  if (!("statusCode" in error) || error.statusCode !== 400) return false;
+  if (!("json" in error) || !error.json || typeof error.json !== "object") {
+    return false;
+  }
+  const body = error.json;
+  if (!("message" in body) || typeof body.message !== "string") return false;
+  if ("success" in body && body.success !== false) return false;
+  return MISSING_ATTRIBUTION_PROPERTY.test(body.message);
+}
+
 export function contactAttribution(
   contact: Record<string, unknown> | null,
 ): { landingPath?: string | null; referrerHost?: string | null } | null {
