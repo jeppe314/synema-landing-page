@@ -66,7 +66,7 @@ export const comparisons: Comparison[] = [
       },
       {
         type: "p",
-        text: "The notes below follow Letterboxd's own help pages and this site's description of Synema. This is not a hands-on test. Prices, ratings, and download counts are left out.",
+        text: "The notes below follow the linked Letterboxd help pages, store listings, and this site's description of Synema. Prices, ratings, and download counts are left out.",
       },
       {
         type: "h2",
@@ -74,7 +74,7 @@ export const comparisons: Comparison[] = [
       },
       {
         type: "p",
-        text: "[Letterboxd](https://letterboxd.com/faq/) is a social network for film discussion and discovery. You can keep a diary, rate and review films, make lists, keep a watchlist, and follow other members. The [welcome page](https://letterboxd.com/welcome/) also points at browsing by decade, genre, popularity, rating, and streaming service. Apps exist for iOS, Android, and Apple TV. A free membership remains, and paid Pro and Patron tiers add extras, including streaming filters.",
+        text: "[Letterboxd](https://letterboxd.com/faq/) is a social network for film discussion and discovery. You can keep a diary, rate and review films, make lists, keep a watchlist, and follow other members. The [welcome page](https://letterboxd.com/welcome/) also points at browsing by decade, genre, popularity, rating, and streaming service. The FAQ lists apps for iOS, Android, and Apple TV. The [App Store listing](https://apps.apple.com/us/app/letterboxd/id1054271011) is version 4.12.6, dated September 16, 2026. The [Google Play listing](https://play.google.com/store/apps/details?id=com.letterboxd.letterboxd&hl=en_US) shows an update date of September 23, 2026. A free membership remains, and paid Pro and Patron tiers add extras, including streaming filters. [Pro](https://letterboxd.com/about/pro/).",
       },
       {
         type: "p",
@@ -121,7 +121,7 @@ export const comparisons: Comparison[] = [
           ],
           [
             "Availability",
-            "Free membership, plus paid Pro and Patron. Apps for iOS, Android, and Apple TV.",
+            "Free membership, plus paid Pro and Patron. The [FAQ](https://letterboxd.com/faq/) lists apps for iOS, Android, and Apple TV. The [App Store listing](https://apps.apple.com/us/app/letterboxd/id1054271011) is version 4.12.6, dated September 16, 2026. The [Google Play listing](https://play.google.com/store/apps/details?id=com.letterboxd.letterboxd&hl=en_US) shows an update date of September 23, 2026.",
             "Not on the App Store or Google Play. Waitlist, plus an invite-only Android beta.",
           ],
         ],

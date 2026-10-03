@@ -1060,7 +1060,7 @@ export const guides: Guide[] = [
     blocks: [
       {
         type: "p",
-        text: "There is no single best movie picker app. The useful choice is the tool that matches the job: agreeing with other people, starting something at random, finding which service has a title, or keeping a log and discovering films. The five below are ones you can open now. Notes follow each product's own site, help pages, or store listing. This is not a hands-on test, and it leaves out prices, ratings, and download counts.",
+        text: "There is no single best movie picker app. The useful choice is the tool that matches the job: agreeing with other people, starting something at random, finding which service has a title, or keeping a log and discovering films. The five below are ones you can open now. Notes follow the linked pages on each product's own site, help center, or store listing, and leave out prices, ratings, and download counts.",
       },
       {
         type: "p",
@@ -1086,36 +1086,36 @@ export const guides: Guide[] = [
           [
             "Movie Swiper",
             "Choosing together",
-            "A shared link, private swipes, and a match when everyone likes the same title. Filters cover genre, runtime, year, ratings, and content limits. [Site](https://movieswiper.app/).",
-            "A website. The site says it needs no account and no install.",
+            "A shared link, private swipes, and a match when everyone likes the same title. Filters cover genre, runtime, year, ratings, and content limits. The site says no account is required. [Movie Swiper](https://movieswiper.app/).",
+            "A public web app. The homepage form starts a group in the browser. [movieswiper.app](https://movieswiper.app/). The pages on that site do not link an App Store or Google Play listing.",
             "Titles are popular films from TMDB. The site does not describe a diary or a streaming-availability search.",
           ],
           [
             "Reelgood Roulette",
             "A random start",
-            "Picks a movie or TV show from a genre you choose. [Roulette](https://reelgood.com/roulette/). The wider app looks up where titles stream. [FAQ](https://reelgood.com/faq).",
-            "The roulette page is on the web. The FAQ lists iPhone, Android, LG, Android TV, and Fire TV apps, and says there is no Roku app.",
-            "A spin does not ask the other people in the room. The FAQ limits streaming data to the US, Canada, Australia, the UK, and New Zealand. The [Android listing](https://play.google.com/store/apps/details?id=com.reelgoodapp.reelgood&hl=en_US) was last updated on March 21, 2022.",
+            "The web page picks a movie or TV show from a genre you choose. [Roulette](https://reelgood.com/roulette/). The wider product looks up where titles stream. [FAQ](https://reelgood.com/faq).",
+            "Web Roulette is its own page. The FAQ lists iPhone, Android, LG, Android TV, and Fire TV apps, and says there is no Roku app. The [App Store listing](https://apps.apple.com/us/app/reelgood-streaming-guide/id1031391869) is version 4.8.3, dated September 2, 2024, and its description mentions Roulette. The [Google Play listing](https://play.google.com/store/apps/details?id=com.reelgoodapp.reelgood&hl=en_US) shows an update date of March 21, 2022.",
+            "A spin on the web page does not ask the other people in the room. The FAQ limits streaming data to the US, Canada, Australia, the UK, and New Zealand. The 2024 App Store date and the 2022 Play date do not establish that those apps are discontinued, and they do not establish that the apps currently work.",
           ],
           [
             "JustWatch",
             "Streaming discovery",
             "Legal subscription, free, ad-supported, rental, and purchase offers. Filter to services you already have, and keep a watchlist. [What is JustWatch?](https://support.justwatch.com/article/what-is-just-watch)",
-            "Free guide on the web, plus [iOS](https://apps.apple.com/us/app/justwatch-movies-tv-shows/id979227482) and [Android](https://play.google.com/store/apps/details?id=com.justwatch.justwatch) apps. A paid Pro plan exists.",
+            "Free guide on the [website](https://www.justwatch.com/). The [App Store listing](https://apps.apple.com/us/app/justwatch-movies-tv-shows/id979227482) is version 26.39.1, dated September 22, 2026. The [Google Play listing](https://play.google.com/store/apps/details?id=com.justwatch.justwatch&hl=en_US) shows an update date of September 25, 2026. A paid Pro plan exists.",
             "It answers where to watch. Its help page does not describe a private vote among people in the room. This page does not list the Pro price.",
           ],
           [
             "Letterboxd",
             "Tracking and discovery",
             "A diary, ratings, reviews, lists, a watchlist, and people to follow. [FAQ](https://letterboxd.com/faq/). The films browser includes streaming service. [Welcome](https://letterboxd.com/welcome/). Paying members can filter by favorite services. [Pro](https://letterboxd.com/about/pro/).",
-            "Free membership, with paid Pro and Patron tiers. Apps for iOS, Android, and Apple TV, per the FAQ.",
+            "Free membership, with paid Pro and Patron tiers. The [FAQ](https://letterboxd.com/faq/) lists apps for iOS, Android, and Apple TV. The [App Store listing](https://apps.apple.com/us/app/letterboxd/id1054271011) is version 4.12.6, dated September 16, 2026. The [Google Play listing](https://play.google.com/store/apps/details?id=com.letterboxd.letterboxd&hl=en_US) shows an update date of September 23, 2026.",
             "Streaming filters and watchlist alerts are paid. Alerts use JustWatch data and may lag by up to 24 hours. [Alerts](https://letterboxd.zendesk.com/hc/en-us/articles/15178655699471-Can-I-get-notified-when-films-in-my-watchlist-are-ready-to-watch). The FAQ does not describe a private group match.",
           ],
           [
             "IMDb",
             "Look up a title",
             "Ratings, a watchlist, lists, and a Watch button for stream, rent, or buy when a provider is listed. [Where to watch](https://help.imdb.com/article/imdb/discover-watch/how-can-i-watch-a-movie-or-tv-show/G4GAAPL3XS2E99KY).",
-            "Free [iOS](https://help.imdb.com/article/imdb/mobile-web-apps/ios-app-faq/GJ7P484D8FA9C48Q) and Android apps, plus the website.",
+            "The [iOS help](https://help.imdb.com/article/imdb/mobile-web-apps/ios-app-faq/GJ7P484D8FA9C48Q) says the app is free. The [App Store listing](https://apps.apple.com/us/app/imdb-movies-tv-shows/id342792525) is version 16.11.1, dated September 16, 2026. [Android help](https://help.imdb.com/article/imdb/mobile-web-apps/android-app-faq/G8LZ824YMXLJ8URG). The [Google Play listing](https://play.google.com/store/apps/details?id=com.imdb.mobile&hl=en_US) shows an update date of September 28, 2026.",
             "Providers depend on your location, and some titles have no known copy. It is a database, not a shared decision.",
           ],
         ],
@@ -1130,7 +1130,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "Use [Movie Swiper](https://movieswiper.app/) if you want a match only when everyone in the group likes the same title, and you want that in a browser today. If you try a different swipe app, read how it defines a match before you assume the whole room has to agree. The steps without an app are in [how to choose a movie together](/guides/how-to-choose-a-movie-together). Two people: [movie picker for couples](/guides/movie-picker-for-couples). A larger chat: [movie picker for friends](/guides/movie-picker-for-friends).",
+        text: "Use [Movie Swiper](https://movieswiper.app/) when you want a match only when everyone in the group likes the same title. The public site is a web app: the homepage form starts a group in the browser, and the pages on that site do not link an App Store or Google Play listing. If you try a different swipe app, read how it defines a match before you assume the whole room has to agree. The steps without an app are in [how to choose a movie together](/guides/how-to-choose-a-movie-together). Two people: [movie picker for couples](/guides/movie-picker-for-couples). A larger chat: [movie picker for friends](/guides/movie-picker-for-friends).",
       },
       {
         type: "h3",
@@ -1138,7 +1138,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "Use [Reelgood Roulette](https://reelgood.com/roulette/) after you pick a genre. [Letterboxd's journal](https://letterboxd.com/journal/sorting/) also says you can shuffle your own watchlist on the web, which only helps if that list already exists. A random result will not respect a no it never asked about. If the evening is short, start from the time you have in [what should we watch tonight](/guides/what-to-watch-tonight).",
+        text: "Use [Reelgood Roulette](https://reelgood.com/roulette/) after you pick a genre. That is a web page, separate from the Reelgood iOS and Android listings in the table. [Letterboxd's journal](https://letterboxd.com/journal/sorting/) also says you can shuffle your own watchlist on the web, which only helps if that list already exists. A random result will not respect a no it never asked about. If the evening is short, start from the time you have in [what should we watch tonight](/guides/what-to-watch-tonight).",
       },
       {
         type: "h3",
@@ -1180,7 +1180,7 @@ export const guides: Guide[] = [
         items: [
           {
             q: "What is the best movie picker app?",
-            a: "It depends on the job. For a group that must all agree, Movie Swiper is a browser tool you can use now, and Synema is an upcoming room of up to five. For a random start, use Reelgood Roulette. For where to watch, use JustWatch. For a diary and other people's lists, use Letterboxd. For a database and a Watch link, use IMDb.",
+            a: "It depends on the job. For a group that must all agree, [Movie Swiper](https://movieswiper.app/) is a web app you can open now, and Synema is an upcoming room of up to five. For a random start, use [Reelgood Roulette](https://reelgood.com/roulette/) on the web. For where to watch, use [JustWatch](https://support.justwatch.com/article/what-is-just-watch). For a diary and other people's lists, use [Letterboxd](https://letterboxd.com/faq/). For a database and a Watch link, use [IMDb](https://help.imdb.com/article/imdb/discover-watch/how-can-i-watch-a-movie-or-tv-show/G4GAAPL3XS2E99KY).",
           },
           {
             q: "Is Synema available to download?",
@@ -1240,7 +1240,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "Paying members can set favorite streaming services, filter by what is on them, and get watchlist alerts. Those alerts use JustWatch data and may lag by up to 24 hours. [Pro](https://letterboxd.com/about/pro/). [Alerts](https://letterboxd.zendesk.com/hc/en-us/articles/15178655699471-Can-I-get-notified-when-films-in-my-watchlist-are-ready-to-watch). The free membership stays available. Apps exist for iOS, Android, and Apple TV, per the FAQ. This page does not list subscription prices.",
+        text: "Paying members can set favorite streaming services, filter by what is on them, and get watchlist alerts. Those alerts use JustWatch data and may lag by up to 24 hours. [Pro](https://letterboxd.com/about/pro/). [Alerts](https://letterboxd.zendesk.com/hc/en-us/articles/15178655699471-Can-I-get-notified-when-films-in-my-watchlist-are-ready-to-watch). The free membership stays available. The [FAQ](https://letterboxd.com/faq/) lists apps for iOS, Android, and Apple TV. The [App Store listing](https://apps.apple.com/us/app/letterboxd/id1054271011) is version 4.12.6, dated September 16, 2026. The [Google Play listing](https://play.google.com/store/apps/details?id=com.letterboxd.letterboxd&hl=en_US) shows an update date of September 23, 2026. This page does not list subscription prices.",
       },
       {
         type: "h2",
@@ -1260,7 +1260,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "Choose [IMDb](https://help.imdb.com/article/imdb/discover-watch/how-can-i-watch-a-movie-or-tv-show/G4GAAPL3XS2E99KY) when you want ratings, a watchlist, lists, and a Watch button for stream, rent, or buy. Providers depend on your location, and IMDb says some titles have no known copy. The [iOS help](https://help.imdb.com/article/imdb/mobile-web-apps/ios-app-faq/GJ7P484D8FA9C48Q) says the app is free. It will not replace Letterboxd's reviews from people you follow.",
+        text: "Choose [IMDb](https://help.imdb.com/article/imdb/discover-watch/how-can-i-watch-a-movie-or-tv-show/G4GAAPL3XS2E99KY) when you want ratings, a watchlist, lists, and a Watch button for stream, rent, or buy. Providers depend on your location, and IMDb says some titles have no known copy. The [iOS help](https://help.imdb.com/article/imdb/mobile-web-apps/ios-app-faq/GJ7P484D8FA9C48Q) says the app is free. The [App Store listing](https://apps.apple.com/us/app/imdb-movies-tv-shows/id342792525) is version 16.11.1, dated September 16, 2026. The [Google Play listing](https://play.google.com/store/apps/details?id=com.imdb.mobile&hl=en_US) shows an update date of September 28, 2026. It will not replace Letterboxd's reviews from people you follow.",
       },
       {
         type: "h3",
@@ -1268,7 +1268,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "Choose [JustWatch](https://support.justwatch.com/article/what-is-just-watch) when the question is which legal offer has the film: subscription, free, ads, rent, or buy, filtered to services you already have. It also keeps a watchlist. That is a closer fit than Letterboxd if you do not want a public diary and you do want the play button. A paid JustWatch Pro plan exists. This page does not list its price or extra features.",
+        text: "Choose [JustWatch](https://support.justwatch.com/article/what-is-just-watch) when the question is which legal offer has the film: subscription, free, ads, rent, or buy, filtered to services you already have. It also keeps a watchlist. That is a closer fit than Letterboxd if you do not want a public diary and you do want the play button. The guide is on the [website](https://www.justwatch.com/). The [App Store listing](https://apps.apple.com/us/app/justwatch-movies-tv-shows/id979227482) is version 26.39.1, dated September 22, 2026, and the [Google Play listing](https://play.google.com/store/apps/details?id=com.justwatch.justwatch&hl=en_US) shows an update date of September 25, 2026. A paid JustWatch Pro plan exists. This page does not list its price or extra features.",
       },
       {
         type: "h3",
@@ -1276,7 +1276,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "Choose [Reelgood](https://reelgood.com/faq) for the same kind of where-to-watch lookup, with tracking for shows you want to resume. Its FAQ currently limits streaming data to the US, Canada, Australia, the United Kingdom, and New Zealand. [Reelgood Roulette](https://reelgood.com/roulette/) is the random piece: a movie or TV show from a genre you choose. Use it when you want a title without browsing. It does not ask anyone else in the room.",
+        text: "Choose [Reelgood](https://reelgood.com/faq) for the same kind of where-to-watch lookup, with tracking for shows you want to resume. Its FAQ currently limits streaming data to the US, Canada, Australia, the United Kingdom, and New Zealand, and lists apps for iPhone, Android, LG, Android TV, and Fire TV, with no Roku app. [Reelgood Roulette](https://reelgood.com/roulette/) is a separate web page: a movie or TV show from a genre you choose. Use that page when you want a title without browsing. It does not ask anyone else in the room. The [App Store listing](https://apps.apple.com/us/app/reelgood-streaming-guide/id1031391869) is version 4.8.3, dated September 2, 2024, and its description mentions Roulette. The [Google Play listing](https://play.google.com/store/apps/details?id=com.reelgoodapp.reelgood&hl=en_US) shows an update date of March 21, 2022. Those dates do not establish that the apps are discontinued, and they do not establish that the apps currently work.",
       },
       {
         type: "h3",
@@ -1284,7 +1284,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "Choose [Movie Swiper](https://movieswiper.app/) when the stuck part is agreement, not discovery. Its site describes a browser group: each person swipes, and a match is a title everyone liked. It says no account is required, and titles come from TMDB's popular catalog with filters for genre, runtime, year, ratings, and content limits. It is not a film community. Without an app, the same job is [how to choose a movie together](/guides/how-to-choose-a-movie-together). Alone, shrink the list first: [how to decide what movie to watch](/guides/how-to-decide-what-movie-to-watch).",
+        text: "Choose [Movie Swiper](https://movieswiper.app/) when the stuck part is agreement, not discovery. The public site is a web app: the homepage form starts a group, each person swipes, and a match is a title everyone liked. The pages on that site do not link an App Store or Google Play listing. It says no account is required, and titles come from TMDB's popular catalog with filters for genre, runtime, year, ratings, and content limits. It is not a film community. Without an app, the same job is [how to choose a movie together](/guides/how-to-choose-a-movie-together). Alone, shrink the list first: [how to decide what movie to watch](/guides/how-to-decide-what-movie-to-watch).",
       },
       {
         type: "cta",
