@@ -94,7 +94,7 @@ const sections: { title: string; intro: string; items: HubLink[] }[] = [
   {
     title: "Comparisons",
     intro:
-      "Letterboxd is a diary. These pages are for the night you still need to choose a movie.",
+      "How Letterboxd, a streaming search, and a group picker differ, and when each one fits.",
     items: [
       comparisonLink("synema-vs-letterboxd"),
       guideLink("letterboxd-alternatives-for-movie-discovery"),
