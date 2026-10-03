@@ -15,8 +15,17 @@ In Loops, go to **Audience → Contact properties** and create:
 | `project` | string | `synema`      |
 | `platform` | string | `ios`         |
 | `source` | string | `waitlist`    |
+| `submissionPath` | string | `/guides/movie-picker-for-couples` |
+| `landingPath` | string | `/` |
+| `referrerHost` | string | `www.google.com` or `unknown/direct` |
 
-These are set automatically when someone signs up.
+`project`, `platform`, and `source` were already required. Create these three as well, or Loops will reject the attribution fields:
+
+- `submissionPath` — pathname of the page where this signup succeeded. Updated on a later signup.
+- `landingPath` — pathname of the first page in the browser session. Not overwritten once set.
+- `referrerHost` — external referrer hostname only, or `unknown/direct` when the visit had no external referrer. Not overwritten once set.
+
+These are set automatically when someone signs up. No email address or full referrer URL is sent to analytics.
 
 ## 3. Create the confirmation email
 
@@ -81,7 +90,12 @@ When you're ready to announce the launch:
 Copy `src/components/waitlist-form.tsx` and `src/app/actions/waitlist.ts` into the new repo, then use:
 
 ```tsx
-<WaitlistForm project="my-new-idea" appName="My New Idea" platform="ios" />
+<WaitlistForm
+  project="my-new-idea"
+  appName="My New Idea"
+  platform="ios"
+  placement="hero"
+/>
 ```
 
 Same Loops account, same API key — filter by `project` when sending launch emails.

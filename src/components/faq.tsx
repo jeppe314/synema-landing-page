@@ -42,31 +42,37 @@ export function FAQ() {
           FAQ
         </h2>
         <div className="space-y-3">
-          {faqs.map((faq, i) => (
-            <div
-              key={faq.q}
-              className="rounded-2xl border border-border bg-card overflow-hidden"
-            >
-              <button
-                type="button"
-                className="flex w-full items-center justify-between px-5 py-4 text-left text-base font-medium"
-                onClick={() => setOpen(open === i ? null : i)}
+          {faqs.map((faq, i) => {
+            const answerId = `faq-answer-${i}`;
+            const expanded = open === i;
+            return (
+              <div
+                key={faq.q}
+                className="rounded-2xl border border-border bg-card overflow-hidden"
               >
-                {faq.q}
-                <ChevronDown
-                  size={18}
-                  className={`shrink-0 text-text-secondary transition-transform ${
-                    open === i ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {open === i && (
-                <p className="border-t border-border px-5 py-4 text-[15px] text-text-secondary">
-                  {faq.a}
-                </p>
-              )}
-            </div>
-          ))}
+                <button
+                  type="button"
+                  className="flex w-full items-center justify-between px-5 py-4 text-left text-base font-medium"
+                  aria-expanded={expanded}
+                  aria-controls={answerId}
+                  onClick={() => setOpen(expanded ? null : i)}
+                >
+                  {faq.q}
+                  <ChevronDown
+                    size={18}
+                    className={`shrink-0 text-text-secondary transition-transform ${
+                      expanded ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+                <div id={answerId} hidden={!expanded}>
+                  <p className="border-t border-border px-5 py-4 text-[15px] text-text-secondary">
+                    {faq.a}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

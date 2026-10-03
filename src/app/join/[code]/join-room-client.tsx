@@ -59,7 +59,7 @@ export function JoinRoomClient({ code }: JoinRoomClientProps) {
         ) : null}
 
         <div className="mt-8">
-          <WaitlistForm variant="compact" platform="both" />
+          <WaitlistForm variant="compact" platform="both" placement="join" />
         </div>
 
         <Link
