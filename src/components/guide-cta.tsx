@@ -27,6 +27,7 @@ export function GuideCta({ slug, position, body, kicker, title }: GuideCtaProps)
           <WaitlistForm
             variant="compact"
             instanceId={`guide-${slug}-inline`}
+            placement="inline"
             onCtaClick={onCtaClick}
           />
         </div>
@@ -57,6 +58,7 @@ export function GuideCta({ slug, position, body, kicker, title }: GuideCtaProps)
         <WaitlistForm
           variant="compact"
           instanceId={`guide-${slug}-bottom`}
+          placement="bottom"
           onCtaClick={onCtaClick}
         />
       </div>

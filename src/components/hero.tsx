@@ -78,7 +78,7 @@ export function Hero() {
           </p>
 
           <div id="waitlist" className="mt-6 md:mt-8">
-            <WaitlistForm variant="hero" platform="both" />
+            <WaitlistForm variant="hero" platform="both" placement="hero" />
           </div>
         </motion.div>
 

@@ -1,12 +1,20 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 import { joinWaitlist, type WaitlistState } from "@/app/actions/waitlist";
+import {
+  captureAttribution,
+  waitlistSubmitEvent,
+  type WaitlistPlacement,
+} from "@/lib/waitlist-attribution";
 import {
   PlatformSelector,
   type PlatformChoice,
 } from "./platform-selector";
+
+const reportedSubmissions = new Set<string>();
 
 const initialState: WaitlistState = { status: "idle" };
 
@@ -17,6 +25,7 @@ type WaitlistFormProps = {
   variant?: "hero" | "compact";
   headline?: string;
   instanceId?: string;
+  placement: WaitlistPlacement;
   onCtaClick?: () => void;
 };
 
@@ -27,6 +36,7 @@ export function WaitlistForm({
   variant = "hero",
   headline,
   instanceId,
+  placement,
   onCtaClick,
 }: WaitlistFormProps) {
   const fieldId = instanceId ?? `${project}-${variant}`;
@@ -35,6 +45,26 @@ export function WaitlistForm({
     joinWaitlist,
     initialState,
   );
+  useEffect(() => {
+    if (state.status !== "success" || !state.track) return;
+    if (reportedSubmissions.has(state.submissionId)) return;
+    reportedSubmissions.add(state.submissionId);
+    const event = waitlistSubmitEvent(
+      state,
+      window.location.pathname,
+      placement,
+    );
+    if (!event) return;
+    track("waitlist_submit", event);
+  }, [state, placement]);
+
+  const submitWaitlist = (formData: FormData) => {
+    const attribution = captureAttribution();
+    formData.set("submissionPath", attribution.submissionPath);
+    formData.set("landingPath", attribution.landingPath);
+    formData.set("referrerHost", attribution.referrerHost);
+    return formAction(formData);
+  };
 
   const resolvedHeadline =
     headline ?? `Be first to know when ${appName} launches`;
@@ -63,7 +93,7 @@ export function WaitlistForm({
       ) : null}
 
       <form
-        action={formAction}
+        action={submitWaitlist}
         className={showHeading ? "mt-4 space-y-3 md:mt-5" : "space-y-3"}
       >
         <input type="hidden" name="project" value={project} />
