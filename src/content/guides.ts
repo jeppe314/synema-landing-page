@@ -38,7 +38,7 @@ export type Guide = {
   updatedAt: string;
   inlineCta: string;
   blocks: GuideBlock[];
-  bottomCta: {
+  bottomCta?: {
     kicker: string;
     title: string;
     body: string;
@@ -1551,11 +1551,6 @@ export const guides: Guide[] = [
     updatedAt: "2026-10-03",
     inlineCta:
       "Synema is upcoming. It is not on the App Store or Google Play yet. Join the waitlist and we will email you when two people can swipe a short list in private and keep the films you both want to start.",
-    bottomCta: {
-      kicker: "Stop debating. Start watching.",
-      title: "Hear when Synema launches.",
-      body: "Public launch is upcoming. You each choose on your own phone. A match is a film you both wanted to watch tonight.",
-    },
     related: [
       "movie-picker-for-couples",
       "movie-night-ideas",
@@ -1593,9 +1588,9 @@ export const guides: Guide[] = [
       {
         type: "ul",
         items: [
-          "Playful mystery: Knives Out (2019, 130 minutes), if you want a case you can both guess at.",
-          "Adventure: Raiders of the Lost Ark (1981, 115 minutes), if you want a chase with a finish line.",
-          "Suspense: A Quiet Place (2018, 90 minutes), if you want tension and a night that still ends.",
+          "Playful mystery: Knives Out (2019, 130 minutes). A case you can guess at together. It is family banter, not dread, and it runs 130 minutes.",
+          "Adventure: Raiders of the Lost Ark (1981, 115 minutes). A chase with a finish line. The spectacle includes guns, snakes, and a supernatural ending.",
+          "Suspense: A Quiet Place (2018, 90 minutes). This is intense horror, not a mild thriller, and it only works if you stay quiet.",
         ],
       },
       {
@@ -1848,7 +1843,7 @@ export const guides: Guide[] = [
       },
       {
         type: "p",
-        text: "2015, 108 minutes. [A24](https://a24films.com/films/ex-machina) lists 2015. The [British Council](https://filmsandfestivals.britishcouncil.org/projects/ex-machina) lists the runtime as 108 minutes and the year as 2014.",
+        text: "2014, 108 minutes ([Box Office Mojo](https://www.boxofficemojo.com/title/tt0470752/)).",
       },
       {
         type: "p",
