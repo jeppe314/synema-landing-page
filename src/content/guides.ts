@@ -1036,167 +1036,140 @@ export const guides: Guide[] = [
   },
   {
     slug: "best-movie-picker-apps",
-    title: "Best Movie Picker Apps, Sorted by the Job They Do",
-    metaTitle: "Best Movie Picker Apps, Sorted by the Job They Do – Synema",
+    title: "Best Movie Picker Apps, by the Job You Need",
+    metaTitle: "Best Movie Picker Apps, by the Job You Need – Synema",
     metaDescription:
-      "Movie picker apps, streaming guides, and film diaries solve different problems. How to tell which one you actually need tonight.",
+      "Five tools you can use now for a group pick, a random start, a streaming search, or a film log. Synema is upcoming, not a public download.",
     description:
-      "A group match, a random start, a streaming search, or a diary. They are not the same tool.",
+      "Choose a tool for the job: agree together, start at random, find a service, or keep a log.",
     category: "Picker tools",
     publishedAt: "2026-09-29",
-    updatedAt: "2026-09-29",
+    updatedAt: "2026-10-03",
     inlineCta:
-      "If the job is agreeing with the people in the room, Synema lets everyone swipe privately and reveals the movies you agree on.",
+      "Public launch is upcoming. Join the waitlist if you want a room where a match is a movie everyone swiped right on.",
     bottomCta: {
       kicker: "Stop debating. Start watching.",
-      title: "Synema is for the agreement. Other tools can keep the rest.",
-      body: "Open a room, swipe on your own phone, and keep the movies everyone wants to watch.",
+      title: "Synema is an upcoming way to agree.",
+      body: "It is not on the App Store or Google Play yet. Join the waitlist and we will email you at launch.",
     },
     related: [
-      "movie-picker-for-friends",
-      "movie-picker-for-couples",
       "letterboxd-alternatives-for-movie-discovery",
+      "how-to-choose-a-movie-together",
+      "movie-picker-for-friends",
     ],
     blocks: [
       {
         type: "p",
-        text: "Best movie picker app is a search that covers at least four different products. A way for a group to agree. A button that starts something so you can stop choosing. A guide to which service has the film. A diary of what you have already seen. Installing all four is a good way to recreate the scroll.",
+        text: "There is no single best movie picker app. The useful choice is the tool that matches the job: agreeing with other people, starting something at random, finding which service has a title, or keeping a log and discovering films. The five below are ones you can open now. Notes follow each product's own site, help pages, or store listing. This is not a hands-on test, and it leaves out prices, ratings, and download counts.",
       },
       {
         type: "p",
-        text: "This page sorts those jobs. Synema is one of them. It is the wrong tool if you wanted a public log of every film you have watched, and it is not on the App Store or Google Play yet. The useful question is which problem you opened an app to solve.",
+        text: "Synema is not one of those five. Public launch is upcoming, and it is not on the App Store or Google Play. It is listed separately below, with a waitlist.",
       },
       {
         type: "figure",
         src: guideImages.swipe,
         alt: "Synema swipe screen showing a movie card you can like or pass in private.",
-        caption: "A picker is a pass over one pile. A diary and a streaming search are different screens.",
+        caption: "Synema's swipe screen is part of an upcoming app, not a store listing you can download today.",
         variant: "product",
         priority: true,
       },
       {
         type: "h2",
-        text: "Name the problem before the app",
-      },
-      {
-        type: "checklist",
-        items: [
-          "Are other people part of the decision, or is it just you?",
-          "Do you need a title, or the service that has a title you already chose?",
-          "Do you want a record afterward?",
-          "Do you want a suggestion for one person, or an overlap between people?",
-        ],
-      },
-      {
-        type: "p",
-        text: "If you cannot answer those, you are browsing. That can be a pleasant hour. It is a poor way to start a movie at nine.",
-      },
-      {
-        type: "h2",
-        text: "When the room has to agree",
-      },
-      {
-        type: "p",
-        text: "This is the actual movie-picker job. Same short list for everyone who will watch. Answers kept separate until the pass is done. Something visible that counts as finished. A poll in a group chat often fails this, because the options were chosen by one person and the votes are a small performance.",
-      },
-      {
-        type: "p",
-        text: "[Synema](/) is built for that pass. One person creates a room and invites the others, up to five, with a link or a QR code. Everyone swipes the same movies on their own phone. Likes stay private. A match is when everyone swipes right on the same movie. On your own, a right swipe saves a film to a personal watchlist. Synema also shows where a movie is streaming in your country.",
-      },
-      {
-        type: "p",
-        text: "Downloading it is free, and joining someone else's room is free. Hosting a group room needs Synema Pro. Swiping on your own does not need a subscription. You can [join the waitlist](/#waitlist). An invite-only [Android beta](/beta-testing) is open if you want to try it before the public launch.",
-      },
-      {
-        type: "p",
-        text: "Other swipe-to-match apps exist. They are not interchangeable, and this page will not pretend to have audited each one's rules. Before you install one, check three things: whether a match needs everyone or only a majority, whether people can see each other's answers while they are still deciding, and whether the pile can be limited to services you actually have. A picker that ignores those three is a poll with extra animation.",
-      },
-      {
-        type: "p",
-        text: "You can run the same pass on paper. The steps between people are in [how to choose a movie together](/guides/how-to-choose-a-movie-together). The two-person version is a [movie picker for couples](/guides/movie-picker-for-couples). The group-chat version is a [movie picker for friends](/guides/movie-picker-for-friends).",
-      },
-      {
-        type: "cta",
-      },
-      {
-        type: "h2",
-        text: "When you just need something to start",
-      },
-      {
-        type: "p",
-        text: "Sometimes nobody wants a process. They want the menu to go away. A random draw from a list you already filtered — a wheel, a slip of paper, a play-something button inside one streaming app — is a legitimate tool for that mood. Some services will simply start a title for you. That helps when you are alone, on one service, and you do not mind what it is.",
-      },
-      {
-        type: "p",
-        text: "Random fails when people have real nos. It is a stop rule, not a negotiation. Use it after the pile is small and the mood is shared. Using it on the entire catalog is how you land on a film nobody would have defended. The weeknight version, with a timer and a default, is [what should we watch tonight](/guides/what-to-watch-tonight).",
-      },
-      {
-        type: "h2",
-        text: "When you need to know where it is streaming",
-      },
-      {
-        type: "p",
-        text: "[JustWatch](https://www.justwatch.com) is a streaming guide. You look up a title, or filter by the services you pay for, and it shows where a film can be streamed, rented, or bought. It also keeps a watchlist. [Reelgood](https://reelgood.com) sits in the same category: where to watch, across services, rather than a vote among the people on the couch.",
-      },
-      {
-        type: "p",
-        text: "Use one of these after you have a title, or to build the short pile in the first place. Do not expect either to settle an argument. Availability also changes by country and by week, so treat it as a lookup, not as a fact you memorized last month.",
-      },
-      {
-        type: "h2",
-        text: "When you want a diary, ratings, or a database",
-      },
-      {
-        type: "p",
-        text: "[Letterboxd](https://letterboxd.com) is for logging films, rating them, writing about them, and reading other people. A list there can put a movie in your head. It does not take a private vote from the room. The side-by-side with Synema is [Synema vs Letterboxd](/compare/synema-vs-letterboxd). If you opened Letterboxd hoping it would choose for the couch, the closer page is [Letterboxd alternatives for deciding what to watch](/guides/letterboxd-alternatives-for-movie-discovery).",
-      },
-      {
-        type: "p",
-        text: "[IMDb](https://www.imdb.com) is the wide database: cast, ratings, and a place to look a film up when someone says the one with. That is useful. It will not tell you that the other three people would actually start it tonight.",
-      },
-      {
-        type: "h2",
-        text: "Pick the tool that matches the job",
+        text: "Tools you can use now",
       },
       {
         type: "table",
-        caption: "What each kind of app is for, and what to stop asking it to do",
-        columns: ["Job", "What helps", "What it will not do"],
+        caption: "Five current tools, matched to a job. This is not a ranking.",
+        columns: ["Tool", "Best use", "Relevant features", "Availability", "Important limitation"],
         rows: [
           [
-            "Agree with the people watching",
-            "A private pass on one shared pile. Synema is built for this. A shared note works too.",
-            "Keep a public diary of everything you have seen",
+            "Movie Swiper",
+            "Choosing together",
+            "A shared link, private swipes, and a match when everyone likes the same title. Filters cover genre, runtime, year, ratings, and content limits. [Site](https://movieswiper.app/).",
+            "A website. The site says it needs no account and no install.",
+            "Titles are popular films from TMDB. The site does not describe a diary or a streaming-availability search.",
           ],
           [
-            "Start something without a debate",
-            "A random draw from a small list you already filtered",
-            "Respect a hard no it never asked about",
+            "Reelgood Roulette",
+            "A random start",
+            "Picks a movie or TV show from a genre you choose. [Roulette](https://reelgood.com/roulette/). The wider app looks up where titles stream. [FAQ](https://reelgood.com/faq).",
+            "The roulette page is on the web. The FAQ lists iPhone, Android, LG, Android TV, and Fire TV apps, and says there is no Roku app.",
+            "A spin does not ask the other people in the room. The FAQ limits streaming data to the US, Canada, Australia, the UK, and New Zealand. The [Android listing](https://play.google.com/store/apps/details?id=com.reelgoodapp.reelgood&hl=en_US) was last updated on March 21, 2022.",
           ],
           [
-            "Find which service has it",
-            "A streaming guide such as JustWatch",
-            "Decide between people",
+            "JustWatch",
+            "Streaming discovery",
+            "Legal subscription, free, ad-supported, rental, and purchase offers. Filter to services you already have, and keep a watchlist. [What is JustWatch?](https://support.justwatch.com/article/what-is-just-watch)",
+            "Free guide on the web, plus [iOS](https://apps.apple.com/us/app/justwatch-movies-tv-shows/id979227482) and [Android](https://play.google.com/store/apps/details?id=com.justwatch.justwatch) apps. A paid Pro plan exists.",
+            "It answers where to watch. Its help page does not describe a private vote among people in the room. This page does not list the Pro price.",
           ],
           [
-            "Remember and talk about films",
             "Letterboxd",
-            "End the scroll in the room",
+            "Tracking and discovery",
+            "A diary, ratings, reviews, lists, a watchlist, and people to follow. [FAQ](https://letterboxd.com/faq/). The films browser includes streaming service. [Welcome](https://letterboxd.com/welcome/). Paying members can filter by favorite services. [Pro](https://letterboxd.com/about/pro/).",
+            "Free membership, with paid Pro and Patron tiers. Apps for iOS, Android, and Apple TV, per the FAQ.",
+            "Streaming filters and watchlist alerts are paid. Alerts use JustWatch data and may lag by up to 24 hours. [Alerts](https://letterboxd.zendesk.com/hc/en-us/articles/15178655699471-Can-I-get-notified-when-films-in-my-watchlist-are-ready-to-watch). The FAQ does not describe a private group match.",
           ],
           [
-            "Look up a title or a rating",
             "IMDb",
-            "Know what this room wants tonight",
+            "Look up a title",
+            "Ratings, a watchlist, lists, and a Watch button for stream, rent, or buy when a provider is listed. [Where to watch](https://help.imdb.com/article/imdb/discover-watch/how-can-i-watch-a-movie-or-tv-show/G4GAAPL3XS2E99KY).",
+            "Free [iOS](https://help.imdb.com/article/imdb/mobile-web-apps/ios-app-faq/GJ7P484D8FA9C48Q) and Android apps, plus the website.",
+            "Providers depend on your location, and some titles have no known copy. It is a database, not a shared decision.",
           ],
         ],
       },
       {
         type: "h2",
-        text: "Ignore the longer feature list",
+        text: "Which job you have",
+      },
+      {
+        type: "h3",
+        text: "Other people have to agree",
       },
       {
         type: "p",
-        text: "Trailers, a public profile, and a score out of ten are extras. The decision needs a small pile, an honest yes, and a point where you stop. If an app does not have those, it is a catalog in a different coat. An app for choosing a movie together is not the same thing as an app that recommends films to one person. A recommendation can fill the pile. The people in the room still have to answer it.",
+        text: "Use [Movie Swiper](https://movieswiper.app/) if you want a match only when everyone in the group likes the same title, and you want that in a browser today. If you try a different swipe app, read how it defines a match before you assume the whole room has to agree. The steps without an app are in [how to choose a movie together](/guides/how-to-choose-a-movie-together). Two people: [movie picker for couples](/guides/movie-picker-for-couples). A larger chat: [movie picker for friends](/guides/movie-picker-for-friends).",
+      },
+      {
+        type: "h3",
+        text: "You want the menu to go away",
+      },
+      {
+        type: "p",
+        text: "Use [Reelgood Roulette](https://reelgood.com/roulette/) after you pick a genre. [Letterboxd's journal](https://letterboxd.com/journal/sorting/) also says you can shuffle your own watchlist on the web, which only helps if that list already exists. A random result will not respect a no it never asked about. If the evening is short, start from the time you have in [what should we watch tonight](/guides/what-to-watch-tonight).",
+      },
+      {
+        type: "h3",
+        text: "You need the service, not another title",
+      },
+      {
+        type: "p",
+        text: "Use [JustWatch](https://support.justwatch.com/article/what-is-just-watch) when you want legal offers and a filter for services you already pay for. Use [Reelgood](https://reelgood.com/faq) for the same kind of lookup if you are in a country its FAQ lists. Do this after the title exists. Availability changes, and neither page is a promise that last month's offer is still there.",
+      },
+      {
+        type: "h3",
+        text: "You want a log, or a film to discover",
+      },
+      {
+        type: "p",
+        text: "Use [Letterboxd](https://letterboxd.com/faq/) for a diary, reviews, lists, a watchlist, and other people's taste. Use [IMDb](https://help.imdb.com/article/imdb/discover-watch/how-can-i-watch-a-movie-or-tv-show/G4GAAPL3XS2E99KY) when you need the cast, a rating, or a Watch link. If you are comparing discovery tools with Letterboxd specifically, that page is [Letterboxd alternatives for movie discovery](/guides/letterboxd-alternatives-for-movie-discovery). The side-by-side with Synema is [Synema vs Letterboxd](/compare/synema-vs-letterboxd).",
+      },
+      {
+        type: "h2",
+        text: "Synema, when it launches",
+      },
+      {
+        type: "p",
+        text: "Synema is an upcoming app for the agreement, not a public download. One person creates a room of up to five. Everyone swipes the same movies on their own phone, and a match is when everyone swipes right. On your own, a right swipe saves a film to a personal watchlist. This site says hosting a group room needs Synema Pro, while joining a room and swiping alone do not need a subscription. It also shows where a movie is available in your country, including Netflix, Disney+, Prime Video, Max, and Apple TV+, and more. That is not a guarantee that every film is listed.",
+      },
+      {
+        type: "p",
+        text: "It is not a diary of what you have seen, and it is not on the App Store or Google Play yet. [Join the waitlist](/#waitlist). An invite-only [Android beta](/beta-testing) is open if you want to test before the public launch. Until then, use the table above or the [manual method](/guides/how-to-decide-what-movie-to-watch).",
+      },
+      {
+        type: "cta",
       },
       {
         type: "h2",
@@ -1207,15 +1180,15 @@ export const guides: Guide[] = [
         items: [
           {
             q: "What is the best movie picker app?",
-            a: "There is not one. If other people are choosing with you, use a shared private pass. If you only need the service that has a film, use a streaming guide. If you want a log of what you have seen, use Letterboxd. Synema is for the first of those, and it is not a replacement for the other two.",
+            a: "It depends on the job. For a group that must all agree, Movie Swiper is a browser tool you can use now, and Synema is an upcoming room of up to five. For a random start, use Reelgood Roulette. For where to watch, use JustWatch. For a diary and other people's lists, use Letterboxd. For a database and a Watch link, use IMDb.",
           },
           {
-            q: "Are apps for choosing a movie together different from recommendation apps?",
-            a: "Yes. A recommendation app suggests titles to one person. Choosing together means the people in the room have answered the same list. A good suggestion can still lose the room.",
+            q: "Is Synema available to download?",
+            a: "No. Public launch is upcoming. Synema is not on the App Store or Google Play. Join the waitlist, or ask about the invite-only Android beta.",
           },
           {
-            q: "Is a group chat poll enough?",
-            a: "Only if the options were not chosen by one person and the votes are not a performance. Most chat polls fail both. The friends version of that problem is the [movie picker for friends](/guides/movie-picker-for-friends).",
+            q: "Are recommendation apps the same as choosing together?",
+            a: "No. A recommendation suggests titles to one person. Choosing together means the people who will watch have answered the same list. A good suggestion can still lose the room.",
           },
         ],
       },
@@ -1223,126 +1196,106 @@ export const guides: Guide[] = [
   },
   {
     slug: "letterboxd-alternatives-for-movie-discovery",
-    title: "Letterboxd Alternatives for Deciding What to Watch",
-    metaTitle: "Letterboxd Alternatives for Deciding What to Watch – Synema",
+    title: "Letterboxd Alternatives for Movie Discovery",
+    metaTitle: "Letterboxd Alternatives for Movie Discovery – Synema",
     metaDescription:
-      "Letterboxd is a diary and a community. If you wanted help deciding what to watch with other people, these are the alternatives that fit that job.",
+      "Letterboxd already logs films and surfaces other people's taste. Alternatives for a database, a streaming search, a random pick, or a group match.",
     description:
-      "When the thing you wanted was a decision, not another place to log films.",
+      "Stay with Letterboxd for the diary. Switch tools when the job is lookup, streaming, or a group decision.",
     category: "Comparisons",
     publishedAt: "2026-09-29",
-    updatedAt: "2026-09-29",
+    updatedAt: "2026-10-03",
     inlineCta:
-      "Deciding with the people on the couch is the part Synema is for. Everyone swipes privately, and you keep the movies you agree on.",
+      "Synema is upcoming, and it is not a Letterboxd diary. Join the waitlist if you want a small group to match on a movie later.",
     bottomCta: {
       kicker: "Stop debating. Start watching.",
-      title: "Keep Letterboxd for the diary. Use a pass for the decision.",
-      body: "Synema is the overlap between the people who are actually watching.",
+      title: "Letterboxd can stay. Synema is for a later job.",
+      body: "Public launch is upcoming. The comparison page is the place for the two products side by side.",
     },
     related: [
       "best-movie-picker-apps",
+      "how-to-decide-what-movie-to-watch",
       "how-to-choose-a-movie-together",
-      "movie-picker-for-friends",
     ],
     blocks: [
       {
         type: "p",
-        text: "Most lists of Letterboxd alternatives are shopping for another diary. Ratings, reviews, a watchlist, people to follow. That is a fair search if you want to leave Letterboxd and keep the same job.",
-      },
-      {
-        type: "p",
-        text: "This page is for a narrower miss. You like films. You may already use Letterboxd. And you still cannot get the room to press play. A second diary will not fix that. The alternative you want depends on which part of movie night is actually stuck.",
+        text: "A Letterboxd alternative only helps if you name the job you want done. Letterboxd is already a place to log films, rate them, read other people, and keep a watchlist. Leave it when you want a wider database, a streaming search, a random pick from a genre, or a private match with the people who are actually watching. Those are different products.",
       },
       {
         type: "figure",
         src: guideImages.cinema,
         alt: "A dark cinema seen from the back row, with the screen lit.",
-        caption: "A feed can suggest a film. The people in the room still have to agree.",
+        caption: "Discovery can start in a diary. Agreeing with the room is a separate step.",
         wide: true,
         priority: true,
       },
       {
         type: "h2",
-        text: "What Letterboxd is good at",
+        text: "What Letterboxd already does well",
       },
       {
         type: "p",
-        text: "[Letterboxd](https://letterboxd.com) is a social network for film. People log what they have watched, rate films, write reviews, keep lists, and follow each other. Finding something to watch often happens sideways, through someone's review or a list, rather than through a shared decision with the people on your couch.",
+        text: "[Letterboxd's FAQ](https://letterboxd.com/faq/) describes a social network for film discussion and discovery: a diary, ratings, reviews, tags, lists, a watchlist, and people to follow. Films you mark as watched leave the watchlist. The [welcome page](https://letterboxd.com/welcome/) says you can browse the database by decade, genre, popularity, rating, and streaming service. [Letterboxd's journal](https://letterboxd.com/journal/sorting/) says you can shuffle your own watchlist on the web when you want a random title from films you already saved.",
       },
       {
         type: "p",
-        text: "If that diary and that community are what you wanted, Synema is not the alternative. It does not keep a public log, it does not publish ratings or reviews, and the only group is the room you invited.",
+        text: "Paying members can set favorite streaming services, filter by what is on them, and get watchlist alerts. Those alerts use JustWatch data and may lag by up to 24 hours. [Pro](https://letterboxd.com/about/pro/). [Alerts](https://letterboxd.zendesk.com/hc/en-us/articles/15178655699471-Can-I-get-notified-when-films-in-my-watchlist-are-ready-to-watch). The free membership stays available. Apps exist for iOS, Android, and Apple TV, per the FAQ. This page does not list subscription prices.",
       },
       {
         type: "h2",
-        text: "The part it does not finish",
+        text: "A group match is a different job",
       },
       {
         type: "p",
-        text: "A list can start a pick. Agreeing with the other people in the room still happens somewhere else, usually in a chat or a long scroll. That difference is the whole of [Synema vs Letterboxd](/compare/synema-vs-letterboxd). Read that if you want the two products next to each other. The rest of this page is where to go once you know which job you have.",
+        text: "A list or a review can put a film in front of you. It does not record a private yes from each person on the couch and stop when they overlap. Letterboxd's FAQ does not describe that kind of group match. If that is the miss, you do not need another diary. The detailed Synema comparison stays on [Synema vs Letterboxd](/compare/synema-vs-letterboxd). A map of picker, random, streaming, and logging tools is [best movie picker apps](/guides/best-movie-picker-apps).",
+      },
+      {
+        type: "h2",
+        text: "Alternatives, and why you would pick one",
+      },
+      {
+        type: "h3",
+        text: "IMDb, for a database and a Watch link",
+      },
+      {
+        type: "p",
+        text: "Choose [IMDb](https://help.imdb.com/article/imdb/discover-watch/how-can-i-watch-a-movie-or-tv-show/G4GAAPL3XS2E99KY) when you want ratings, a watchlist, lists, and a Watch button for stream, rent, or buy. Providers depend on your location, and IMDb says some titles have no known copy. The [iOS help](https://help.imdb.com/article/imdb/mobile-web-apps/ios-app-faq/GJ7P484D8FA9C48Q) says the app is free. It will not replace Letterboxd's reviews from people you follow.",
+      },
+      {
+        type: "h3",
+        text: "JustWatch, for where it is streaming",
+      },
+      {
+        type: "p",
+        text: "Choose [JustWatch](https://support.justwatch.com/article/what-is-just-watch) when the question is which legal offer has the film: subscription, free, ads, rent, or buy, filtered to services you already have. It also keeps a watchlist. That is a closer fit than Letterboxd if you do not want a public diary and you do want the play button. A paid JustWatch Pro plan exists. This page does not list its price or extra features.",
+      },
+      {
+        type: "h3",
+        text: "Reelgood, for a streaming search or a random spin",
+      },
+      {
+        type: "p",
+        text: "Choose [Reelgood](https://reelgood.com/faq) for the same kind of where-to-watch lookup, with tracking for shows you want to resume. Its FAQ currently limits streaming data to the US, Canada, Australia, the United Kingdom, and New Zealand. [Reelgood Roulette](https://reelgood.com/roulette/) is the random piece: a movie or TV show from a genre you choose. Use it when you want a title without browsing. It does not ask anyone else in the room.",
+      },
+      {
+        type: "h3",
+        text: "Movie Swiper, for a decision with other people",
+      },
+      {
+        type: "p",
+        text: "Choose [Movie Swiper](https://movieswiper.app/) when the stuck part is agreement, not discovery. Its site describes a browser group: each person swipes, and a match is a title everyone liked. It says no account is required, and titles come from TMDB's popular catalog with filters for genre, runtime, year, ratings, and content limits. It is not a film community. Without an app, the same job is [how to choose a movie together](/guides/how-to-choose-a-movie-together). Alone, shrink the list first: [how to decide what movie to watch](/guides/how-to-decide-what-movie-to-watch).",
       },
       {
         type: "cta",
       },
       {
         type: "h2",
-        text: "If you still want a diary",
+        text: "Where Synema fits, later",
       },
       {
         type: "p",
-        text: "Then you want an ordinary Letterboxd alternative, and you should not install a decision app and hope it grows a community. [IMDb](https://www.imdb.com) will give you a database and ratings. [JustWatch](https://www.justwatch.com) will tell you where a title is available and hold a watchlist. Neither replaces a social log of films you have seen, with reviews and people you follow.",
-      },
-      {
-        type: "p",
-        text: "If the public diary is the point, stay with Letterboxd, or accept that you are changing the job. Switching apps will not make logging more interesting if you did not enjoy logging.",
-      },
-      {
-        type: "h2",
-        text: "If you want help deciding",
-      },
-      {
-        type: "p",
-        text: "Sort the alternative by the decision you are stuck on. These are different products, and using all of them in one evening is how the menu wins.",
-      },
-      {
-        type: "h3",
-        text: "The people in the room cannot agree",
-      },
-      {
-        type: "p",
-        text: "You need an overlap, not a better feed. Same list, a yes that stays private until everyone has answered, and a stop at the first film the room would actually start. Synema is built for that: a room of up to five, everyone swipes, a match when everyone swipes right. It will not log the film afterward. Letterboxd still can.",
-      },
-      {
-        type: "p",
-        text: "The version without an app is [how to choose a movie together](/guides/how-to-choose-a-movie-together). A wider map of picker, search, and diary tools is [best movie picker apps](/guides/best-movie-picker-apps).",
-      },
-      {
-        type: "h3",
-        text: "You are alone and the catalog is the problem",
-      },
-      {
-        type: "p",
-        text: "Shrink it. One service, a runtime cap, about ten titles, and the first one you would actually start. That method is [how to decide what movie to watch](/guides/how-to-decide-what-movie-to-watch). A streaming guide helps you build the pile. A diary helps if you already marked films during the week, when nobody was waiting.",
-      },
-      {
-        type: "h3",
-        text: "You know the film and not the service",
-      },
-      {
-        type: "p",
-        text: "That is a streaming guide's job, or the search inside the apps you already pay for. Do it after the title exists. Looking up availability in the middle of the argument adds a second decision, which is the thing you were trying to finish.",
-      },
-      {
-        type: "h2",
-        text: "What not to swap in",
-      },
-      {
-        type: "p",
-        text: "An app that calls itself a Letterboxd alternative and then offers another public profile is still a diary. An app that writes you a personal shortlist from a mood is a suggestion for one person. Both can be pleasant. Neither asks the other people on the couch.",
-      },
-      {
-        type: "p",
-        text: "A reasonable split is boring, which is why it works. Use Letterboxd to remember films and to browse other people's taste. Use a short private pass, in Synema or on a note, when the people who are actually watching need to agree. Use a streaming guide once you have a title and need a play button.",
+        text: "Synema is not a public Letterboxd replacement, and it is not on the App Store or Google Play yet. It is an upcoming app for a room of up to five, where a match is a movie everyone swiped right on. It does not keep a public diary or reviews. Read the capability comparison on [Synema vs Letterboxd](/compare/synema-vs-letterboxd), including the hosting restriction, before you treat it as something you can open tonight.",
       },
       {
         type: "h2",
@@ -1352,16 +1305,16 @@ export const guides: Guide[] = [
         type: "faq",
         items: [
           {
-            q: "Is Synema a Letterboxd alternative?",
-            a: "Only if the thing you wanted from Letterboxd was help deciding with other people. For a diary, ratings, and a community, it is not a replacement. The side-by-side is [Synema vs Letterboxd](/compare/synema-vs-letterboxd).",
+            q: "What is a good Letterboxd alternative for finding movies?",
+            a: "For other people's reviews and a diary, stay on Letterboxd. For a database and a Watch link, use IMDb. For which service has a title, use JustWatch, or Reelgood if you are in a country its FAQ lists. For a random genre pick, use Reelgood Roulette.",
           },
           {
-            q: "What should I use to find something to watch tonight?",
-            a: "It depends who is deciding. Alone, a smaller pile beats a new social network. With other people, look for a shared pass rather than a better feed. [Best movie picker apps](/guides/best-movie-picker-apps) sorts that by job.",
+            q: "Is Synema a Letterboxd alternative?",
+            a: "Not for discovery, a diary, or a community. It is an upcoming way for a small group to match on one movie. The side-by-side is [Synema vs Letterboxd](/compare/synema-vs-letterboxd).",
           },
           {
             q: "Should I stop using Letterboxd?",
-            a: "No. Logging a film and choosing one tonight are different evenings. Plenty of people can do both, as long as they do not ask one app to finish the other's job.",
+            a: "No, if you still want the diary, the watchlist, and other people's lists. Add a streaming guide or a group picker only for the job Letterboxd is not doing.",
           },
         ],
       },

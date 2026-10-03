@@ -38,21 +38,20 @@ export const comparisons: Comparison[] = [
   {
     slug: "synema-vs-letterboxd",
     breadcrumb: "Synema vs Letterboxd",
-    title: "Synema vs Letterboxd: Different Tools for Different Movie Problems",
-    metaTitle:
-      "Synema vs Letterboxd: Different Tools for Different Movie Problems – Synema",
+    title: "Synema vs Letterboxd: Who Each Product Suits",
+    metaTitle: "Synema vs Letterboxd: Who Each Product Suits – Synema",
     metaDescription:
-      "Letterboxd is for logging and sharing films. Synema is for deciding what to watch with other people. Which one fits depends on the job.",
+      "Letterboxd is a film diary and discovery community you can use now. Synema is an upcoming app for a room of up to five to match on a movie.",
     description:
-      "A diary and a community, or a way for the room to agree. They are not the same problem.",
+      "Use Letterboxd now for a diary and other people's taste. Synema is upcoming, for a small group to agree.",
     publishedAt: published,
-    updatedAt: published,
+    updatedAt: "2026-10-03",
     inlineCta:
-      "Deciding with the people on the couch is the part Synema is for. Everyone swipes privately, and you keep the movies you agree on.",
+      "Synema is not available on the App Store or Google Play yet. Join the waitlist if a small-group match is the part you want later.",
     bottomCta: {
       kicker: "Stop debating. Start watching.",
-      title: "Synema is for the decision. Letterboxd can keep the diary.",
-      body: "Open a room, swipe on your own, and leave with a movie the group actually wants.",
+      title: "Letterboxd is open now. Synema is still upcoming.",
+      body: "Keep the diary. Join the waitlist if you want a room where everyone has to swipe right.",
     },
     related: [
       "letterboxd-alternatives-for-movie-discovery",
@@ -63,184 +62,92 @@ export const comparisons: Comparison[] = [
     blocks: [
       {
         type: "p",
-        text: "Synema and Letterboxd are not two versions of the same app. Letterboxd is where people keep a record of films and talk about them. Synema is for a smaller, more annoying moment: you are with other people, and you still do not know what to put on.",
+        text: "Use Letterboxd if you want a film diary, ratings, reviews, and other people's taste today. Use Synema later if you want a room of up to five people to swipe in private and keep a movie only when everyone swipes right. Letterboxd is available now. Synema's public launch is upcoming, and it is not on the App Store or Google Play.",
       },
       {
         type: "p",
-        text: "If you want a diary, a rating, and a community, Letterboxd is the right tool. If you want the people in the room to leave with one movie, that is the problem Synema is built for. Neither job makes the other product a failure.",
+        text: "The notes below follow Letterboxd's own help pages and this site's description of Synema. This is not a hands-on test. Prices, ratings, and download counts are left out.",
       },
       {
         type: "h2",
-        text: "What is Synema?",
+        text: "What each product is",
       },
       {
         type: "p",
-        text: "[Synema](/) is a movie app for deciding what to watch, especially with a partner or a small group. One person creates a room and invites the others with a link or a QR code. Everyone swipes through the same movies on their own phone. When everyone swipes right on the same movie, it is a match. On your own, the same swipe builds a personal watchlist: a right swipe saves the movie.",
+        text: "[Letterboxd](https://letterboxd.com/faq/) is a social network for film discussion and discovery. You can keep a diary, rate and review films, make lists, keep a watchlist, and follow other members. The [welcome page](https://letterboxd.com/welcome/) also points at browsing by decade, genre, popularity, rating, and streaming service. Apps exist for iOS, Android, and Apple TV. A free membership remains, and paid Pro and Patron tiers add extras, including streaming filters.",
       },
       {
         type: "p",
-        text: "Synema also shows where a movie is available to stream in your country. It is not a public feed of reviews, and it is not a log of everything you have watched.",
-      },
-      {
-        type: "p",
-        text: "It is not on the App Store or Google Play yet. You can [join the waitlist](/#waitlist). An invite-only [Android beta](/beta-testing) is open if you want to try it early.",
+        text: "[Synema](/) is documented here as an upcoming movie app for a partner or a small group. Someone creates a room and invites the others with a link or a QR code. Everyone swipes the same movies on their own phone. A match is when everyone swipes right. A right swipe on your own saves the film to a personal watchlist. It is not a public feed of reviews, and it does not log films you have watched. [Join the waitlist](/#waitlist). An invite-only [Android beta](/beta-testing) is the early path, not a public store release.",
       },
       {
         type: "h2",
-        text: "What is Letterboxd?",
-      },
-      {
-        type: "p",
-        text: "[Letterboxd](https://letterboxd.com) is a social network for film. People use it to log what they have watched, rate films, write reviews, keep a watchlist, and make lists. You can follow other members and see the films they watch and the writing they publish.",
-      },
-      {
-        type: "p",
-        text: "It is a diary and a community. Finding something to watch often happens sideways, through someone's review or a list, rather than through a shared decision with the people on your couch.",
-      },
-      {
-        type: "p",
-        text: "This page sticks to that core. It does not try to inventory every Letterboxd screen, paid plan, or integration.",
-      },
-      {
-        type: "h2",
-        text: "The main difference",
-      },
-      {
-        type: "p",
-        text: "Letterboxd helps you remember films and share them. Synema helps a specific group choose one. You can care about both. You do not have to pick a winner between them.",
+        text: "What is different",
       },
       {
         type: "table",
-        caption: "What Letterboxd and Synema are each built to do",
-        columns: ["Job", "Letterboxd", "Synema"],
+        caption: "Letterboxd features you can use now, next to Synema features documented for an upcoming launch.",
+        columns: ["Job", "Letterboxd now", "Synema, upcoming"],
         rows: [
           [
-            "Remember what you watched",
-            "A diary of films you have seen",
-            "Not a log of your viewing",
+            "Diary",
+            "Log films you have watched. [FAQ](https://letterboxd.com/faq/).",
+            "Not a log of what you have watched.",
           ],
           [
-            "Rate and review",
-            "Ratings and written reviews",
-            "No public ratings or reviews",
+            "Ratings and reviews",
+            "Rate films and write reviews.",
+            "No public ratings or reviews.",
           ],
           [
-            "Lists",
-            "Lists and a watchlist",
-            "A personal watchlist when you swipe on your own, and one shared deck in a room",
+            "Watchlist and lists",
+            "A watchlist, plus lists you can publish or keep private. [Watchlist](https://letterboxd.zendesk.com/hc/en-us/articles/15179261056143-What-s-the-difference-between-my-lists-and-my-watchlist).",
+            "A personal watchlist when you swipe right on your own. A room uses one shared deck.",
           ],
           [
-            "Other people's taste",
-            "Follow members and read what they watch",
-            "The group is whoever you invited",
+            "Discovery",
+            "Follow people, read reviews, and browse by genre, popularity, rating, and streaming service. [Welcome](https://letterboxd.com/welcome/).",
+            "A pile the invited room swipes through. Not a public community.",
           ],
           [
-            "Choose with your room",
-            "Can inspire a pick. The agreement is still yours to make",
-            "Everyone swipes the same movies. A match is when everyone swipes right",
+            "Streaming info",
+            "The films browser includes streaming service. Paying members can filter by favorite services and get watchlist alerts. Alerts use JustWatch data and may lag by up to 24 hours. [Pro](https://letterboxd.com/about/pro/). [Alerts](https://letterboxd.zendesk.com/hc/en-us/articles/15178655699471-Can-I-get-notified-when-films-in-my-watchlist-are-ready-to-watch).",
+            "Shows where a movie is available in your country, including Netflix, Disney+, Prime Video, Max, and Apple TV+, and more. Not a guarantee that every title is listed.",
+          ],
+          [
+            "Choosing together",
+            "Lists and reviews can suggest a film. The FAQ does not describe a private group match.",
+            "A room of up to five. A match is when everyone swipes right.",
+          ],
+          [
+            "Availability",
+            "Free membership, plus paid Pro and Patron. Apps for iOS, Android, and Apple TV.",
+            "Not on the App Store or Google Play. Waitlist, plus an invite-only Android beta.",
           ],
         ],
+      },
+      {
+        type: "h2",
+        text: "Launch status and hosting",
+      },
+      {
+        type: "p",
+        text: "Letterboxd is something you can open now. Synema is not. Public launch is upcoming. Hosting a Synema group room needs Synema Pro. Joining someone else's room, and swiping on your own, do not need a subscription. Those rules describe the product as this site documents it. They are not a store page you can install today.",
       },
       {
         type: "cta",
       },
       {
         type: "h2",
-        text: "Movie discovery",
+        text: "When using both makes sense",
       },
       {
         type: "p",
-        text: "On Letterboxd, discovery is social. You browse what people you follow have watched, read reviews, and open lists. Taste is public, which is useful when you want a film culture wider than your living room.",
+        text: "Use Letterboxd to find films through lists and people you follow, and to log the movie after you watch it. After Synema launches, use it for the people in the room: everyone swipes, and you keep a title only when all of them swipe right. Until that launch, decide with the steps in [how to choose a movie together](/guides/how-to-choose-a-movie-together), or with a current group tool from [best movie picker apps](/guides/best-movie-picker-apps).",
       },
       {
         type: "p",
-        text: "On Synema, discovery is a pile you swipe through with the people who are actually watching tonight. The result that matters is not a review. It is an overlap.",
-      },
-      {
-        type: "h2",
-        text: "Choosing a movie together",
-      },
-      {
-        type: "p",
-        text: "Letterboxd can start a pick. A list, a rating from someone you trust, a film you have been meaning to see. Agreeing with the other people in the room still happens somewhere else, usually in a chat or a long scroll.",
-      },
-      {
-        type: "p",
-        text: "Synema starts at that agreement. Everyone swipes the same movies on their own phone, and it is a match when everyone swipes right. The decision itself, with or without an app, is written up in [how to choose a movie together](/guides/how-to-choose-a-movie-together). The two-person stall is the [movie picker for couples](/guides/movie-picker-for-couples). The group-chat stall is the [movie picker for friends](/guides/movie-picker-for-friends).",
-      },
-      {
-        type: "h2",
-        text: "Tracking and logging movies",
-      },
-      {
-        type: "p",
-        text: "This is Letterboxd's home ground. A log of what you have seen, ratings, reviews, and lists you can publish. Synema does not keep that diary. Swiping on your own saves movies to a personal watchlist. It does not rate them or record that you have watched them.",
-      },
-      {
-        type: "p",
-        text: "In a room, Synema ends at the match. After you watch the film, Letterboxd is a natural place to log it.",
-      },
-      {
-        type: "h2",
-        text: "Social and community",
-      },
-      {
-        type: "p",
-        text: "Letterboxd is a network. You follow people, read them, and can show your own taste in public.",
-      },
-      {
-        type: "p",
-        text: "Synema's group is the room you invited, up to five people. There is no public profile of your taste to maintain. That is a limitation if you want an audience, and a relief if you only want a decision.",
-      },
-      {
-        type: "h2",
-        text: "Who each product is for",
-      },
-      {
-        type: "h3",
-        text: "Open Letterboxd if",
-      },
-      {
-        type: "ul",
-        items: [
-          "You want a diary of films you have watched",
-          "You like rating films, writing about them, or reading other people",
-          "You want lists and a watchlist you can come back to",
-          "You like finding films through a community, not only through the people in the room",
-        ],
-      },
-      {
-        type: "h3",
-        text: "Open Synema if",
-      },
-      {
-        type: "ul",
-        items: [
-          "You are stuck choosing, tonight",
-          "You are choosing with a partner or a few friends",
-          "You want a match when everyone swipes right on the same movie",
-          "You want a personal watchlist from swiping on your own, not a public diary",
-        ],
-      },
-      {
-        type: "p",
-        text: "Plenty of people are both. The tools only compete if you force them to do the same job.",
-      },
-      {
-        type: "h2",
-        text: "Can you use both?",
-      },
-      {
-        type: "p",
-        text: "Yes. Use a private pass over a short list, in Synema or on paper, to decide what to watch with the people who are there. Use Letterboxd to remember it, rate it, and talk about it with people who were not in the room.",
-      },
-      {
-        type: "p",
-        text: "A movie night can start with a constraint, which is what [movie night ideas](/guides/movie-night-ideas) is for, and end with a log on Letterboxd. The middle, the actual choice, is the part Synema is for.",
-      },
-      {
-        type: "p",
-        text: "If you were looking for a Letterboxd alternative because you wanted help deciding, that narrower search is [Letterboxd alternatives for movie discovery](/guides/letterboxd-alternatives-for-movie-discovery). Picker apps, streaming guides, and diaries are separated by job in [best movie picker apps](/guides/best-movie-picker-apps).",
+        text: "Two people can use the [movie picker for couples](/guides/movie-picker-for-couples). A chat that has grown past a pair can use the [movie picker for friends](/guides/movie-picker-for-friends), which stays inside a room of five. If you wanted other discovery tools rather than this comparison, read [Letterboxd alternatives for movie discovery](/guides/letterboxd-alternatives-for-movie-discovery).",
       },
       {
         type: "h2",
@@ -251,15 +158,15 @@ export const comparisons: Comparison[] = [
         items: [
           {
             q: "Is Synema better than Letterboxd?",
-            a: "No. They are for different problems. Letterboxd is the better diary, rating system, and film community. Synema is built for deciding what to watch with other people. Better depends on which of those you opened an app to do.",
+            a: "No. Letterboxd is the diary, the review community, and a discovery feed you can use now. Synema is an upcoming way for up to five people to match on one movie. Better depends on which of those jobs you have.",
           },
           {
-            q: "Does Synema replace a Letterboxd watchlist?",
-            a: "No. On your own, a right swipe in Synema saves a movie to your personal watchlist. That list is not a public diary, and it has no ratings or reviews. Letterboxd is still the place to publish what you want to watch and what you have already seen.",
+            q: "Does Letterboxd have a watchlist and streaming information?",
+            a: "Yes. Every member has a watchlist. The films browser includes streaming service. Paying members can filter by favorite services and get watchlist alerts. Synema does not replace that diary or that community.",
           },
           {
-            q: "Which should we open when nobody can agree?",
-            a: "The tool that includes the people in the room. A shared swipe, or a private yes and no on the same short list, can finish the night. A review feed can suggest films, and it will not settle the argument by itself. The steps without an app are in [how to choose a movie together](/guides/how-to-choose-a-movie-together).",
+            q: "Can we use Synema tonight?",
+            a: "Not as a public app. It is not on the App Store or Google Play. Join the waitlist, or use the invite-only Android beta if you are accepted. Tonight, use Letterboxd for ideas and a manual pass for the decision.",
           },
         ],
       },
